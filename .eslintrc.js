@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 15:29:05
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-09 16:37:57
+ * @LastEditTime: 2021-03-09 16:41:03
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -115,7 +115,7 @@ module.exports = {
     // 禁止不必要的布尔转换    
     'no-extra-boolean-cast': 2,
     // 禁止不必要的括号   
-    'no-extra-parens': [2, 'functions'],
+    // 'no-extra-parens': [2, 'functions'],
     // 禁止对function声明重新赋值   
     'no-func-assign': 2,
     // 禁止在嵌套块中出现变量声明或function声明  
