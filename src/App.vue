@@ -1,32 +1,17 @@
-<template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+<!--
+ * @Author: liuYang
+ * @description: 入口文件  不建议修改
+ * @path: 引入路径
+ * @Date: 2021-03-09 15:29:05
+ * @LastEditors: liuYang
+ * @LastEditTime: 2021-03-09 17:54:35
+ * @mustParam: 必传参数
+ * @optionalParam: 选传参数
+ * @emitFunction: 函数
+-->
+<template lang="pug">
+  #app
+    router-view
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+<style lang="scss"></style>

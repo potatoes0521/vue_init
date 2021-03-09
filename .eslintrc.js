@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 15:29:05
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-09 16:41:03
+ * @LastEditTime: 2021-03-09 16:53:58
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -18,7 +18,7 @@ module.exports = {
     es6: true,
     node: true
   },
-  extends: ["plugin:vue/essential", "eslint:recommended", "@vue/standard"],
+  extends: ["plugin:vue/essential", "eslint:recommended", "@vue/prettier"],
   // 插件
   // extends: ["plugin:vue/essential", "@vue/standard"],
   parserOptions: {
@@ -39,16 +39,8 @@ module.exports = {
     semi: 0,
     // 箭头函数需要有括号 (a) => {}
     "arrow-parens": 0,
-    // 两个空格缩进， switch 语句中的 case 为 1 个空格
-    indent: [
-      "error",
-      2,
-      {
-        SwitchCase: 2
-      }
-    ],
     // 不允许回调未定义的变量
-    "standard/no-callback-literal": 2,
+    "standard/no-callback-literal": 0,
     // 关闭副作用的 new
     "no-new": "off",
     // 关闭每行最大长度小于 80

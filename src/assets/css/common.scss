@@ -1,0 +1,51 @@
+// 清除button默认样式
+@mixin clear-button-default {
+  button {
+    line-height: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: transparent;
+  }
+
+  button::after {
+    border: none;
+  }
+
+  input {
+    outline: none;
+    border: none;
+    list-style: none;
+  }
+}
+// 默认button样式
+@mixin button-style {
+  .btn-public {
+    width: 280px;
+    height: 80px;
+    border-radius: 6px;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .default-btn {
+    background-color: $link-color;
+    color: #fff;
+  }
+
+  .plain-btn {
+    border: 1px solid $link-color;
+    background: #fff;
+    color: $link-color;
+  }
+}
+// 背景图片
+@mixin backgroundImage($url, $position: center center, $cover: 100% 100%, $repeat: no-repeat){
+  background-image: url($url);
+  background-position: $position;
+  background-size: $cover;
+  background-repeat: $repeat;
+}

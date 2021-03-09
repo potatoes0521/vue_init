@@ -7,7 +7,7 @@
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@views/*": ["./src/views/*"],
-      "@services/*": ["./src/services/*"],
+      "@api/*": ["src/api/*"],
       "@utils/*": ["./src/utils/*"],
       "@js/*": ["./src/assets/js/*"],
       "@css/*": ["./src/assets/css/*"],
@@ -15,7 +15,8 @@
       "@config/*": ["./src/config/*"],
       "@router/*": ["./src/router/*"],
       "@store/*": ["./src/store/*"],
-      "@mixin/*": ["./src/mixins/*"]
+      "@mixin/*": ["./src/mixins/*"],
+      "@layout/*": ["./src/layout"]
     }
   }
 }

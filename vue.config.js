@@ -4,17 +4,23 @@
  * @path: 引入路径
  * @Date: 2021-03-09 15:33:35
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-09 16:26:12
+ * @LastEditTime: 2021-03-09 19:48:29
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
  */
 const path = require('path')
-
-// 引入gzip
+const IS_PROD = ['production', 'prod'].includes(process.env.NODE_ENV)
+const resolve = (dir) => path.join(__dirname, dir)
+// 引入zopfli比gzip压缩更好
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
-//匹配此 {RegExp} 的资源
+const zopfli = require('@gfx/zopfli')
+const BrotliPlugin = require('brotli-webpack-plugin')
+
 const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i
+// 添加打包分析
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+//
 
 // const BASE_URL = process.env.NODE_ENV === "production" ? "/" : "/www/wwwroot/oss-static";
 
@@ -23,26 +29,6 @@ module.exports = {
   publicPath: '/xiaoshi',
   // outputDir: "",
   lintOnSave: true,
-  configureWebpack: {
-    // 覆盖webpack默认配置的都在这里
-    resolve: {
-      // 配置解析别名
-      alias: {
-        '@': path.resolve(__dirname, './src'),
-        '@components': path.resolve(__dirname, './src/components'),
-        '@views': path.resolve(__dirname, './src/views'),
-        '@services': path.resolve(__dirname, './src/services'),
-        '@utils': path.resolve(__dirname, './src/utils'),
-        '@js': path.resolve(__dirname, './src/assets/js'),
-        '@css': path.resolve(__dirname, './src/assets/css'),
-        '@img': path.resolve(__dirname, './src/assets/images'),
-        '@config': path.resolve(__dirname, './src/config'),
-        '@router': path.resolve(__dirname, './src/router'),
-        '@store': path.resolve(__dirname, './src/store'),
-        '@mixin': path.resolve(__dirname, './src/mixins')
-      }
-    }
-  },
   // css: {
   //   // 一次配置，全局使用，这个scss 因为每个文件都要引入
   //   loaderOptions: {
@@ -56,27 +42,86 @@ module.exports = {
   // 这里写你调用接口的基础路径，来解决跨域，如果设置了代理，那你本地开发环境的axios的baseUrl要写为 '' ，即空字符串
   devServer: {
     // host: "192.168.31.246",
-    open: true,
+    // open: true,
     host: 'localhost',
     port: 8085,
     https: false,
     hotOnly: false
   },
-
+  chainWebpack: (config) => {
+    config.resolve.alias
+      .set('@', resolve('src'))
+      .set('@components', resolve('src/components'))
+      .set('@views', resolve('src/views'))
+      .set('@api', resolve('src/api'))
+      .set('@utils', resolve('src/utils'))
+      .set('@js', resolve('src/assets/js'))
+      .set('@css', resolve('src/assets/css'))
+      .set('@img', resolve('src/assets/img'))
+      .set('@config', resolve('src/config'))
+      .set('@router', resolve('src/router'))
+      .set('@store', resolve('src/store'))
+      .set('@mixins', resolve('src/mixins'))
+      .set('@layout', resolve('src/layout'))
+    config.module
+      .rule('pug')
+      .test(/\.pug$/)
+      .use('pug-html-loader')
+      .loader('pug-html-loader')
+      .end()
+    config.resolve.symlinks(true)
+  },
   // gzip
   configureWebpack: (config) => {
     const plugins = []
-    // start 生成 gzip 压缩文件
-    plugins.push(
-      new CompressionWebpackPlugin({
-        filename: '[path].gz[query]', //目标资源名称
-        algorithm: 'gzip',
-        test: productionGzipExtensions, //处理所有匹配此 {RegExp} 的资源
-        threshold: 10240, //只处理比这个值大的资源。按字节计算(设置10K以上进行压缩)
-        minRatio: 0.8 //只有压缩率比这个值小的资源才会被处理
-      })
-    )
-
+    if (IS_PROD) {
+      plugins.push(
+        new CompressionWebpackPlugin({
+          algorithm(input, compressionOptions, callback) {
+            return zopfli.gzip(input, compressionOptions, callback)
+          },
+          compressionOptions: {
+            numiterations: 15
+          },
+          minRatio: 0.99,
+          test: productionGzipExtensions
+        })
+      )
+      plugins.push(
+        new BrotliPlugin({
+          test: productionGzipExtensions,
+          minRatio: 0.99
+        })
+      )
+      // 打包生成打包分析
+      config.plugin('webpack-report').use(BundleAnalyzerPlugin, [
+        {
+          analyzerMode: 'static'
+        }
+      ])
+      // 打包图片压缩
+      config.module
+        .rule('images')
+        .test(/\.(png|jpe?g|gif|svg)(\?.*)?$/)
+        .use('image-webpack-loader')
+        .loader('image-webpack-loader')
+        .options({
+          mozjpeg: {
+            progressive: true,
+            quality: 65
+          },
+          optipng: {
+            enabled: false
+          },
+          pngquant: {
+            quality: [0.65, 0.9],
+            speed: 4
+          },
+          gifsicle: {
+            interlaced: false
+          }
+        })
+    }
     // End 生成 gzip 压缩文件
     config.plugins = [...config.plugins, ...plugins]
   }

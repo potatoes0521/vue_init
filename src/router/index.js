@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 15:29:05
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-09 16:26:04
+ * @LastEditTime: 2021-03-09 19:26:45
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -14,7 +14,7 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-import Main from '@view/Home.vue'
+import Layout from '@layout'
 
 export const StaticRouterMap = [
   {
@@ -23,35 +23,59 @@ export const StaticRouterMap = [
     meta: {
       hideInMenu: true
     },
-    component: () => import('@view/login/login.vue')
+    component: () => import('@views/Login/index.vue')
   },
   {
-    path: '/',
+    path: '/500',
+    name: 'error_500',
+    meta: {
+      hideInMenu: true
+    },
+    component: () => import('@views/error_page/500.vue')
+  },
+  {
+    path: '/404',
+    name: 'error_404',
+    meta: {
+      hideInMenu: true
+    },
+    component: () => import('@views/error_page/404.vue')
+  },
+  {
+    path: '/403',
+    name: 'error_401',
+    meta: {
+      hideInMenu: true
+    },
+    component: () => import('@views/error_page/403.vue')
+  },
+  {
+    path: '/home',
     name: 'Home',
-    redirect: '/',
-    component: Main,
+    redirect: '/home',
+    component: Layout,
     meta: {
       hideInMenu: false,
       keepAlive: false,
-      title: ''
+      icon: 'iconshouye1',
+      title: '首页'
     },
     children: [
       {
-        name: '',
-        path: '/',
+        path: '/home',
         meta: {
-          title: '车务列表',
+          title: '首页',
           keepAlive: false,
-          icon: '',
+          icon: 'iconshouye1',
           hideInMenu: false
         },
-        component: () => import('@view/Login/index.vue')
+        component: () => import('@views/Home/index.vue')
       }
     ]
   },
   {
     path: '/redirect',
-    component: Main,
+    component: Layout,
     name: 'redirect',
     meta: {
       title: '重定向',
@@ -63,20 +87,19 @@ export const StaticRouterMap = [
     children: [
       {
         path: '/redirect/:path*',
-        component: () => import('@/pages/redirect/index')
+        component: () => import('@views/redirect/index')
       }
     ]
   }
 ]
 
-// 不太懂
 const originalPush = Router.prototype.push
 Router.prototype.push = function push(location) {
   return originalPush.call(this, location).catch((err) => err)
 }
 
 export default new Router({
-  // mode: "history",
+  mode: 'history',
   scrollBehavior: () => ({
     y: 0
   }),
