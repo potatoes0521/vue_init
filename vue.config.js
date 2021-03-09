@@ -4,15 +4,15 @@
  * @path: 引入路径
  * @Date: 2021-03-09 15:33:35
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-09 15:51:34
+ * @LastEditTime: 2021-03-09 16:26:12
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
  */
-const path = require("path");
+const path = require('path')
 
 // 引入gzip
-const CompressionWebpackPlugin = require("compression-webpack-plugin")
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
 //匹配此 {RegExp} 的资源
 const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i
 
@@ -20,7 +20,7 @@ const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i
 
 module.exports = {
   // 线上资源读取地址
-  publicPath: "/xiaoshi",
+  publicPath: '/xiaoshi',
   // outputDir: "",
   lintOnSave: true,
   configureWebpack: {
@@ -28,20 +28,20 @@ module.exports = {
     resolve: {
       // 配置解析别名
       alias: {
-        "@": path.resolve(__dirname, "./src"),
-        "@components": path.resolve(__dirname, "./src/components"),
-        "@view": path.resolve(__dirname, "./src/pages"),
-        "@services": path.resolve(__dirname, "./src/services"),
-        "@utils": path.resolve(__dirname, "./src/utils"),
-        "@js": path.resolve(__dirname, "./src/assets/js"),
-        "@css": path.resolve(__dirname, "./src/assets/css"),
-        "@img": path.resolve(__dirname, "./src/assets/images"),
-        "@config": path.resolve(__dirname, "./src/config"),
-        "@router": path.resolve(__dirname, "./src/router"),
-        "@store": path.resolve(__dirname, "./src/store"),
-        "@mixin": path.resolve(__dirname, "./src/mixins"),
-      },
-    },
+        '@': path.resolve(__dirname, './src'),
+        '@components': path.resolve(__dirname, './src/components'),
+        '@views': path.resolve(__dirname, './src/views'),
+        '@services': path.resolve(__dirname, './src/services'),
+        '@utils': path.resolve(__dirname, './src/utils'),
+        '@js': path.resolve(__dirname, './src/assets/js'),
+        '@css': path.resolve(__dirname, './src/assets/css'),
+        '@img': path.resolve(__dirname, './src/assets/images'),
+        '@config': path.resolve(__dirname, './src/config'),
+        '@router': path.resolve(__dirname, './src/router'),
+        '@store': path.resolve(__dirname, './src/store'),
+        '@mixin': path.resolve(__dirname, './src/mixins')
+      }
+    }
   },
   // css: {
   //   // 一次配置，全局使用，这个scss 因为每个文件都要引入
@@ -57,28 +57,27 @@ module.exports = {
   devServer: {
     // host: "192.168.31.246",
     open: true,
-    host: "localhost",
+    host: 'localhost',
     port: 8085,
     https: false,
-    hotOnly: false,
+    hotOnly: false
   },
 
   // gzip
-  configureWebpack: config => {
-
+  configureWebpack: (config) => {
     const plugins = []
     // start 生成 gzip 压缩文件
     plugins.push(
       new CompressionWebpackPlugin({
-        filename: "[path].gz[query]", //目标资源名称
-        algorithm: "gzip",
+        filename: '[path].gz[query]', //目标资源名称
+        algorithm: 'gzip',
         test: productionGzipExtensions, //处理所有匹配此 {RegExp} 的资源
         threshold: 10240, //只处理比这个值大的资源。按字节计算(设置10K以上进行压缩)
         minRatio: 0.8 //只有压缩率比这个值小的资源才会被处理
       })
-    );
+    )
 
     // End 生成 gzip 压缩文件
-    config.plugins = [...config.plugins, ...plugins];
+    config.plugins = [...config.plugins, ...plugins]
   }
-};
+}

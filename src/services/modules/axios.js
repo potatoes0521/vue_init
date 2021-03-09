@@ -10,44 +10,41 @@
  * @emitFunction: 函数
  */
 
-import HttpRequest from "./requestHandle.js";
-import config from "@/config";
-const baseUrl =
-  process.env.NODE_ENV === "development" ?
-  config.baseUrl.dev :
-  config.baseUrl.pro;
+import HttpRequest from './requestHandle.js'
+import config from '@/config'
+const baseUrl = process.env.NODE_ENV === 'development' ? config.baseUrl.dev : config.baseUrl.pro
 
-const axios = new HttpRequest(baseUrl);
+const axios = new HttpRequest(baseUrl)
 
 export default {
   get(url, data, that) {
     return axios.request({
       url,
       data: data,
-      method: "get",
-      that,
-    });
+      method: 'get',
+      that
+    })
   },
   getJson(url, that) {
     return axios.requestJson({
       url,
-      that,
-    });
+      that
+    })
   },
   post(url, data, that) {
     return axios.request({
       url,
       data: data,
-      method: "post",
-      that,
-    });
+      method: 'post',
+      that
+    })
   },
   put(url, data, that) {
     return axios.request({
       url,
       data: data,
-      method: "put",
-      that,
-    });
-  },
-};
+      method: 'put',
+      that
+    })
+  }
+}
