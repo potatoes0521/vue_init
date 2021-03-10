@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 17:26:24
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-10 09:52:49
+ * @LastEditTime: 2021-03-10 10:23:05
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -17,7 +17,7 @@ import 'nprogress/nprogress.css' // Progress 进度条样式
 import { Message } from 'element-ui'
 import { addRouter } from './addRouter.js'
 
-const whiteList = ['/home', '/login', '/500', '/404', '/403', '/home']
+const whiteList = ['/index', '/login', '/500', '/404', '/403']
 router.beforeEach((to, from, next) => {
   NProgress.start()
   console.log('to', to)
@@ -42,11 +42,13 @@ router.beforeEach((to, from, next) => {
     }
   } else {
     console.log('else')
+    console.log('to.path', to.path)
     if (whiteList.indexOf(to.path) !== -1) {
       // 免登陆白名单 直接进入
       console.log('免登陆白名单 直接进入')
       next()
     } else {
+      console.log('2eles')
       if (to.path !== '/login') {
         // 重定向到登录页面 不能这么写 因为假如之前的角色是 管理员页面 后又登陆了非管理员 重定向的页面就可能不存在,就会导致404
         // next(`/login?redirect=${to.path}`)

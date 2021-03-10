@@ -1,3 +1,14 @@
+/*
+ * @Author: liuYang
+ * @description: 请填写描述信息
+ * @path: 引入路径
+ * @Date: 2021-03-09 17:25:10
+ * @LastEditors: liuYang
+ * @LastEditTime: 2021-03-10 10:34:53
+ * @mustParam: 必传参数
+ * @optionalParam: 选传参数
+ * @emitFunction: 函数
+ */
 import Storage from '@utils/storage.js'
 import { StaticRouterMap } from '@/router/index.js'
 // import { resetRouter } from "@/router/resetRouter";
@@ -9,7 +20,8 @@ export default {
       openId: '',
       userId: '', // 常用请求全部放在请求头上
       unionId: '',
-      userType: '' // 0 驿站人员  1 自主注册   2 驿站人员添加客户
+      userType: '',
+      avatar: '1111'
     },
     menuList: []
   },

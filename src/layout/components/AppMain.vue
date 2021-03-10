@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 15:29:05
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-09 19:46:15
+ * @LastEditTime: 2021-03-10 10:05:57
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -21,7 +21,7 @@
     name: 'AppMain',
     computed: {
       cachedViews() {
-        return this.$store.state.tagsView.cachedViews
+        return 'cachedViews'
       },
       key() {
         return this.$route.path
@@ -40,16 +40,5 @@
 
   .fixed-header + .app-main {
     padding-top: 50px;
-  }
-
-  .hasTagsView {
-    .app-main {
-      /* 84 = navbar + tags-view = 50 + 34 */
-      min-height: calc(100vh - 84px);
-    }
-
-    .fixed-header + .app-main {
-      padding-top: 84px;
-    }
   }
 </style>

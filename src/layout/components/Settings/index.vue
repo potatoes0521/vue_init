@@ -1,3 +1,14 @@
+<!--
+ * @Author: liuYang
+ * @description: 请填写描述信息
+ * @path: 引入路径
+ * @Date: 2021-03-09 18:47:45
+ * @LastEditors: liuYang
+ * @LastEditTime: 2021-03-10 10:08:58
+ * @mustParam: 必传参数
+ * @optionalParam: 选传参数
+ * @emitFunction: 函数
+-->
 <template>
   <div class="drawer-container">
     <div>
@@ -9,17 +20,11 @@
 
       <div class="drawer-item">
         <span>Open Tags-View</span>
-        <el-switch v-model="tagsView" class="drawer-switch" />
       </div>
 
       <div class="drawer-item">
         <span>Fixed Header</span>
         <el-switch v-model="fixedHeader" class="drawer-switch" />
-      </div>
-
-      <div class="drawer-item">
-        <span>Sidebar Logo</span>
-        <el-switch v-model="sidebarLogo" class="drawer-switch" />
       </div>
     </div>
   </div>
@@ -39,28 +44,6 @@
         set(val) {
           this.$store.dispatch('settings/changeSetting', {
             key: 'fixedHeader',
-            value: val
-          })
-        }
-      },
-      tagsView: {
-        get() {
-          return this.$store.state.settings.tagsView
-        },
-        set(val) {
-          this.$store.dispatch('settings/changeSetting', {
-            key: 'tagsView',
-            value: val
-          })
-        }
-      },
-      sidebarLogo: {
-        get() {
-          return this.$store.state.settings.sidebarLogo
-        },
-        set(val) {
-          this.$store.dispatch('settings/changeSetting', {
-            key: 'sidebarLogo',
             value: val
           })
         }
