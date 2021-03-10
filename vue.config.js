@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 15:33:35
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-10 09:50:12
+ * @LastEditTime: 2021-03-10 12:01:04
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -12,10 +12,8 @@
 const path = require('path')
 const IS_PROD = ['production', 'prod'].includes(process.env.NODE_ENV)
 const resolve = (dir) => path.join(__dirname, dir)
-// 引入zopfli比gzip压缩更好
+// gzip压缩
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
-const zopfli = require('@gfx/zopfli')
-const BrotliPlugin = require('brotli-webpack-plugin')
 
 const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i
 // 添加打包分析
@@ -29,14 +27,6 @@ module.exports = {
   publicPath: BASE_URL,
   // outputDir: "",
   lintOnSave: true,
-  // css: {
-  //   // 一次配置，全局使用，这个scss 因为每个文件都要引入
-  //   loaderOptions: {
-  //     sass: {
-  //       data: `@import "./src/assets/hotcss/px2rem.scss";`
-  //     }
-  //   }
-  // },
   // 设为false打包时不生成.map文件
   productionSourceMap: false,
   // 这里写你调用接口的基础路径，来解决跨域，如果设置了代理，那你本地开发环境的axios的baseUrl要写为 '' ，即空字符串
@@ -49,6 +39,9 @@ module.exports = {
     hotOnly: false
   },
   chainWebpack: (config) => {
+    // 修复HMR
+    config.resolve.symlinks(true)
+
     config.resolve.alias
       .set('@', resolve('src'))
       .set('@components', resolve('src/components'))
@@ -69,7 +62,14 @@ module.exports = {
       .use('pug-html-loader')
       .loader('pug-html-loader')
       .end()
-    config.resolve.symlinks(true)
+    if (IS_PROD) {
+      // 打包生成打包分析
+      config.plugin('webpack-report').use(BundleAnalyzerPlugin, [
+        {
+          analyzerMode: 'static'
+        }
+      ])
+    }
   },
   // gzip
   configureWebpack: (config) => {
@@ -77,50 +77,13 @@ module.exports = {
     if (IS_PROD) {
       plugins.push(
         new CompressionWebpackPlugin({
-          algorithm(input, compressionOptions, callback) {
-            return zopfli.gzip(input, compressionOptions, callback)
-          },
-          compressionOptions: {
-            numiterations: 15
-          },
-          minRatio: 0.99,
-          test: productionGzipExtensions
-        })
-      )
-      plugins.push(
-        new BrotliPlugin({
+          filename: '[path].gz[query]',
+          algorithm: 'gzip',
           test: productionGzipExtensions,
-          minRatio: 0.99
+          threshold: 10240,
+          minRatio: 0.8
         })
       )
-      // 打包生成打包分析
-      config.plugin('webpack-report').use(BundleAnalyzerPlugin, [
-        {
-          analyzerMode: 'static'
-        }
-      ])
-      // 打包图片压缩
-      config.module
-        .rule('images')
-        .test(/\.(png|jpe?g|gif|svg)(\?.*)?$/)
-        .use('image-webpack-loader')
-        .loader('image-webpack-loader')
-        .options({
-          mozjpeg: {
-            progressive: true,
-            quality: 65
-          },
-          optipng: {
-            enabled: false
-          },
-          pngquant: {
-            quality: [0.65, 0.9],
-            speed: 4
-          },
-          gifsicle: {
-            interlaced: false
-          }
-        })
     }
     // End 生成 gzip 压缩文件
     config.plugins = [...config.plugins, ...plugins]
