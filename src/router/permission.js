@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 17:26:24
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-10 10:46:53
+ * @LastEditTime: 2021-03-10 11:24:11
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -23,7 +23,7 @@ router.beforeEach((to, from, next) => {
   NProgress.start()
   console.log('to', to)
   console.log('from', from)
-  if (Vue.prototype.$storage.getCookie('admin') || true) {
+  if (Vue.prototype.$storage.getCookie('admin')) {
     // 判断cookice是否存在 不存在即为未登录
     console.log('未登录')
     if (to.path !== '/login') {
