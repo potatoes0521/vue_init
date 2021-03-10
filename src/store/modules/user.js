@@ -1,10 +1,3 @@
-/*
- * @Author: liuYang
- * @description: 用户信息vuex
- * @Date: 2019-08-19 17:39:08
- * @LastEditors: liuYang
- * @LastEditTime: 2021-03-09 17:25:24
- */
 import Storage from '@utils/storage.js'
 import { StaticRouterMap } from '@/router/index.js'
 // import { resetRouter } from "@/router/resetRouter";

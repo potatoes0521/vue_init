@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 15:29:05
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-09 19:40:41
+ * @LastEditTime: 2021-03-10 09:46:46
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -22,7 +22,6 @@ import '@css/reset.scss'
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 Vue.prototype.$storage = storage
-console.log('router', router)
 new Vue({
   router,
   store,

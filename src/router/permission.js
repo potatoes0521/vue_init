@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 17:26:24
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-09 19:54:45
+ * @LastEditTime: 2021-03-10 09:52:49
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -21,6 +21,7 @@ const whiteList = ['/home', '/login', '/500', '/404', '/403', '/home']
 router.beforeEach((to, from, next) => {
   NProgress.start()
   console.log('to', to)
+  console.log('from', from)
   if (Vue.prototype.$storage.getCookie('admin')) {
     // 判断cookice是否存在 不存在即为未登录
     console.log('未登录')
@@ -28,6 +29,7 @@ router.beforeEach((to, from, next) => {
       if (store.state.user.menuList.length) {
         next()
       } else {
+        console.log('跳转到获取动态路由的方法')
         // 跳转到获取动态路由的方法
         gotoRouter(to, next)
       }
@@ -39,6 +41,7 @@ router.beforeEach((to, from, next) => {
       next('/')
     }
   } else {
+    console.log('else')
     if (whiteList.indexOf(to.path) !== -1) {
       // 免登陆白名单 直接进入
       console.log('免登陆白名单 直接进入')

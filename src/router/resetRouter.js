@@ -30,5 +30,4 @@ export function resetRouter() {
   const newRouter = createRouter()
   router.matcher = newRouter.matcher
 }
-console.log('router', router)
 export default router
