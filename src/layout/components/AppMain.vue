@@ -4,13 +4,13 @@
  * @path: 引入路径
  * @Date: 2021-03-09 15:29:05
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-10 10:05:57
+ * @LastEditTime: 2021-03-10 10:48:38
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
 -->
 <template lang="pug">
-  section
+  section.app-main
     transition( name="fade-transform" mode="out-in" )
       keep-alive( :include="cachedViews" )
         router-view( :key="key" )

@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 17:26:24
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-10 10:23:05
+ * @LastEditTime: 2021-03-10 10:46:53
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -16,13 +16,14 @@ import NProgress from 'nprogress' // Progress 进度条
 import 'nprogress/nprogress.css' // Progress 进度条样式
 import { Message } from 'element-ui'
 import { addRouter } from './addRouter.js'
+import menuMock from '../mock/menu.json'
 
-const whiteList = ['/index', '/login', '/500', '/404', '/403']
+const whiteList = ['/login', '/500', '/404', '/403']
 router.beforeEach((to, from, next) => {
   NProgress.start()
   console.log('to', to)
   console.log('from', from)
-  if (Vue.prototype.$storage.getCookie('admin')) {
+  if (Vue.prototype.$storage.getCookie('admin') || true) {
     // 判断cookice是否存在 不存在即为未登录
     console.log('未登录')
     if (to.path !== '/login') {
@@ -66,61 +67,61 @@ router.afterEach(() => {
   NProgress.done() // 结束Progress
 })
 
-// const env = process.env.NODE_ENV === 'development' ? true : false
+const env = process.env.NODE_ENV === 'development' ? true : false
 
 function gotoRouter(to, next) {
-  // if (env) {
-  //   // let menus = menuMock
-  //   // const asyncRouter = addRouter(menus) // 进行递归解析
-  //   // 一定不能写在静态路由里面,否则会出现,访问动态路由404的情况.所以在这列添加
-  //   asyncRouter.push({
-  //     path: '*',
-  //     redirect: '/404',
-  //     meta: {
-  //       hideInMenu: true
-  //     }
-  //   })
-  //   router.addRoutes(asyncRouter) // vue-router提供的addRouter方法进行路由拼接
-  //   // 记录路由获取状态
-  //   store.dispatch('commitMenuList', asyncRouter) // 存储到vuex
-  //   next({
-  //     ...to,
-  //     replace: true
-  //   }) // hack方法 确保addRoutes已完成
-  // } else {
-  // 记录路由获取状态
-  const userInfo = Vue.prototype.$storage.getCookie('admin')
-  let sendData = {
-    userId: userInfo.userId
-  }
-  console.log('999999', 999999)
-  Vue.prototype.$PCApi.user
-    .getUserMenus(sendData, Vue.prototype) // 获取动态路由的方法
-    .then((res) => {
-      console.log('res', res)
-      const asyncRouter = addRouter(res.data) // 进行递归解析
-      // 一定不能写在静态路由里面,否则会出现,访问动态路由404的情况.所以在这列添加
-      asyncRouter.push({
-        path: '*',
-        redirect: '/404',
-        meta: {
-          hideInMenu: true
-        }
+  if (env) {
+    let menus = menuMock
+    const asyncRouter = addRouter(menus) // 进行递归解析
+    // 一定不能写在静态路由里面,否则会出现,访问动态路由404的情况.所以在这列添加
+    asyncRouter.push({
+      path: '*',
+      redirect: '/404',
+      meta: {
+        hideInMenu: true
+      }
+    })
+    router.addRoutes(asyncRouter) // vue-router提供的addRouter方法进行路由拼接
+    // 记录路由获取状态
+    store.dispatch('commitMenuList', asyncRouter) // 存储到vuex
+    next({
+      ...to,
+      replace: true
+    }) // hack方法 确保addRoutes已完成
+  } else {
+    // 记录路由获取状态
+    const userInfo = Vue.prototype.$storage.getCookie('admin')
+    let sendData = {
+      userId: userInfo.userId
+    }
+    console.log('999999', 999999)
+    Vue.prototype.$PCApi.user
+      .getUserMenus(sendData, Vue.prototype) // 获取动态路由的方法
+      .then((res) => {
+        console.log('res', res)
+        const asyncRouter = addRouter(res.data) // 进行递归解析
+        // 一定不能写在静态路由里面,否则会出现,访问动态路由404的情况.所以在这列添加
+        asyncRouter.push({
+          path: '*',
+          redirect: '/404',
+          meta: {
+            hideInMenu: true
+          }
+        })
+        return asyncRouter
       })
-      return asyncRouter
-    })
-    .then((asyncRouter) => {
-      router.addRoutes(asyncRouter) // vue-router提供的addRouter方法进行路由拼接
-      // 记录路由获取状态
-      store.dispatch('commitMenuList', asyncRouter) // 存储到vuex
-      next({
-        ...to,
-        replace: true
-      }) // hack方法 确保addRoutes已完成
-    })
-    .catch((e) => {
-      console.log(e)
-      // removeToken();
-    })
-  // }
+      .then((asyncRouter) => {
+        router.addRoutes(asyncRouter) // vue-router提供的addRouter方法进行路由拼接
+        // 记录路由获取状态
+        store.dispatch('commitMenuList', asyncRouter) // 存储到vuex
+        next({
+          ...to,
+          replace: true
+        }) // hack方法 确保addRoutes已完成
+      })
+      .catch((e) => {
+        console.log(e)
+        // removeToken();
+      })
+  }
 }
