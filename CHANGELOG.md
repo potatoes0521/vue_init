@@ -4,6 +4,7 @@
 范围|描述|commitId
 --|--|--
  - | 新增axios包 | [9777087](http://192.168.200.205/qianduan/components/vue_init_cli/commits/9777087)
+ - | 新增CAS环境变量 | [ef7aa45](http://192.168.200.205/qianduan/components/vue_init_cli/commits/ef7aa45)
  - | 添加 本地环境变量 | [95282e0](http://192.168.200.205/qianduan/components/vue_init_cli/commits/95282e0)
 
 
