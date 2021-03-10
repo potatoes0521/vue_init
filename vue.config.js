@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 15:33:35
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-10 17:20:10
+ * @LastEditTime: 2021-03-10 17:38:55
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -18,13 +18,10 @@ const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i
 // 添加打包分析
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-//
-
-const BASE_URL = process.env.NODE_ENV === 'production' ? '/xiaoshi' : '/'
 
 module.exports = {
   // 线上资源读取地址
-  publicPath: BASE_URL,
+  publicPath: IS_PROD ? process.env.VUE_APP_PUBLIC_PATH : './',
   // outputDir: "",
   lintOnSave: true,
   // 设为false打包时不生成.map文件
