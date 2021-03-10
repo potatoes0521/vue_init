@@ -1,5 +1,11 @@
 # 0.1.0 (2021-03-10)
 
+### chore
+范围|描述|commitId
+--|--|--
+ - | 添加 本地环境变量 | [95282e0](http://192.168.200.205/qianduan/components/vue_init_cli/commits/95282e0)
+
+
 范围|描述|commitId
 --|--|--
  - | 补充文档 | [df0f820](http://192.168.200.205/qianduan/components/vue_init_cli/commits/df0f820)
