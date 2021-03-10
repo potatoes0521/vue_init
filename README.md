@@ -9,7 +9,7 @@
  * @optionalParam: 选传参数
  * @emitFunction: 函数
 -->
-# single_login_platform
+# vue_init_cli
 
 Vue+Element-ui搭建的后台项目架子
 

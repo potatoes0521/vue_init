@@ -2,6 +2,7 @@
 
 范围|描述|commitId
 --|--|--
+ - | 优化书写 | [df8167b](http://192.168.200.205/qianduan/components/vue_init_cli/commits/df8167b)
  - | 新增gitcommit 依赖 | [44c6262](http://192.168.200.205/qianduan/components/vue_init_cli/commits/44c6262)
  - | 新增Git commit | [0418f1a](http://192.168.200.205/qianduan/components/vue_init_cli/commits/0418f1a)
  - | 新增编辑器配置 | [d8d9b75](http://192.168.200.205/qianduan/components/vue_init_cli/commits/d8d9b75)
