@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 15:29:05
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-09 16:53:58
+ * @LastEditTime: 2021-03-10 17:20:00
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -23,7 +23,7 @@ module.exports = {
   // extends: ["plugin:vue/essential", "@vue/standard"],
   parserOptions: {
     parser: "babel-eslint",
-    ecmaVersion: 6, // 指定ECMAScript的版本为 6
+    // ecmaVersion: 6, // 指定ECMAScript的版本为 6
     // parser: "@typescript-eslint/parser", // 解析 ts
     sourceType: "module"
   },
@@ -111,7 +111,7 @@ module.exports = {
     // 禁止对function声明重新赋值   
     'no-func-assign': 2,
     // 禁止在嵌套块中出现变量声明或function声明  
-    'no-inner-declarations': [2, 'functions'],
+    // 'no-inner-declarations': [2, 'functions'],
     // 禁止在字符串和注释之外不规则的空白  
     'no-irregular-whitespace': 2,
   }

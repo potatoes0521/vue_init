@@ -1,15 +1,17 @@
 /*
  * @Author: liuYang
- * @description: 请填写描述信息
+ * @description: 各种工具类
  * @path: 引入路径
  * @Date: 2021-03-09 19:07:17
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-09 19:07:17
+ * @LastEditTime: 2021-03-10 17:18:45
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
  */
+
 /**
+ * 获取URL里的参数并且转换成对象
  * @param {string} url
  * @returns {Object}
  */
@@ -29,6 +31,7 @@ export function getQueryObject(url) {
 }
 
 /**
+ * 获取字符串的长度
  * @param {string} input value
  * @returns {number} output value
  */
@@ -198,45 +201,6 @@ export function debounce(func, wait, immediate) {
 
     return result
   }
-}
-
-/**
- * This is just a simple version of deep copy
- * Has a lot of edge cases bug
- * If you want to use a perfect deep copy, use lodash's _.cloneDeep
- * @param {Object} source
- * @returns {Object}
- */
-export function deepClone(source) {
-  if (!source && typeof source !== 'object') {
-    throw new Error('error arguments', 'deepClone')
-  }
-  const targetObj = source.constructor === Array ? [] : {}
-  Object.keys(source).forEach((keys) => {
-    if (source[keys] && typeof source[keys] === 'object') {
-      targetObj[keys] = deepClone(source[keys])
-    } else {
-      targetObj[keys] = source[keys]
-    }
-  })
-  return targetObj
-}
-
-/**
- * @param {Array} arr
- * @returns {Array}
- */
-export function uniqueArr(arr) {
-  return Array.from(new Set(arr))
-}
-
-/**
- * @returns {string}
- */
-export function createUniqueString() {
-  const timestamp = +new Date() + ''
-  const randomNum = parseInt((1 + Math.random()) * 65536) + ''
-  return (+(randomNum + timestamp)).toString(32)
 }
 
 /**
