@@ -1,8 +1,9 @@
-# 0.1.0 (2021-03-10)
+# 0.1.0 (2021-03-11)
 
 ### chore
 范围|描述|commitId
 --|--|--
+ - | 修改错误的目录结构 | [aa1941c](http://192.168.200.205/qianduan/components/vue_init_cli/commits/aa1941c)
  - | 新增axios包 | [9777087](http://192.168.200.205/qianduan/components/vue_init_cli/commits/9777087)
  - | 新增CAS环境变量 | [ef7aa45](http://192.168.200.205/qianduan/components/vue_init_cli/commits/ef7aa45)
  - | 添加 本地环境变量 | [95282e0](http://192.168.200.205/qianduan/components/vue_init_cli/commits/95282e0)
