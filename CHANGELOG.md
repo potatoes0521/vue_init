@@ -1,5 +1,12 @@
 # 0.1.0 (2021-03-11)
 
+### 🎨 代码样式
+范围|描述|commitId
+--|--|--
+ - | 代码优化 | [34b40a3](http://192.168.200.205/qianduan/components/vue_init_cli/commits/34b40a3)
+ - | 文件名称修改 | [539d8fd](http://192.168.200.205/qianduan/components/vue_init_cli/commits/539d8fd)
+
+
 ### chore
 范围|描述|commitId
 --|--|--
@@ -28,12 +35,6 @@
  - | 修改eslint | [90cae56](http://192.168.200.205/qianduan/components/vue_init_cli/commits/90cae56)
  - | 严格ESLINT | [766acc6](http://192.168.200.205/qianduan/components/vue_init_cli/commits/766acc6)
  - | init | [0c679ab](http://192.168.200.205/qianduan/components/vue_init_cli/commits/0c679ab)
-
-
-### 🎨 代码样式
-范围|描述|commitId
---|--|--
- - | 代码优化 | [34b40a3](http://192.168.200.205/qianduan/components/vue_init_cli/commits/34b40a3)
 
 
 ### 📦 持续集成

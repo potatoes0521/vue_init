@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 15:33:35
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-10 17:38:55
+ * @LastEditTime: 2021-03-11 10:24:16
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -29,7 +29,7 @@ module.exports = {
   // 这里写你调用接口的基础路径，来解决跨域，如果设置了代理，那你本地开发环境的axios的baseUrl要写为 '' ，即空字符串
   devServer: {
     // host: "192.168.31.246",
-    // open: true,
+    open: true,
     host: 'localhost',
     port: 8085,
     https: false,
