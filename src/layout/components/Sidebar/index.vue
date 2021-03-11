@@ -4,41 +4,38 @@
  * @path: 引入路径
  * @Date: 2021-03-09 18:47:45
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-10 10:28:57
+ * @LastEditTime: 2021-03-11 16:21:58
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
 -->
 <template lang="pug">
-  .has-logo
-    logo( :collapse="isCollapse" )
-    el-scrollbar( wrap-class="scrollbar-wrapper" )
-      el-menu(
-        :default-active="activeMenu"
-        :collapse="isCollapse"
-        :background-color="variables.menuBg"
-        :text-color="variables.menuText"
-        :unique-opened="false"
-        :active-text-color="variables.menuActiveText"
-        :collapse-transition="false"
-        mode="vertical"
+  el-scrollbar( wrap-class="scrollbar-wrapper" )
+    el-menu(
+      :default-active="activeMenu"
+      :collapse="isCollapse"
+      :background-color="variables.menuBg"
+      :text-color="variables.menuText"
+      :unique-opened="false"
+      :active-text-color="variables.menuActiveText"
+      :collapse-transition="false"
+      mode="vertical"
+    )
+      sidebar-item(
+        v-for="route in menuList"
+        :key="route.path"
+        :item="route"
+        :base-path="route.path"
       )
-        sidebar-item(
-          v-for="route in menuList"
-          :key="route.path"
-          :item="route"
-          :base-path="route.path"
-        )
 </template>
 
 <script>
   import { mapGetters } from 'vuex'
-  import Logo from './Logo'
   import SidebarItem from './SidebarItem'
   import variables from '@css/variables.scss'
 
   export default {
-    components: { SidebarItem, Logo },
+    components: { SidebarItem },
     computed: {
       ...mapGetters(['sidebar']),
       menuList() {

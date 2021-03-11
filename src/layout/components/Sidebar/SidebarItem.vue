@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 18:47:45
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-10 10:32:13
+ * @LastEditTime: 2021-03-11 16:19:57
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -38,12 +38,10 @@
   import { isExternal } from '@utils/validate'
   import Item from './Item'
   import AppLink from './Link'
-  import FixiOSBug from './FixiOSBug'
 
   export default {
     name: 'SidebarItem',
     components: { Item, AppLink },
-    mixins: [FixiOSBug],
     props: {
       // route object
       item: {

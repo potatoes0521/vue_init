@@ -9,6 +9,7 @@
 ### 🎨 代码样式
 范围|描述|commitId
 --|--|--
+ 更改一些基础配置 | 一些基础配置 | [c5d267c](http://192.168.200.205/qianduan/components/vue_init_cli/commits/c5d267c)
  - | 代码优化 | [34b40a3](http://192.168.200.205/qianduan/components/vue_init_cli/commits/34b40a3)
  - | 文件名称修改 | [539d8fd](http://192.168.200.205/qianduan/components/vue_init_cli/commits/539d8fd)
 

@@ -1,17 +1,17 @@
-<template lang='pug'>
+<!--
+ * @Author: liuYang
+ * @description: 请填写描述信息
+ * @path: 引入路径
+ * @Date: 2021-03-10 17:59:55
+ * @LastEditors: liuYang
+ * @LastEditTime: 2021-03-11 16:49:53
+ * @mustParam: 必传参数
+ * @optionalParam: 选传参数
+ * @emitFunction: 函数
+-->
+<template lang="pug">
   .navbar
-    .right-menu
-      el-dropdown.avatar-container.right-menu-item.hover-effect( trigger="click" )
-        .avatar-wrapper
-          img.user-avatar(:src="userInfo.avatar + '?imageView2/1/w/80/h/80'" )
-          i.el-icon-caret-bottom
-        el-dropdown-menu( slot="dropdown" )
-          router-link( to="/profile/index" )
-            el-dropdown-item Profile
-          router-link( to="/" )
-            el-dropdown-item Dashboard
-          el-dropdown-item( divided @click.native="logout" )
-            span( style="display:block;" ) Log Out
+
 </template>
 
 <script>
@@ -35,13 +35,12 @@
 </script>
 
 <style lang="scss" scoped>
-  .navbar {
-    height: 50px;
-    overflow: hidden;
-    position: relative;
-    background: #fff;
-    box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  @import '~@/assets/css/variables.scss';
 
+  .navbar {
+    height: $navbarHeight;
+    overflow: hidden;
+    background: linear-gradient(100deg, #5dd9aa 0%, #0095ff 100%);
     .hamburger-container {
       line-height: 46px;
       height: 100%;
@@ -62,58 +61,6 @@
     .errLog-container {
       display: inline-block;
       vertical-align: top;
-    }
-
-    .right-menu {
-      float: right;
-      height: 100%;
-      line-height: 50px;
-
-      &:focus {
-        outline: none;
-      }
-
-      .right-menu-item {
-        display: inline-block;
-        padding: 0 8px;
-        height: 100%;
-        font-size: 18px;
-        color: #5a5e66;
-        vertical-align: text-bottom;
-
-        &.hover-effect {
-          cursor: pointer;
-          transition: background 0.3s;
-
-          &:hover {
-            background: rgba(0, 0, 0, 0.025);
-          }
-        }
-      }
-
-      .avatar-container {
-        margin-right: 30px;
-
-        .avatar-wrapper {
-          margin-top: 5px;
-          position: relative;
-
-          .user-avatar {
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-          }
-
-          .el-icon-caret-bottom {
-            cursor: pointer;
-            position: absolute;
-            right: -20px;
-            top: 25px;
-            font-size: 12px;
-          }
-        }
-      }
     }
   }
 </style>
