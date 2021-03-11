@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 15:33:35
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-11 10:24:16
+ * @LastEditTime: 2021-03-11 12:25:29
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -33,7 +33,18 @@ module.exports = {
     host: 'localhost',
     port: 8085,
     https: false,
-    hotOnly: false
+    hotOnly: false,
+    proxy: {
+      //在此配置跨域
+      '/api/': {
+        target: 'http://192.168.200.212:23000', //后端的接口地址
+        secure: false,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '' //路径重写
+        }
+      }
+    }
   },
   chainWebpack: (config) => {
     // 修复HMR

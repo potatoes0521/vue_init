@@ -7,6 +7,12 @@
  - | 文件名称修改 | [539d8fd](http://192.168.200.205/qianduan/components/vue_init_cli/commits/539d8fd)
 
 
+### 📦 持续集成
+范围|描述|commitId
+--|--|--
+ - | 更新一些东西 | [dd67830](http://192.168.200.205/qianduan/components/vue_init_cli/commits/dd67830)
+
+
 ### chore
 范围|描述|commitId
 --|--|--
@@ -14,6 +20,7 @@
  - | 新增axios包 | [9777087](http://192.168.200.205/qianduan/components/vue_init_cli/commits/9777087)
  - | 新增CAS环境变量 | [ef7aa45](http://192.168.200.205/qianduan/components/vue_init_cli/commits/ef7aa45)
  - | 添加 本地环境变量 | [95282e0](http://192.168.200.205/qianduan/components/vue_init_cli/commits/95282e0)
+ - | 重新打开每次启动项目自动打开页面 | [4a3dfff](http://192.168.200.205/qianduan/components/vue_init_cli/commits/4a3dfff)
 
 
 范围|描述|commitId
@@ -35,10 +42,4 @@
  - | 修改eslint | [90cae56](http://192.168.200.205/qianduan/components/vue_init_cli/commits/90cae56)
  - | 严格ESLINT | [766acc6](http://192.168.200.205/qianduan/components/vue_init_cli/commits/766acc6)
  - | init | [0c679ab](http://192.168.200.205/qianduan/components/vue_init_cli/commits/0c679ab)
-
-
-### 📦 持续集成
-范围|描述|commitId
---|--|--
- - | 更新一些东西 | [dd67830](http://192.168.200.205/qianduan/components/vue_init_cli/commits/dd67830)
 
