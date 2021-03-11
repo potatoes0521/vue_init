@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 17:18:28
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-10 17:19:08
+ * @LastEditTime: 2021-03-11 14:42:46
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -21,7 +21,7 @@ export default {
    * @return 获取到的cookie
    */
   getCookie(name) {
-    const data = Cookies.get(name)
+    const data = Cookies.get(storageName + name)
     if (data) return JSON.parse(data)
     else return false
   },
@@ -33,7 +33,7 @@ export default {
    * @return void
    */
   setCookie(name, value, time) {
-    Cookies.set(name, JSON.stringify(value), {
+    Cookies.set(storageName + name, JSON.stringify(value), {
       expires: time || cookieExpires || 1
     })
   },

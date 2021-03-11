@@ -1,10 +1,10 @@
 /*
  * @Author: liuYang
- * @description: 请填写描述信息
+ * @description: axios封装
  * @path: 引入路径
  * @Date: 2021-03-09 15:54:38
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-09 17:23:44
+ * @LastEditTime: 2021-03-11 12:55:24
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -26,20 +26,22 @@ class HttpRequest {
       }
     }
     // const { userInfo } = store.getters || {}
-    let contentType = 'application/json;charset=UTF-8'
+    let contentType = 'application/json;'
     let url = this.baseUrl
     let config = {
       baseURL: url,
       headers: {
         'content-type': contentType
       },
-      method: options.method
+      method: options.method,
+      data: ''
     }
     if (options.method === 'get') {
       config = Object.assign({}, config, {
         params: options.data
       })
     }
+    console.log('config', config)
     return config
   }
   destroy(url) {
@@ -68,15 +70,16 @@ class HttpRequest {
       (res) => {
         this.destroy(url)
         const { data } = res
-        if (+data.code === 200 || +data.code === 405) {
-          return data
-        } else if (+data.code === 200003) {
+        const { message } = data
+        if (message.code === '0000' || message.bussinessDone) {
+          return data.data
+        } else if (message.code === '9001' || message.code === '9002') {
           store.dispatch('commitLoginOut')
-          return data
+          Message.error(message.msg || '接口错误')
+          return Promise.reject(message)
         } else {
-          Message.error(data.message || '接口错误')
-          // Promise.reject("");
-          return data
+          Message.error(message.msg || '接口错误')
+          return Promise.reject(message)
         }
       },
       (error) => {

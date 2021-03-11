@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 15:29:05
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-10 10:22:23
+ * @LastEditTime: 2021-03-11 13:31:21
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -17,14 +17,6 @@ Vue.use(Router)
 import Layout from '@layout'
 
 export const StaticRouterMap = [
-  {
-    path: '/login',
-    name: 'login',
-    meta: {
-      hideInMenu: true
-    },
-    component: () => import('@views/Login/index.vue')
-  },
   {
     path: '/500',
     name: 'error_500',
@@ -50,8 +42,8 @@ export const StaticRouterMap = [
     component: () => import('@views/error_page/403.vue')
   },
   {
-    path: '/',
-    name: '/',
+    path: '/home',
+    name: '/home',
     redirect: '/index',
     component: Layout,
     meta: {
