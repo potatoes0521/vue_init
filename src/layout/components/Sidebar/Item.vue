@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 18:47:45
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-11 18:56:31
+ * @LastEditTime: 2021-03-12 18:00:13
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -26,7 +26,6 @@
     render(h, context) {
       const { icon, title } = context.props
       const vnodes = []
-      console.log('object', context.props)
       if (icon) {
         if (icon.includes('el-icon')) {
           vnodes.push(<i class={[icon, 'sub-el-icon']} />)
@@ -52,5 +51,12 @@
     color: currentColor;
     width: 1em;
     height: 1em;
+  }
+  .title {
+    -moz-user-select: none; /*火狐*/
+    -webkit-user-select: none; /*webkit浏览器*/
+    -ms-user-select: none; /*IE10*/
+    -khtml-user-select: none; /*早期浏览器*/
+    user-select: none;
   }
 </style>

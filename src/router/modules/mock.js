@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-12 17:24:43
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-12 17:34:03
+ * @LastEditTime: 2021-03-12 17:46:33
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -34,7 +34,7 @@ export const mockRouter = [
         hideInMenu: false,
         title: '询价单列表',
         keepAlive: true,
-        loadPath: 'offer/index',
+        loadPath: 'Home/index',
         children: null
       },
       {
@@ -47,7 +47,7 @@ export const mockRouter = [
         hideInMenu: true,
         title: '询价单详情',
         keepAlive: false,
-        loadPath: 'offer/details',
+        loadPath: 'Home/index',
         children: null
       },
       {
@@ -60,7 +60,7 @@ export const mockRouter = [
         hideInMenu: true,
         title: '推询价',
         keepAlive: false,
-        loadPath: 'transport/index',
+        loadPath: 'Home/index',
         children: null
       },
       {
@@ -73,7 +73,7 @@ export const mockRouter = [
         hideInMenu: false,
         title: '线路价格管理',
         keepAlive: false,
-        loadPath: 'offer/offerPrice',
+        loadPath: 'Home/index',
         children: null
       }
     ]
@@ -131,7 +131,7 @@ export const mockRouter = [
         hideInMenu: true,
         title: '推单',
         keepAlive: false,
-        loadPath: 'transport/index',
+        loadPath: 'Home/index',
         children: null
       },
       {
@@ -239,7 +239,7 @@ export const mockRouter = [
         hideInMenu: false,
         title: '运力管理',
         keepAlive: false,
-        loadPath: 'transport/index',
+        loadPath: 'Home/index',
         children: null
       },
       {
@@ -252,7 +252,7 @@ export const mockRouter = [
         hideInMenu: true,
         title: '运力添加',
         keepAlive: false,
-        loadPath: 'transport/append',
+        loadPath: 'Home/index',
         children: null
       },
       {
@@ -265,7 +265,7 @@ export const mockRouter = [
         hideInMenu: true,
         title: '运力详情',
         keepAlive: false,
-        loadPath: 'transport/details',
+        loadPath: 'Home/index',
         children: null
       },
       {
@@ -278,7 +278,7 @@ export const mockRouter = [
         hideInMenu: true,
         title: '账户体系',
         keepAlive: false,
-        loadPath: 'transport/system',
+        loadPath: 'Home/index',
         children: null
       }
     ]
