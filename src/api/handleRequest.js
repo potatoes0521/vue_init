@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 15:54:38
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-11 12:55:24
+ * @LastEditTime: 2021-03-12 17:35:34
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -13,6 +13,7 @@ import axios from 'axios'
 // import createSignData from "./secret.js";
 import store from '@store'
 import { Message } from 'element-ui'
+import storage from '@/utils/storage'
 
 class HttpRequest {
   constructor(baseUrl) {
@@ -31,7 +32,8 @@ class HttpRequest {
     let config = {
       baseURL: url,
       headers: {
-        'content-type': contentType
+        'content-type': contentType,
+        accessToken: storage.getCookie('acToken')
       },
       method: options.method,
       data: ''
@@ -41,7 +43,6 @@ class HttpRequest {
         params: options.data
       })
     }
-    console.log('config', config)
     return config
   }
   destroy(url) {
@@ -72,7 +73,7 @@ class HttpRequest {
         const { data } = res
         const { message } = data
         if (message.code === '0000' || message.bussinessDone) {
-          return data.data
+          return data.data || {}
         } else if (message.code === '9001' || message.code === '9002') {
           store.dispatch('commitLoginOut')
           Message.error(message.msg || '接口错误')
