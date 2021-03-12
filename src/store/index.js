@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 15:29:05
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-09 17:24:59
+ * @LastEditTime: 2021-03-12 14:07:35
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -23,4 +23,5 @@ const store = new Vuex.Store({
     app
   }
 })
+
 export default store

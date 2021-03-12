@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 17:25:10
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-11 18:26:54
+ * @LastEditTime: 2021-03-12 14:13:45
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -40,7 +40,8 @@ export default {
     }
   },
   getters: {
-    sidebar: (state) => state.sidebar
+    sidebar: (state) => state.sidebar,
+    device: (state) => state.app.device
   },
   actions: {
     ToggleSideBar: ({ commit }) => {

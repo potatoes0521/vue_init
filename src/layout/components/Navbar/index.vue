@@ -4,14 +4,13 @@
  * @path: 引入路径
  * @Date: 2021-03-10 17:59:55
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-11 16:49:53
+ * @LastEditTime: 2021-03-12 14:42:58
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
 -->
 <template lang="pug">
   .navbar
-
 </template>
 
 <script>
@@ -38,9 +37,11 @@
   @import '~@/assets/css/variables.scss';
 
   .navbar {
+    width: 100%;
     height: $navbarHeight;
     overflow: hidden;
     background: linear-gradient(100deg, #5dd9aa 0%, #0095ff 100%);
+
     .hamburger-container {
       line-height: 46px;
       height: 100%;

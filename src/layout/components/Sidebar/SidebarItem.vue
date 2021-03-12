@@ -4,13 +4,13 @@
  * @path: 引入路径
  * @Date: 2021-03-09 18:47:45
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-11 18:43:41
+ * @LastEditTime: 2021-03-12 16:54:25
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
 -->
 <template lang="pug">
-  div( v-if="!item.meta.hideInMenu" )
+  div.menu( v-if="!item.meta.hideInMenu" )
     template( v-if="hasOneShowingChild(item.children, item) && (!onlyOneChild.children || onlyOneChild.noShowingChildren) && !item.alwaysShow" )
       app-link( v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)" )
         el-menu-item(
@@ -58,8 +58,6 @@
       }
     },
     data() {
-      // To fix https://github.com/PanJiaChen/vue-admin-template/issues/237
-      // TODO: refactor with render function
       this.onlyOneChild = null
       return {}
     },
@@ -69,18 +67,15 @@
           if (item.hidden) {
             return false
           } else {
-            // Temp set(will be used if only has one showing child)
             this.onlyOneChild = item
             return true
           }
         })
 
-        // When there is only one child router, the child router is displayed by default
         if (showingChildren.length === 1) {
           return true
         }
 
-        // Show parent if there are no child router to display
         if (showingChildren.length === 0) {
           this.onlyOneChild = { ...parent, path: '', noShowingChildren: true }
           return true

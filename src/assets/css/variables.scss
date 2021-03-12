@@ -23,6 +23,8 @@ $subMenuHover:rgba(68, 168, 255, 0.2);
 
 $sideBarWidth: 178px;
 $navbarHeight: 60px;
+$subMenuItemHeight: 40px;
+$menuTitleHeight: 40px;
 
 // the :export directive is the magic sauce for webpack
 // https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
@@ -36,4 +38,6 @@ $navbarHeight: 60px;
   subMenuHover: $subMenuHover;
   sideBarWidth: $sideBarWidth;
   navbarHeight: $navbarHeight;
+  subMenuItemHeight: $subMenuItemHeight;
+  menuTitleHeight: $menuTitleHeight;
 }

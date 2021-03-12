@@ -1,0 +1,133 @@
+@import '~@/assets/css/variables.scss';
+
+.sidebar-container {
+  transition: width 0.28s;
+  width: $sideBarWidth !important;
+  background-color: $menuBg;
+  height: 100%;
+  position: fixed;
+  font-size: 0px;
+  top: $navbarHeight;
+  bottom: 0;
+  left: 0;
+  z-index: 1001;
+  overflow: hidden;
+  box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 0.1);
+
+  // reset element-ui css
+  .horizontal-collapse-transition {
+    transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
+  }
+
+  .scrollbar-wrapper {
+    overflow-x: hidden !important;
+  }
+
+  .el-scrollbar__bar.is-vertical {
+    right: 0px;
+  }
+
+  .el-scrollbar {
+    height: 100%;
+  }
+
+  .is-horizontal {
+    display: none;
+  }
+
+  a {
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .svg-icon {
+    margin-right: 16px;
+  }
+
+  .sub-el-icon {
+    margin-right: 12px;
+    margin-left: -2px;
+  }
+
+  .el-menu {
+    border: none;
+    height: 100%;
+    width: 100% !important;
+  }
+
+  .el-submenu.is-active {
+    .el-submenu__title {
+      color: $menuActiveText !important;
+    }
+  }
+
+  .el-submenu .el-submenu__title:hover {
+    background-color: $subMenuHover !important;
+  }
+
+  .el-submenu {
+    .el-submenu__title {
+      display: flex;
+      align-items: center;
+      height: $menuHeight !important;
+    }
+  }
+
+  .el-submenu:not(.is-opened) {
+    .el-submenu__icon-arrow.el-icon-arrow-down {
+      transform: rotate(-90deg);
+    }
+  }
+
+  .el-submenu {
+    .el-submenu__icon-arrow.el-icon-arrow-down {
+      transform: rotate(0deg);
+    }
+  }
+
+  .el-menu-item {
+    height: $menuHeight;
+    line-height: $menuHeight;
+    box-sizing: border-box;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+
+    &:hover {
+      background: $menuHover !important;
+    }
+
+    &.is-active {
+      background: $menuHover !important;
+    }
+  }
+
+  .nest-menu {
+    .el-menu-item {
+      padding: 0 0 0 42px !important;
+      height: $menuHeight;
+      line-height: $menuHeight;
+    }
+
+    .el-menu-item:hover {
+      background: $menuHover !important;
+    }
+
+    .el-menu-item.is-active {
+      background-color: $menuHover !important;
+      position: relative;
+
+      &::before {
+        content: '';
+        width: 4px;
+        height: 40px;
+        background-color: $menuActiveText;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    }
+  }
+}

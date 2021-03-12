@@ -4,14 +4,18 @@
  * @path: 引入路径
  * @Date: 2021-03-09 18:47:52
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-11 16:28:56
+ * @LastEditTime: 2021-03-12 14:44:15
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
 -->
 <template lang="pug">
   .app-wrapper
-    sidebar.sidebar-container
+    sidebar.sidebar-container(
+      :variables="variables"
+      :opened="sidebar.opened"
+      :menuList="menuList"
+    )
     .main-container
       .fixed-header
         logo
@@ -24,8 +28,9 @@
   import Panel from './components/Panel'
   import Sidebar from './components/Sidebar'
   import ResizeMixin from './mixin/ResizeHandler'
-  import { mapState } from 'vuex'
+  import { mapGetters } from 'vuex'
   import Logo from './components/Logo'
+  import variables from '@css/variables.scss'
 
   export default {
     name: 'Layout',
@@ -37,12 +42,10 @@
     },
     mixins: [ResizeMixin],
     computed: {
-      ...mapState({
-        sidebar: (state) => state.app.sidebar,
-        device: (state) => state.app.device
-        // showSettings: (state) => state.settings.showSettings
-        // fixedHeader: (state) => state.settings.fixedHeader
-      })
+      ...mapGetters(['sidebar', 'menuList', 'device']),
+      variables() {
+        return variables
+      }
     },
     methods: {
       handleClickOutside() {
@@ -62,10 +65,20 @@
     position: relative;
     height: 100%;
     width: 100%;
+  }
 
-    &.mobile.openSidebar {
-      position: fixed;
-      top: 0;
-    }
+  .main-container {
+    min-height: 100%;
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  .fixed-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 9;
+    width: 100%;
+    transition: width 0.28s;
   }
 </style>

@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 17:33:57
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-09 19:41:05
+ * @LastEditTime: 2021-03-12 17:31:44
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -35,8 +35,12 @@ export function addRouter(routerList) {
   routerList.forEach((e) => {
     let e_new = {
       path: e.path,
-      name: e.name,
-      component: () => import(`@views/${e.loadPath}.vue`)
+      name: e.name
+    }
+    if (typeof e.loadPath === 'string') {
+      e_new = Object.assign({}, e_new, {
+        component: () => import(`@views/${e.loadPath}.vue`)
+      })
     }
     if (e.children) {
       e_new = Object.assign({}, e_new, {

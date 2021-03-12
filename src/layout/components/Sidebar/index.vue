@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 18:47:45
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-11 16:21:58
+ * @LastEditTime: 2021-03-12 14:31:27
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -30,22 +30,30 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
   import SidebarItem from './SidebarItem'
-  import variables from '@css/variables.scss'
 
   export default {
     components: { SidebarItem },
+    props: {
+      opened: {
+        type: Boolean,
+        required: true,
+        default: true
+      },
+      menuList: {
+        type: Array,
+        required: true,
+        default: () => []
+      },
+      variables: {
+        type: Object,
+        required: true,
+        default: () => {}
+      }
+    },
     computed: {
-      ...mapGetters(['sidebar']),
-      menuList() {
-        return this.$store.getters.menuList
-      },
       isCollapse() {
-        return !this.sidebar.opened
-      },
-      variables() {
-        return variables
+        return !this.opened
       },
       activeMenu() {
         const route = this.$route
@@ -59,3 +67,6 @@
     }
   }
 </script>
+<style lang="scss">
+  @import './sidebar.scss';
+</style>

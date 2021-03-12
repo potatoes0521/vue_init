@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 17:26:24
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-11 18:31:06
+ * @LastEditTime: 2021-03-12 17:26:08
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -16,7 +16,7 @@ import NProgress from 'nprogress' // Progress 进度条
 import 'nprogress/nprogress.css' // Progress 进度条样式
 import { Message } from 'element-ui'
 import { addRouter } from './addRouter.js'
-import menuMock from '../mock/menu.json'
+import { mockRouter } from './modules/mock.js'
 
 const whiteList = ['/login', '/500', '/404', '/403', '/index']
 router.beforeEach((to, from, next) => {
@@ -71,7 +71,7 @@ const env = process.env.NODE_ENV === 'development' ? true : false
 
 function gotoRouter(to, next) {
   if (env) {
-    let menus = menuMock
+    let menus = mockRouter
     const asyncRouter = addRouter(menus) // 进行递归解析
     // 一定不能写在静态路由里面,否则会出现,访问动态路由404的情况.所以在这列添加
     asyncRouter.push({
