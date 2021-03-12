@@ -1,9 +1,10 @@
-# 0.1.0 (2021-03-11)
+# 0.1.0 (2021-03-12)
 
 ### 🌟 新功能
 范围|描述|commitId
 --|--|--
  - | 处理请求跨域 | [5dc683b](http://192.168.200.205/qianduan/components/vue_init_cli/commits/5dc683b)
+ - | 样式修改 | [1d2f4b3](http://192.168.200.205/qianduan/components/vue_init_cli/commits/1d2f4b3)
 
 
 ### 🎨 代码样式
@@ -12,12 +13,6 @@
  更改一些基础配置 | 一些基础配置 | [c5d267c](http://192.168.200.205/qianduan/components/vue_init_cli/commits/c5d267c)
  - | 代码优化 | [34b40a3](http://192.168.200.205/qianduan/components/vue_init_cli/commits/34b40a3)
  - | 文件名称修改 | [539d8fd](http://192.168.200.205/qianduan/components/vue_init_cli/commits/539d8fd)
-
-
-### 📦 持续集成
-范围|描述|commitId
---|--|--
- - | 更新一些东西 | [dd67830](http://192.168.200.205/qianduan/components/vue_init_cli/commits/dd67830)
 
 
 ### chore
@@ -49,4 +44,10 @@
  - | 修改eslint | [90cae56](http://192.168.200.205/qianduan/components/vue_init_cli/commits/90cae56)
  - | 严格ESLINT | [766acc6](http://192.168.200.205/qianduan/components/vue_init_cli/commits/766acc6)
  - | init | [0c679ab](http://192.168.200.205/qianduan/components/vue_init_cli/commits/0c679ab)
+
+
+### 📦 持续集成
+范围|描述|commitId
+--|--|--
+ - | 更新一些东西 | [dd67830](http://192.168.200.205/qianduan/components/vue_init_cli/commits/dd67830)
 

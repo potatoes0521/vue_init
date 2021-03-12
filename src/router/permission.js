@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 17:26:24
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-11 15:49:50
+ * @LastEditTime: 2021-03-11 18:31:06
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -23,7 +23,8 @@ router.beforeEach((to, from, next) => {
   NProgress.start()
   console.log('to', to)
   console.log('from', from)
-  if (Vue.prototype.$storage.getCookie('admin')) {
+  const acToken = Vue.prototype.$storage.getCookie('acToken') || 123
+  if (acToken) {
     // 判断cookice是否存在 不存在即为未登录
     console.log('未登录')
     if (to.path !== '/login') {
@@ -42,7 +43,6 @@ router.beforeEach((to, from, next) => {
       next('/')
     }
   } else {
-    console.log('else')
     console.log('to.path', to.path)
     if (whiteList.indexOf(to.path) !== -1) {
       // 免登陆白名单 直接进入
@@ -94,7 +94,6 @@ function gotoRouter(to, next) {
     let sendData = {
       userId: userInfo.userId
     }
-    console.log('999999', 999999)
     Vue.prototype.$PCApi.user
       .getUserMenus(sendData, Vue.prototype) // 获取动态路由的方法
       .then((res) => {

@@ -4,13 +4,13 @@
  * @path: 引入路径
  * @Date: 2021-03-09 18:47:45
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-11 16:19:57
+ * @LastEditTime: 2021-03-11 18:43:41
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
 -->
 <template lang="pug">
-  div( v-if="!item.hidden" )
+  div( v-if="!item.meta.hideInMenu" )
     template( v-if="hasOneShowingChild(item.children, item) && (!onlyOneChild.children || onlyOneChild.noShowingChildren) && !item.alwaysShow" )
       app-link( v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)" )
         el-menu-item(

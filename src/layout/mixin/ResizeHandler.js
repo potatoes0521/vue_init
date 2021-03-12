@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 18:48:04
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-09 19:15:37
+ * @LastEditTime: 2021-03-11 18:27:03
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -28,13 +28,6 @@ export default {
   beforeDestroy() {
     window.removeEventListener('resize', this.$_resizeHandler)
   },
-  mounted() {
-    const isMobile = this.$_isMobile()
-    if (isMobile) {
-      store.dispatch('app/toggleDevice', 'mobile')
-      store.dispatch('app/closeSideBar', { withoutAnimation: true })
-    }
-  },
   methods: {
     // use $_ for mixins properties
     // https://vuejs.org/v2/style-guide/index.html#Private-property-names-essential
@@ -45,7 +38,7 @@ export default {
     $_resizeHandler() {
       if (!document.hidden) {
         const isMobile = this.$_isMobile()
-        store.dispatch('app/toggleDevice', isMobile ? 'mobile' : 'desktop')
+        // store.dispatch('app/toggleDevice', isMobile ? 'mobile' : 'desktop')
 
         if (isMobile) {
           store.dispatch('app/closeSideBar', { withoutAnimation: true })

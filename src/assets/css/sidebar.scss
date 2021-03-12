@@ -18,7 +18,7 @@
     left: 0;
     z-index: 1001;
     overflow: hidden;
-
+    box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 0.1);
     // reset element-ui css
     .horizontal-collapse-transition {
       transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
@@ -74,13 +74,15 @@
     }
 
     & .nest-menu .el-submenu>.el-submenu__title,
-    & .el-submenu .el-menu-item {
+    & .el-submenu {
       min-width: $sideBarWidth !important;
       background-color: $subMenuBg !important;
-
       &:hover {
         background-color: $subMenuHover !important;
       }
+    }
+    .el-menu-item.is-active{
+      background-color: $menuActive !important;
     }
   }
 
@@ -215,5 +217,9 @@
       background: #99a9bf;
       border-radius: 20px;
     }
+  }
+
+  .el-menu-item.is-active {
+    background-color: $subMenuHover;
   }
 }
