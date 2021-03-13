@@ -19,6 +19,18 @@
  - | 文件名称修改 | [539d8fd](http://192.168.200.205/qianduan/components/vue_init_cli/commits/539d8fd)
 
 
+### 📦 持续集成
+范围|描述|commitId
+--|--|--
+ - | 更新一些东西 | [dd67830](http://192.168.200.205/qianduan/components/vue_init_cli/commits/dd67830)
+
+
+### 🚀 性能优化
+范围|描述|commitId
+--|--|--
+ - | 优化变量名 | [38eb8cd](http://192.168.200.205/qianduan/components/vue_init_cli/commits/38eb8cd)
+
+
 范围|描述|commitId
 --|--|--
  - | 处理UI | [18f7ae6](http://192.168.200.205/qianduan/components/vue_init_cli/commits/18f7ae6)
@@ -41,12 +53,6 @@
  - | 修改eslint | [90cae56](http://192.168.200.205/qianduan/components/vue_init_cli/commits/90cae56)
  - | 严格ESLINT | [766acc6](http://192.168.200.205/qianduan/components/vue_init_cli/commits/766acc6)
  - | init | [0c679ab](http://192.168.200.205/qianduan/components/vue_init_cli/commits/0c679ab)
-
-
-### 📦 持续集成
-范围|描述|commitId
---|--|--
- - | 更新一些东西 | [dd67830](http://192.168.200.205/qianduan/components/vue_init_cli/commits/dd67830)
 
 
 ### chore

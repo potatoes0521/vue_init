@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 18:47:52
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-13 15:35:19
+ * @LastEditTime: 2021-03-13 15:42:34
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -15,7 +15,12 @@
       logo
       navbar
     .main-container
-      sidebar.sidebar-container( :variables="variables" :menuList="menuList" :collapse="isCollapse" )
+      sidebar.sidebar-container(
+        :variables="variables"
+        :menuList="menuList"
+        :collapse="isCollapse"
+        @emitToggleSideBar="toggleSideBar"
+      )
       panel
 </template>
 
@@ -24,7 +29,7 @@
   import Panel from './components/Panel'
   import Sidebar from './components/Sidebar'
   import ResizeMixin from './mixin/ResizeHandler'
-  import { mapGetters } from 'vuex'
+  import { mapGetters, mapActions } from 'vuex'
   import Logo from './components/Logo'
   import variables from '@css/variables.scss'
   export default {
@@ -49,6 +54,11 @@
           hideSidebar: this.sidebar.collapse
         }
       }
+    },
+    methods: {
+      ...mapActions({
+        toggleSideBar: 'toggleSideBar'
+      })
     }
   }
 </script>

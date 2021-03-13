@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 18:47:45
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-13 15:35:26
+ * @LastEditTime: 2021-03-13 15:44:53
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -31,7 +31,6 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
   import SidebarItem from './components/SidebarItem'
 
   export default {
@@ -65,9 +64,9 @@
       }
     },
     methods: {
-      ...mapActions({
-        toggleSideBar: 'toggleSideBar'
-      })
+      toggleSideBar() {
+        this.$emit('emitToggleSideBar')
+      }
     }
   }
 </script>
