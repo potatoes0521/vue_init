@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 18:48:04
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-13 09:49:16
+ * @LastEditTime: 2021-03-13 13:14:13
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -15,13 +15,6 @@ const { body } = document
 const WIDTH = 992 // refer to Bootstrap's responsive design
 
 export default {
-  watch: {
-    $route() {
-      if (this.device === 'mobile' && this.sidebar.opened) {
-        store.dispatch('app/closeSideBar', { withoutAnimation: false })
-      }
-    }
-  },
   beforeMount() {
     window.addEventListener('resize', this.$_resizeHandler)
   },
@@ -35,15 +28,6 @@ export default {
       const rect = body.getBoundingClientRect()
       return rect.width - 1 < WIDTH
     },
-    $_resizeHandler() {
-      if (!document.hidden) {
-        const isMobile = this.$_isMobile()
-        // store.dispatch('app/toggleDevice', isMobile ? 'mobile' : 'desktop')
-
-        if (isMobile) {
-          store.dispatch('app/closeSideBar', { withoutAnimation: true })
-        }
-      }
-    }
+    $_resizeHandler() {}
   }
 }

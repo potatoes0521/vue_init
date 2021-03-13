@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 17:25:10
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-13 12:13:04
+ * @LastEditTime: 2021-03-13 13:14:23
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -32,11 +32,6 @@ export default {
       }
       state.sidebar.opened = !state.sidebar.opened
       state.sidebar.withoutAnimation = false
-    },
-    CLOSE_SIDEBAR: (state, withoutAnimation) => {
-      Storage.getCookie('sidebarStatus', 1)
-      state.sidebar.opened = false
-      state.sidebar.withoutAnimation = withoutAnimation
     }
   },
   getters: {
@@ -46,10 +41,6 @@ export default {
   actions: {
     toggleSideBar: ({ commit }) => {
       commit('TOGGLE_SIDEBAR')
-    },
-    closeSideBar({ commit }, { withoutAnimation }) {
-      console.log('closeSideBar')
-      commit('CLOSE_SIDEBAR', withoutAnimation)
     }
   }
 }
