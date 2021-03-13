@@ -160,6 +160,21 @@
 }
 
 .hideSidebar {
+  .menu-title {
+    width: 54px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    >.text{
+      height: 0;
+      width: 0;
+      overflow: hidden;
+      visibility: hidden;
+      display: inline-block;
+    }
+  }
   .sidebar-container {
     width: 54px !important;
   }

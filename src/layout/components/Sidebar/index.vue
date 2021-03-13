@@ -4,30 +4,33 @@
  * @path: 引入路径
  * @Date: 2021-03-09 18:47:45
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-13 15:44:53
+ * @LastEditTime: 2021-03-13 16:37:46
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
 -->
 <template lang="pug">
-  el-scrollbar( wrap-class="scrollbar-wrapper" )
-    el-menu(
-      :default-active="activeMenu"
-      :collapse="collapse"
-      :background-color="variables.menuBg"
-      :text-color="variables.menuText"
-      :unique-opened="false"
-      :active-text-color="variables.menuActiveText"
-      :collapse-transition="false"
-      mode="vertical"
-    )
-      sidebar-item(
-        v-for="route in menuList"
-        :key="route.path"
-        :item="route"
-        :base-path="route.path"
+  div
+    .menu-title
+      span.text 系统菜单
+      span( @click="toggleSideBar" :class="[collapse ? 'el-icon-s-fold' : 'el-icon-s-unfold']" )
+    el-scrollbar( wrap-class="scrollbar-wrapper" )
+      el-menu(
+        :default-active="activeMenu"
+        :collapse="collapse"
+        :background-color="variables.menuBg"
+        :text-color="variables.menuText"
+        :unique-opened="false"
+        :active-text-color="variables.menuActiveText"
+        :collapse-transition="false"
+        mode="vertical"
       )
-    el-button( @click="toggleSideBar" ) 展开 {{collapse}}
+        sidebar-item(
+          v-for="route in menuList"
+          :key="route.path"
+          :item="route"
+          :base-path="route.path"
+        )
 </template>
 
 <script>
@@ -70,4 +73,18 @@
     }
   }
 </script>
-<style lang="scss"></style>
+<style lang="scss">
+  .menu-title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    color: '#333333';
+    box-sizing: border-box;
+    padding-left: 46px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+  }
+</style>
