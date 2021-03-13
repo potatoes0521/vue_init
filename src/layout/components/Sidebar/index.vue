@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 18:47:45
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-12 14:31:27
+ * @LastEditTime: 2021-03-13 11:32:11
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -13,7 +13,7 @@
   el-scrollbar( wrap-class="scrollbar-wrapper" )
     el-menu(
       :default-active="activeMenu"
-      :collapse="isCollapse"
+      :collapse="opened"
       :background-color="variables.menuBg"
       :text-color="variables.menuText"
       :unique-opened="false"
@@ -27,10 +27,12 @@
         :item="route"
         :base-path="route.path"
       )
+    el-button( @click="toggleSideBar" ) 展开 {{opened}}
 </template>
 
 <script>
-  import SidebarItem from './SidebarItem'
+  import { mapActions } from 'vuex'
+  import SidebarItem from './components/SidebarItem'
 
   export default {
     components: { SidebarItem },
@@ -52,9 +54,6 @@
       }
     },
     computed: {
-      isCollapse() {
-        return !this.opened
-      },
       activeMenu() {
         const route = this.$route
         const { meta, path } = route
@@ -64,9 +63,12 @@
         }
         return path
       }
+    },
+    methods: {
+      ...mapActions({
+        toggleSideBar: 'toggleSideBar'
+      })
     }
   }
 </script>
-<style lang="scss">
-  @import './sidebar.scss';
-</style>
+<style lang="scss"></style>

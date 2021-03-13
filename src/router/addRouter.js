@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 17:33:57
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-12 17:31:44
+ * @LastEditTime: 2021-03-13 11:50:09
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -30,6 +30,7 @@
  * @param {Array} routerList 格式化路由
  * @returns
  */
+import Layout from '@layout'
 export function addRouter(routerList) {
   const router = []
   routerList.forEach((e) => {
@@ -40,6 +41,10 @@ export function addRouter(routerList) {
     if (typeof e.loadPath === 'string') {
       e_new = Object.assign({}, e_new, {
         component: () => import(`@views/${e.loadPath}.vue`)
+      })
+    } else {
+      e_new = Object.assign({}, e_new, {
+        component: Layout
       })
     }
     if (e.children) {

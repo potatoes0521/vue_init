@@ -4,12 +4,11 @@
  * @path: 引入路径
  * @Date: 2021-03-12 17:24:43
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-12 17:46:33
+ * @LastEditTime: 2021-03-13 11:48:07
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
  */
-import Layout from '@layout'
 
 export const mockRouter = [
   {
@@ -22,7 +21,6 @@ export const mockRouter = [
     hideInMenu: false,
     title: '询价管理',
     keepAlive: false,
-    loadPath: Layout,
     children: [
       {
         id: 10001,
@@ -88,7 +86,6 @@ export const mockRouter = [
     hideInMenu: false,
     title: '订单管理',
     keepAlive: false,
-    loadPath: Layout,
     children: [
       {
         id: 10021,
@@ -177,7 +174,6 @@ export const mockRouter = [
     hideInMenu: false,
     title: '客户管理',
     keepAlive: false,
-    loadPath: Layout,
     children: [
       {
         id: 10031,
@@ -227,7 +223,6 @@ export const mockRouter = [
     hideInMenu: false,
     title: '运力管理',
     keepAlive: false,
-    loadPath: Layout,
     children: [
       {
         id: 10041,
@@ -293,7 +288,6 @@ export const mockRouter = [
     hideInMenu: false,
     title: '驿站管理',
     keepAlive: false,
-    loadPath: Layout,
     children: [
       {
         id: 10061,
@@ -343,7 +337,6 @@ export const mockRouter = [
     hideInMenu: false,
     title: '商户管理',
     keepAlive: false,
-    loadPath: Layout,
     children: [
       {
         id: 10071,
@@ -393,7 +386,6 @@ export const mockRouter = [
     hideInMenu: false,
     title: '运营管理',
     keepAlive: false,
-    loadPath: Layout,
     children: [
       {
         id: 10081,
@@ -455,7 +447,6 @@ export const mockRouter = [
     hideInMenu: false,
     title: '权限管理',
     keepAlive: false,
-    loadPath: Layout,
     children: [
       {
         id: 10091,
@@ -505,7 +496,6 @@ export const mockRouter = [
     hideInMenu: false,
     title: '日志管理',
     keepAlive: false,
-    loadPath: Layout,
     children: [
       {
         id: 10101,

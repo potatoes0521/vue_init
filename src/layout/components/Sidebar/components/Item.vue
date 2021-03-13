@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 18:47:45
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-12 18:00:13
+ * @LastEditTime: 2021-03-13 12:19:26
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -27,11 +27,7 @@
       const { icon, title } = context.props
       const vnodes = []
       if (icon) {
-        if (icon.includes('el-icon')) {
-          vnodes.push(<i class={[icon, 'sub-el-icon']} />)
-        } else {
-          // vnodes.push(<svg-icon icon-class={icon} />)
-        }
+        vnodes.push(<i class={`iconfont ${icon} icon-menu`}></i>)
       }
 
       if (title) {
@@ -47,10 +43,15 @@
 </script>
 
 <style scoped>
-  .sub-el-icon {
+  .icon-menu {
     color: currentColor;
-    width: 1em;
-    height: 1em;
+    width: 14px;
+    height: 14px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
   }
   .title {
     -moz-user-select: none; /*火狐*/

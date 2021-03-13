@@ -4,22 +4,18 @@
  * @path: 引入路径
  * @Date: 2021-03-09 18:47:52
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-12 14:44:15
+ * @LastEditTime: 2021-03-13 11:22:03
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
 -->
 <template lang="pug">
-  .app-wrapper
-    sidebar.sidebar-container(
-      :variables="variables"
-      :opened="sidebar.opened"
-      :menuList="menuList"
-    )
+  .app-wrapper( :class="classObj" )
+    .fixed-header
+      logo
+      navbar
     .main-container
-      .fixed-header
-        logo
-        navbar
+      sidebar.sidebar-container( :variables="variables" :menuList="menuList" :opened="isCollapse" )
       panel
 </template>
 
@@ -31,7 +27,6 @@
   import { mapGetters } from 'vuex'
   import Logo from './components/Logo'
   import variables from '@css/variables.scss'
-
   export default {
     name: 'Layout',
     components: {
@@ -42,9 +37,17 @@
     },
     mixins: [ResizeMixin],
     computed: {
-      ...mapGetters(['sidebar', 'menuList', 'device']),
+      ...mapGetters(['sidebar', 'menuList']),
       variables() {
         return variables
+      },
+      isCollapse() {
+        return !this.sidebar.opened
+      },
+      classObj() {
+        return {
+          hideSidebar: !this.sidebar.opened
+        }
       }
     },
     methods: {
@@ -67,10 +70,8 @@
     width: 100%;
   }
 
-  .main-container {
-    min-height: 100%;
-    position: relative;
-    box-sizing: border-box;
+  .sidebar-container {
+    width: $sideBarWidth;
   }
 
   .fixed-header {

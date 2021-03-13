@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 15:29:05
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-11 16:49:45
+ * @LastEditTime: 2021-03-13 10:42:29
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -34,11 +34,11 @@ section.app-main
   @import '~@/assets/css/variables.scss';
 
   .app-main {
-    min-height: calc(100vh - navbarHeight);
+    min-height: 100vh;
     width: 100%;
     position: relative;
     overflow: hidden;
     box-sizing: border-box;
-    padding-left: sideBarWidth;
+    padding-top: $navbarHeight;
   }
 </style>
