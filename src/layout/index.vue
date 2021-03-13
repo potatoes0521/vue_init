@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 18:47:52
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-13 16:00:19
+ * @LastEditTime: 2021-03-13 16:22:49
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -22,6 +22,7 @@
         @emitToggleSideBar="toggleSideBar"
       )
       panel
+
 </template>
 
 <script>
@@ -63,7 +64,6 @@
 
 <style lang="scss" scoped>
   @import '~@/assets/css/mixin.scss';
-
   .app-wrapper {
     @include clearfix;
 

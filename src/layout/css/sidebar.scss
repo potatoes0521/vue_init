@@ -219,35 +219,15 @@
   min-width: $sideBarWidth !important;
 }
 
-// // when menu collapsed
 .el-menu--vertical {
   margin-top: 12px !important;
   .nest-menu .el-submenu>.el-submenu__title,
   .el-menu-item {
-    height: 40px !important;
+    height: $menuHeight !important;
     display: flex;
     align-items: center;
     &:hover {
       background-color: $menuHover !important;
     }
   }
-
-//   // the scroll bar appears when the subMenu is too long
-  // >.el-menu--popup {
-  //   max-height: 100vh;
-  //   overflow-y: auto;
-
-  //   &::-webkit-scrollbar-track-piece {
-  //     background: #d3dce6;
-  //   }
-
-  //   &::-webkit-scrollbar {
-  //     width: 6px;
-  //   }
-
-  //   &::-webkit-scrollbar-thumb {
-  //     background: #99a9bf;
-  //     border-radius: 20px;
-  //   }
-  // }
 }
