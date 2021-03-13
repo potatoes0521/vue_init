@@ -12,6 +12,7 @@
 ### 🎨 代码样式
 范围|描述|commitId
 --|--|--
+ - | 删除无用代码 | [16bf4bc](http://192.168.200.205/qianduan/components/vue_init_cli/commits/16bf4bc)
  - | 删除无用的代码 | [997b1a0](http://192.168.200.205/qianduan/components/vue_init_cli/commits/997b1a0)
  更改一些基础配置 | 一些基础配置 | [c5d267c](http://192.168.200.205/qianduan/components/vue_init_cli/commits/c5d267c)
  - | 代码优化 | [34b40a3](http://192.168.200.205/qianduan/components/vue_init_cli/commits/34b40a3)

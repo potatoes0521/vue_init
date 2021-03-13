@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 18:47:52
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-13 13:14:36
+ * @LastEditTime: 2021-03-13 15:35:19
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -15,7 +15,7 @@
       logo
       navbar
     .main-container
-      sidebar.sidebar-container( :variables="variables" :menuList="menuList" :opened="isCollapse" )
+      sidebar.sidebar-container( :variables="variables" :menuList="menuList" :collapse="isCollapse" )
       panel
 </template>
 
@@ -42,11 +42,11 @@
         return variables
       },
       isCollapse() {
-        return !this.sidebar.opened
+        return this.sidebar.collapse
       },
       classObj() {
         return {
-          hideSidebar: !this.sidebar.opened
+          hideSidebar: this.sidebar.collapse
         }
       }
     }

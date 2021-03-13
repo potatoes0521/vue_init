@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 18:47:45
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-13 13:29:39
+ * @LastEditTime: 2021-03-13 15:35:26
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -13,7 +13,7 @@
   el-scrollbar( wrap-class="scrollbar-wrapper" )
     el-menu(
       :default-active="activeMenu"
-      :collapse="opened"
+      :collapse="collapse"
       :background-color="variables.menuBg"
       :text-color="variables.menuText"
       :unique-opened="false"
@@ -27,7 +27,7 @@
         :item="route"
         :base-path="route.path"
       )
-    el-button( @click="toggleSideBar" ) 展开 {{opened}}
+    el-button( @click="toggleSideBar" ) 展开 {{collapse}}
 </template>
 
 <script>
@@ -37,7 +37,7 @@
   export default {
     components: { SidebarItem },
     props: {
-      opened: {
+      collapse: {
         type: Boolean,
         required: true,
         default: true

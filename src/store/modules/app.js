@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 17:25:10
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-13 13:14:23
+ * @LastEditTime: 2021-03-13 15:34:29
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -14,7 +14,7 @@ import Storage from '@utils/storage.js'
 export default {
   state: {
     sidebar: {
-      opened: !+Storage.getCookie('sidebarStatus'),
+      collapse: Boolean(+Storage.getSession('sidebarStatus')),
       withoutAnimation: false
     },
     dialogConfig: {
@@ -25,12 +25,12 @@ export default {
   },
   mutations: {
     TOGGLE_SIDEBAR: (state) => {
-      if (state.sidebar.opened) {
-        Storage.getCookie('sidebarStatus', 1)
+      if (state.sidebar.collapse) {
+        Storage.setSession('sidebarStatus', 0)
       } else {
-        Storage.getCookie('sidebarStatus', 0)
+        Storage.setSession('sidebarStatus', 1)
       }
-      state.sidebar.opened = !state.sidebar.opened
+      state.sidebar.collapse = !state.sidebar.collapse
       state.sidebar.withoutAnimation = false
     }
   },
