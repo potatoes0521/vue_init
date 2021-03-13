@@ -63,7 +63,6 @@
 
 <style lang="scss" scoped>
   @import '~@/assets/css/mixin.scss';
-  @import '~@/assets/css/variables.scss';
 
   .app-wrapper {
     @include clearfix;
@@ -71,10 +70,6 @@
     position: relative;
     height: 100%;
     width: 100%;
-  }
-
-  .sidebar-container {
-    width: $sideBarWidth;
   }
 
   .fixed-header {
