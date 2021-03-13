@@ -9,6 +9,15 @@
  - | 样式修改 | [1d2f4b3](http://192.168.200.205/qianduan/components/vue_init_cli/commits/1d2f4b3)
 
 
+### 🎨 代码样式
+范围|描述|commitId
+--|--|--
+ - | 删除无用的代码 | [997b1a0](http://192.168.200.205/qianduan/components/vue_init_cli/commits/997b1a0)
+ 更改一些基础配置 | 一些基础配置 | [c5d267c](http://192.168.200.205/qianduan/components/vue_init_cli/commits/c5d267c)
+ - | 代码优化 | [34b40a3](http://192.168.200.205/qianduan/components/vue_init_cli/commits/34b40a3)
+ - | 文件名称修改 | [539d8fd](http://192.168.200.205/qianduan/components/vue_init_cli/commits/539d8fd)
+
+
 范围|描述|commitId
 --|--|--
  - | 处理UI | [18f7ae6](http://192.168.200.205/qianduan/components/vue_init_cli/commits/18f7ae6)
@@ -31,14 +40,6 @@
  - | 修改eslint | [90cae56](http://192.168.200.205/qianduan/components/vue_init_cli/commits/90cae56)
  - | 严格ESLINT | [766acc6](http://192.168.200.205/qianduan/components/vue_init_cli/commits/766acc6)
  - | init | [0c679ab](http://192.168.200.205/qianduan/components/vue_init_cli/commits/0c679ab)
-
-
-### 🎨 代码样式
-范围|描述|commitId
---|--|--
- 更改一些基础配置 | 一些基础配置 | [c5d267c](http://192.168.200.205/qianduan/components/vue_init_cli/commits/c5d267c)
- - | 代码优化 | [34b40a3](http://192.168.200.205/qianduan/components/vue_init_cli/commits/34b40a3)
- - | 文件名称修改 | [539d8fd](http://192.168.200.205/qianduan/components/vue_init_cli/commits/539d8fd)
 
 
 ### 📦 持续集成
