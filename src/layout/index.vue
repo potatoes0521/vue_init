@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 18:47:52
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-13 15:42:34
+ * @LastEditTime: 2021-03-13 16:00:19
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -28,7 +28,6 @@
   import Navbar from './components/Navbar'
   import Panel from './components/Panel'
   import Sidebar from './components/Sidebar'
-  import ResizeMixin from './mixin/ResizeHandler'
   import { mapGetters, mapActions } from 'vuex'
   import Logo from './components/Logo'
   import variables from '@css/variables.scss'
@@ -40,7 +39,6 @@
       Sidebar,
       Logo
     },
-    mixins: [ResizeMixin],
     computed: {
       ...mapGetters(['sidebar', 'menuList']),
       variables() {
