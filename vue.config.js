@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 15:33:35
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-11 12:25:29
+ * @LastEditTime: 2021-03-14 16:33:30
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -30,10 +30,9 @@ module.exports = {
   devServer: {
     // host: "192.168.31.246",
     open: true,
-    host: 'localhost',
     port: 8085,
-    https: false,
     hotOnly: false,
+    disableHostCheck: true,
     proxy: {
       //在此配置跨域
       '/api/': {

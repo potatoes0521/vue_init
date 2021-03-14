@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 15:29:05
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-10 17:20:00
+ * @LastEditTime: 2021-03-14 17:06:25
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -46,7 +46,7 @@ module.exports = {
     // 关闭每行最大长度小于 80
     "max-len": 0,
     // 函数括号前面不加空格
-    "space-before-function-paren": ["error", "never"],
+    // "space-before-function-paren": ["error", "never"],
     // 关闭要求 require() 出现在顶层模块作用域中
     "global-require": 0,
     // 禁止出现令人困惑的多行表达式    
