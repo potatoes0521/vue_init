@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 18:47:52
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-13 16:22:49
+ * @LastEditTime: 2021-03-14 16:18:36
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -12,7 +12,6 @@
 <template lang="pug">
   .app-wrapper( :class="classObj" )
     .fixed-header
-      logo
       navbar
     .main-container
       sidebar.sidebar-container(
@@ -30,15 +29,13 @@
   import Panel from './components/Panel'
   import Sidebar from './components/Sidebar'
   import { mapGetters, mapActions } from 'vuex'
-  import Logo from './components/Logo'
   import variables from '@css/variables.scss'
   export default {
     name: 'Layout',
     components: {
       Panel,
       Navbar,
-      Sidebar,
-      Logo
+      Sidebar
     },
     computed: {
       ...mapGetters(['sidebar', 'menuList']),
