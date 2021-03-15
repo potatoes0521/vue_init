@@ -1,4 +1,3 @@
-
 // base color
 $blue:#324157;
 $light-blue:#3A71A8;
@@ -7,7 +6,10 @@ $pink: #E65D6E;
 $green: #30B08F;
 $tiffany: #4AB7BD;
 $yellow:#FEC171;
-$panGreen: #30B08F;
+
+$themeGreen: #5dd9aa;
+$themeBlue: #44A8FF;
+$themeLinearBlue: #0095ff;
 
 // sidebar
 $menuText:#333333;
@@ -15,7 +17,7 @@ $menuActiveText:#44A8FF;
 $subMenuActiveText:#333333; // https://github.com/ElemeFE/element/issues/12951
 
 $menuBg:#FFFFFF;
-$menuHover:rgba(68,168,255,0.2);
+$menuHover:rgba(68, 168, 255, 0.2);
 $menuActive: rgba(68, 168, 255, 0.2);
 $menuHeight: 40px;
 
@@ -41,4 +43,5 @@ $menuTitleHeight: 40px;
   navbarHeight: $navbarHeight;
   subMenuItemHeight: $subMenuItemHeight;
   menuTitleHeight: $menuTitleHeight;
+  themeBlue: $themeBlue;
 }

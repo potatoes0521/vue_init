@@ -1,5 +1,20 @@
 # 0.1.0 (2021-03-15)
 
+### 🌟 新功能
+范围|描述|commitId
+--|--|--
+ - | UI改动 | [88bbbec](http://192.168.200.205/qianduan/components/vue_init_cli/commits/88bbbec)
+ - | 修改菜单样式并组件化 | [81f960f](http://192.168.200.205/qianduan/components/vue_init_cli/commits/81f960f)
+ - | 处理登录页面 | [662d725](http://192.168.200.205/qianduan/components/vue_init_cli/commits/662d725)
+ - | 处理请求跨域 | [5dc683b](http://192.168.200.205/qianduan/components/vue_init_cli/commits/5dc683b)
+ - | 处理通知中心 | [5c77ab0](http://192.168.200.205/qianduan/components/vue_init_cli/commits/5c77ab0)
+ - | 新增导航用户信息组件 | [bd61f2d](http://192.168.200.205/qianduan/components/vue_init_cli/commits/bd61f2d)
+ - | 样式修改 | [1d2f4b3](http://192.168.200.205/qianduan/components/vue_init_cli/commits/1d2f4b3)
+ - | 补充导航条样式 | [5495933](http://192.168.200.205/qianduan/components/vue_init_cli/commits/5495933)
+ - | 软话条组件 | [987d2d2](http://192.168.200.205/qianduan/components/vue_init_cli/commits/987d2d2)
+ - | 面板样式优化 | [04b7cc5](http://192.168.200.205/qianduan/components/vue_init_cli/commits/04b7cc5)
+
+
 范围|描述|commitId
 --|--|--
  - | Update .env.production | [99b36d9](http://192.168.200.205/qianduan/components/vue_init_cli/commits/99b36d9)
@@ -33,20 +48,6 @@
  - | 修改eslint | [90cae56](http://192.168.200.205/qianduan/components/vue_init_cli/commits/90cae56)
  - | 严格ESLINT | [766acc6](http://192.168.200.205/qianduan/components/vue_init_cli/commits/766acc6)
  - | init | [0c679ab](http://192.168.200.205/qianduan/components/vue_init_cli/commits/0c679ab)
-
-
-### 🌟 新功能
-范围|描述|commitId
---|--|--
- - | UI改动 | [88bbbec](http://192.168.200.205/qianduan/components/vue_init_cli/commits/88bbbec)
- - | 修改菜单样式并组件化 | [81f960f](http://192.168.200.205/qianduan/components/vue_init_cli/commits/81f960f)
- - | 处理请求跨域 | [5dc683b](http://192.168.200.205/qianduan/components/vue_init_cli/commits/5dc683b)
- - | 处理通知中心 | [5c77ab0](http://192.168.200.205/qianduan/components/vue_init_cli/commits/5c77ab0)
- - | 新增导航用户信息组件 | [bd61f2d](http://192.168.200.205/qianduan/components/vue_init_cli/commits/bd61f2d)
- - | 样式修改 | [1d2f4b3](http://192.168.200.205/qianduan/components/vue_init_cli/commits/1d2f4b3)
- - | 补充导航条样式 | [5495933](http://192.168.200.205/qianduan/components/vue_init_cli/commits/5495933)
- - | 软话条组件 | [987d2d2](http://192.168.200.205/qianduan/components/vue_init_cli/commits/987d2d2)
- - | 面板样式优化 | [04b7cc5](http://192.168.200.205/qianduan/components/vue_init_cli/commits/04b7cc5)
 
 
 ### 🎨 代码样式
