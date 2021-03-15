@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-10 17:59:55
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-14 16:19:22
+ * @LastEditTime: 2021-03-15 10:03:54
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -12,14 +12,16 @@
 <template lang="pug">
   .navbar
     Logo
+    UserInfo
 </template>
 
 <script>
   import { mapGetters } from 'vuex'
   import Logo from './components/Logo'
+  import UserInfo from './components/UserInfo'
 
   export default {
-    components: { Logo },
+    components: { Logo, UserInfo },
     computed: {
       ...mapGetters(['userInfo'])
     },
@@ -40,7 +42,8 @@
     height: $navbarHeight;
     overflow: hidden;
     background: linear-gradient(100deg, #5dd9aa 0%, #0095ff 100%);
-
+    display: flex;
+    justify-content: flex-end;
     .hamburger-container {
       line-height: 46px;
       height: 100%;

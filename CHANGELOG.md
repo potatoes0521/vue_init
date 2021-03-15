@@ -1,7 +1,9 @@
-# 0.1.0 (2021-03-14)
+# 0.1.0 (2021-03-15)
 
 范围|描述|commitId
 --|--|--
+ - | 样式优化 | [552187f](http://192.168.200.205/qianduan/components/vue_init_cli/commits/552187f)
+ - | 处理错误情况 | [08ae87a](http://192.168.200.205/qianduan/components/vue_init_cli/commits/08ae87a)
  - | 处理样式 | [ab138dd](http://192.168.200.205/qianduan/components/vue_init_cli/commits/ab138dd)
  - | 优化样式 | [6ae2b82](http://192.168.200.205/qianduan/components/vue_init_cli/commits/6ae2b82)
  - | 处理样式引入 | [53dc890](http://192.168.200.205/qianduan/components/vue_init_cli/commits/53dc890)
@@ -74,6 +76,7 @@
  - | 修改错误的目录结构 | [aa1941c](http://192.168.200.205/qianduan/components/vue_init_cli/commits/aa1941c)
  - | 新增axios包 | [9777087](http://192.168.200.205/qianduan/components/vue_init_cli/commits/9777087)
  - | 新增CAS环境变量 | [ef7aa45](http://192.168.200.205/qianduan/components/vue_init_cli/commits/ef7aa45)
+ - | 更改部分webpack配置 | [43d9c1f](http://192.168.200.205/qianduan/components/vue_init_cli/commits/43d9c1f)
  - | 添加 本地环境变量 | [95282e0](http://192.168.200.205/qianduan/components/vue_init_cli/commits/95282e0)
  - | 重新打开每次启动项目自动打开页面 | [4a3dfff](http://192.168.200.205/qianduan/components/vue_init_cli/commits/4a3dfff)
 
