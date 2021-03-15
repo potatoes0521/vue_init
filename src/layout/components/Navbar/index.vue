@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-10 17:59:55
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-15 10:32:58
+ * @LastEditTime: 2021-03-15 11:19:42
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -12,6 +12,7 @@
 <template lang="pug">
   .navbar
     Logo
+    Control
     NotificationCenter
     UserInfo
 </template>
@@ -21,8 +22,14 @@
   import Logo from './components/Logo'
   import UserInfo from './components/UserInfo'
   import NotificationCenter from './components/NotificationCenter'
+  import Control from './components/Control'
   export default {
-    components: { Logo, UserInfo, NotificationCenter },
+    components: {
+      Logo,
+      UserInfo,
+      NotificationCenter,
+      Control
+    },
     computed: {
       ...mapGetters(['userInfo'])
     },

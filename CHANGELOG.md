@@ -6,6 +6,7 @@
  - | UI改动 | [88bbbec](http://192.168.200.205/qianduan/components/vue_init_cli/commits/88bbbec)
  - | 修改菜单样式并组件化 | [81f960f](http://192.168.200.205/qianduan/components/vue_init_cli/commits/81f960f)
  - | 处理请求跨域 | [5dc683b](http://192.168.200.205/qianduan/components/vue_init_cli/commits/5dc683b)
+ - | 处理通知中心 | [5c77ab0](http://192.168.200.205/qianduan/components/vue_init_cli/commits/5c77ab0)
  - | 新增导航用户信息组件 | [bd61f2d](http://192.168.200.205/qianduan/components/vue_init_cli/commits/bd61f2d)
  - | 样式修改 | [1d2f4b3](http://192.168.200.205/qianduan/components/vue_init_cli/commits/1d2f4b3)
 
