@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 15:54:38
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-12 17:35:34
+ * @LastEditTime: 2021-03-15 09:48:15
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -72,6 +72,7 @@ class HttpRequest {
         this.destroy(url)
         const { data } = res
         const { message } = data
+        if (!message) return Promise.reject(data)
         if (message.code === '0000' || message.bussinessDone) {
           return data.data || {}
         } else if (message.code === '9001' || message.code === '9002') {
