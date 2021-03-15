@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 18:47:52
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-14 16:18:36
+ * @LastEditTime: 2021-03-15 13:35:24
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -21,7 +21,6 @@
         @emitToggleSideBar="toggleSideBar"
       )
       panel
-
 </template>
 
 <script>
@@ -67,6 +66,11 @@
     position: relative;
     height: 100%;
     width: 100%;
+
+    .main-container {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .fixed-header {
