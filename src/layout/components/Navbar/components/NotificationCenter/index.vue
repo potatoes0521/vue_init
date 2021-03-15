@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-15 10:22:57
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-15 14:09:33
+ * @LastEditTime: 2021-03-15 17:49:56
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -14,7 +14,7 @@
   .component-wrapper
     .line
     .notification-list
-      .notification-list-item( v-for="item in msgList" :key="item.id" :class="item.icon" )
+      .notification-list-item.iconfont( v-for="item in msgList" :key="item.id" :class="item.icon" )
         .have-news
 </template>
 <script>
@@ -24,11 +24,11 @@
       return {
         msgList: [
           {
-            icon: 'el-icon-bell',
+            icon: 'iconhebingxingzhuang1',
             id: 0
           },
           {
-            icon: ' el-icon-message',
+            icon: 'iconFill11',
             id: 1
           }
         ]

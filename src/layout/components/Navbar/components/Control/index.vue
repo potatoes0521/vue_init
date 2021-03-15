@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-15 11:02:48
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-15 11:38:48
+ * @LastEditTime: 2021-03-15 17:47:31
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -13,7 +13,7 @@
   .component-wrapper
     .control-wrapper
       .control-item( v-for="item in controlList" :key="item.id" )
-        .control-item-icon( :class="item.icon" )
+        .control-item-icon.iconfont( :class="item.icon" :style="{fontSize: item.size ? item.size + 'px': ''}" )
         .control-item-text {{item.text}}
 </template>
 <script>
@@ -23,34 +23,39 @@
       return {
         controlList: [
           {
-            icon: 'el-icon-phone-outline',
+            icon: 'iconFil3',
             text: '静音',
-            id: 1
+            id: 1,
+            size: 14
           },
           {
-            icon: 'el-icon-phone-outline',
+            icon: 'iconFill4',
             text: '呼出',
-            id: 2
+            id: 2,
+            size: 14
           },
           {
-            icon: 'el-icon-phone-outline',
+            icon: 'iconFill5',
             text: '呼入',
-            id: 3
+            id: 3,
+            size: 14
           },
           {
-            icon: 'el-icon-phone-outline',
+            icon: 'iconFill6',
             text: '监听',
-            id: 4
+            id: 4,
+            size: 13
           },
           {
-            icon: 'el-icon-phone-outline',
+            icon: 'iconservice',
             text: '打断',
             id: 5
           },
           {
-            icon: 'el-icon-phone-outline',
+            icon: 'iconFill9',
             text: '短信',
-            id: 6
+            id: 6,
+            size: 13
           }
         ]
       }
@@ -89,6 +94,10 @@
         margin: 0 14px;
         &-icon {
           font-size: 16px;
+          height: 16px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           color: #004785;
           margin-bottom: 2px;
         }
