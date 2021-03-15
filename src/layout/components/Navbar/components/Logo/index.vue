@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-10 17:59:55
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-11 16:42:52
+ * @LastEditTime: 2021-03-15 13:55:52
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -27,7 +27,7 @@
 
 <style lang="scss" scoped>
   .logo-container {
-    position: fixed;
+    position: absolute;
     width: 34px;
     height: 20px;
     background: #2b2f3a;

@@ -17,5 +17,6 @@
 <style lang="scss">
   #app {
     background: #efefef;
+    min-width: 1440px;
   }
 </style>

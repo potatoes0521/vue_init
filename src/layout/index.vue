@@ -4,23 +4,23 @@
  * @path: 引入路径
  * @Date: 2021-03-09 18:47:52
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-15 13:35:24
+ * @LastEditTime: 2021-03-15 14:01:17
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
 -->
 <template lang="pug">
-  .app-wrapper( :class="classObj" )
-    .fixed-header
-      navbar
-    .main-container
-      sidebar.sidebar-container(
-        :variables="variables"
-        :menuList="menuList"
-        :collapse="isCollapse"
-        @emitToggleSideBar="toggleSideBar"
-      )
-      panel
+.app-wrapper(:class='{ hideSidebar: isCollapse }')
+  .fixed-header
+    navbar
+  .main-container
+    sidebar.sidebar-container(
+      :variables='variables',
+      :menuList='menuList',
+      :collapse='isCollapse',
+      @emitToggleSideBar='toggleSideBar'
+    )
+    panel
 </template>
 
 <script>
@@ -43,11 +43,6 @@
       },
       isCollapse() {
         return this.sidebar.collapse
-      },
-      classObj() {
-        return {
-          hideSidebar: this.sidebar.collapse
-        }
       }
     },
     methods: {
@@ -69,12 +64,13 @@
 
     .main-container {
       width: 100%;
-      height: 100%;
+      height: calc(100% - 60px);
+      display: flex;
     }
   }
 
   .fixed-header {
-    position: fixed;
+    position: relative;
     top: 0;
     right: 0;
     z-index: 9;

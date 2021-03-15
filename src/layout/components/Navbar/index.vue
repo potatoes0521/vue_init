@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-10 17:59:55
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-15 11:19:42
+ * @LastEditTime: 2021-03-15 13:51:48
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -12,6 +12,7 @@
 <template lang="pug">
   .navbar
     Logo
+    ServiceMode
     Control
     NotificationCenter
     UserInfo
@@ -23,12 +24,15 @@
   import UserInfo from './components/UserInfo'
   import NotificationCenter from './components/NotificationCenter'
   import Control from './components/Control'
+  import ServiceMode from './components/ServiceMode'
+
   export default {
     components: {
       Logo,
       UserInfo,
       NotificationCenter,
-      Control
+      Control,
+      ServiceMode
     },
     computed: {
       ...mapGetters(['userInfo'])
@@ -52,6 +56,8 @@
     background: linear-gradient(100deg, #5dd9aa 0%, #0095ff 100%);
     display: flex;
     justify-content: flex-end;
+    min-width: 1440px;
+    box-sizing: border-box;
     .hamburger-container {
       line-height: 46px;
       height: 100%;

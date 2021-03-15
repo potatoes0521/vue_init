@@ -10,6 +10,7 @@
  - | 新增导航用户信息组件 | [bd61f2d](http://192.168.200.205/qianduan/components/vue_init_cli/commits/bd61f2d)
  - | 样式修改 | [1d2f4b3](http://192.168.200.205/qianduan/components/vue_init_cli/commits/1d2f4b3)
  - | 软话条组件 | [987d2d2](http://192.168.200.205/qianduan/components/vue_init_cli/commits/987d2d2)
+ - | 面板样式优化 | [04b7cc5](http://192.168.200.205/qianduan/components/vue_init_cli/commits/04b7cc5)
 
 
 范围|描述|commitId
