@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 17:26:24
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-13 11:49:24
+ * @LastEditTime: 2021-03-15 14:54:24
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -14,53 +14,52 @@ import router from './index.js'
 import store from '@store'
 import NProgress from 'nprogress' // Progress 进度条
 import 'nprogress/nprogress.css' // Progress 进度条样式
-import { Message } from 'element-ui'
 import { addRouter } from './addRouter.js'
 import { mockRouter } from './modules/mock.js'
+import { checkHeartBeat } from '@utils/auth.js'
+import { whiteList } from './modules/static.js'
 
-const whiteList = ['/login', '/500', '/404', '/403', '/index']
 router.beforeEach((to, from, next) => {
   NProgress.start()
   console.log('to', to)
   console.log('from', from)
-  const acToken = Vue.prototype.$storage.getCookie('acToken') || 123
-  if (acToken) {
-    // 判断cookice是否存在 不存在即为未登录
-    console.log('未登录')
-    if (to.path !== '/login') {
-      if (store.state.user.menuList.length) {
-        next()
+  // 进页面先心跳检测
+  checkHeartBeat()
+    .then((tokenState) => {
+      if (tokenState) {
+        if (to.path !== '/login') {
+          if (store.state.user.menuList.length) {
+            next()
+          } else {
+            console.log('跳转到获取动态路由的方法')
+            // 跳转到获取动态路由的方法
+            gotoRouter(to, next)
+          }
+        } else {
+          next('/index')
+        }
       } else {
-        console.log('跳转到获取动态路由的方法')
-        // 跳转到获取动态路由的方法
-        gotoRouter(to, next)
+        if (whiteList.indexOf(to.path) !== -1) {
+          // 免登陆白名单 直接进入
+          console.log('免登陆白名单 直接进入')
+          next()
+        } else {
+          console.log('2eles')
+          if (to.path !== '/login') {
+            // 重定向到登录页面 不能这么写 因为假如之前的角色是 管理员页面 后又登陆了非管理员 重定向的页面就可能不存在,就会导致404
+            // next(`/login?redirect=${to.path}`)
+            next('/login')
+            console.log('重定向到登录')
+          } else {
+            console.log('登录')
+            next()
+          }
+        }
       }
-    } else {
-      Message({
-        message: '您已经登录',
-        type: 'info'
-      })
-      next('/')
-    }
-  } else {
-    console.log('to.path', to.path)
-    if (whiteList.indexOf(to.path) !== -1) {
-      // 免登陆白名单 直接进入
-      console.log('免登陆白名单 直接进入')
-      next()
-    } else {
-      console.log('2eles')
-      if (to.path !== '/login') {
-        // 重定向到登录页面 不能这么写 因为假如之前的角色是 管理员页面 后又登陆了非管理员 重定向的页面就可能不存在,就会导致404
-        // next(`/login?redirect=${to.path}`)
-        next('/login')
-        console.log('重定向到登录')
-      } else {
-        console.log('登录')
-        next()
-      }
-    }
-  }
+    })
+    .catch(() => {
+      next('/login')
+    })
 })
 
 router.afterEach(() => {
@@ -94,7 +93,7 @@ function gotoRouter(to, next) {
     let sendData = {
       userId: userInfo.userId
     }
-    Vue.prototype.$PCApi.user
+    Vue.prototype.$api.user
       .getUserMenus(sendData, Vue.prototype) // 获取动态路由的方法
       .then((res) => {
         console.log('res', res)

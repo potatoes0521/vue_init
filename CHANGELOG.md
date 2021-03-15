@@ -1,36 +1,9 @@
 # 0.1.0 (2021-03-15)
 
-### 🌟 新功能
 范围|描述|commitId
 --|--|--
- - | UI改动 | [88bbbec](http://192.168.200.205/qianduan/components/vue_init_cli/commits/88bbbec)
- - | 修改菜单样式并组件化 | [81f960f](http://192.168.200.205/qianduan/components/vue_init_cli/commits/81f960f)
- - | 处理请求跨域 | [5dc683b](http://192.168.200.205/qianduan/components/vue_init_cli/commits/5dc683b)
- - | 处理通知中心 | [5c77ab0](http://192.168.200.205/qianduan/components/vue_init_cli/commits/5c77ab0)
- - | 新增导航用户信息组件 | [bd61f2d](http://192.168.200.205/qianduan/components/vue_init_cli/commits/bd61f2d)
- - | 样式修改 | [1d2f4b3](http://192.168.200.205/qianduan/components/vue_init_cli/commits/1d2f4b3)
- - | 软话条组件 | [987d2d2](http://192.168.200.205/qianduan/components/vue_init_cli/commits/987d2d2)
- - | 面板样式优化 | [04b7cc5](http://192.168.200.205/qianduan/components/vue_init_cli/commits/04b7cc5)
-
-
-### 🎨 代码样式
-范围|描述|commitId
---|--|--
- - | 删除无用代码 | [16bf4bc](http://192.168.200.205/qianduan/components/vue_init_cli/commits/16bf4bc)
- - | 删除无用的代码 | [997b1a0](http://192.168.200.205/qianduan/components/vue_init_cli/commits/997b1a0)
- 更改一些基础配置 | 一些基础配置 | [c5d267c](http://192.168.200.205/qianduan/components/vue_init_cli/commits/c5d267c)
- - | 代码优化 | [34b40a3](http://192.168.200.205/qianduan/components/vue_init_cli/commits/34b40a3)
- - | 文件名称修改 | [539d8fd](http://192.168.200.205/qianduan/components/vue_init_cli/commits/539d8fd)
-
-
-### 🐛 Bug 修复
-范围|描述|commitId
---|--|--
- - | 修复页面可以无限缩小的bug | [d029100](http://192.168.200.205/qianduan/components/vue_init_cli/commits/d029100)
-
-
-范围|描述|commitId
---|--|--
+ - | Update .env.production | [99b36d9](http://192.168.200.205/qianduan/components/vue_init_cli/commits/99b36d9)
+ - | Update .env | [2f68710](http://192.168.200.205/qianduan/components/vue_init_cli/commits/2f68710)
  - | 样式优化 | [552187f](http://192.168.200.205/qianduan/components/vue_init_cli/commits/552187f)
  - | 处理错误情况 | [08ae87a](http://192.168.200.205/qianduan/components/vue_init_cli/commits/08ae87a)
  - | 处理样式 | [ab138dd](http://192.168.200.205/qianduan/components/vue_init_cli/commits/ab138dd)
@@ -60,6 +33,36 @@
  - | 修改eslint | [90cae56](http://192.168.200.205/qianduan/components/vue_init_cli/commits/90cae56)
  - | 严格ESLINT | [766acc6](http://192.168.200.205/qianduan/components/vue_init_cli/commits/766acc6)
  - | init | [0c679ab](http://192.168.200.205/qianduan/components/vue_init_cli/commits/0c679ab)
+
+
+### 🌟 新功能
+范围|描述|commitId
+--|--|--
+ - | UI改动 | [88bbbec](http://192.168.200.205/qianduan/components/vue_init_cli/commits/88bbbec)
+ - | 修改菜单样式并组件化 | [81f960f](http://192.168.200.205/qianduan/components/vue_init_cli/commits/81f960f)
+ - | 处理请求跨域 | [5dc683b](http://192.168.200.205/qianduan/components/vue_init_cli/commits/5dc683b)
+ - | 处理通知中心 | [5c77ab0](http://192.168.200.205/qianduan/components/vue_init_cli/commits/5c77ab0)
+ - | 新增导航用户信息组件 | [bd61f2d](http://192.168.200.205/qianduan/components/vue_init_cli/commits/bd61f2d)
+ - | 样式修改 | [1d2f4b3](http://192.168.200.205/qianduan/components/vue_init_cli/commits/1d2f4b3)
+ - | 补充导航条样式 | [5495933](http://192.168.200.205/qianduan/components/vue_init_cli/commits/5495933)
+ - | 软话条组件 | [987d2d2](http://192.168.200.205/qianduan/components/vue_init_cli/commits/987d2d2)
+ - | 面板样式优化 | [04b7cc5](http://192.168.200.205/qianduan/components/vue_init_cli/commits/04b7cc5)
+
+
+### 🎨 代码样式
+范围|描述|commitId
+--|--|--
+ - | 删除无用代码 | [16bf4bc](http://192.168.200.205/qianduan/components/vue_init_cli/commits/16bf4bc)
+ - | 删除无用的代码 | [997b1a0](http://192.168.200.205/qianduan/components/vue_init_cli/commits/997b1a0)
+ 更改一些基础配置 | 一些基础配置 | [c5d267c](http://192.168.200.205/qianduan/components/vue_init_cli/commits/c5d267c)
+ - | 代码优化 | [34b40a3](http://192.168.200.205/qianduan/components/vue_init_cli/commits/34b40a3)
+ - | 文件名称修改 | [539d8fd](http://192.168.200.205/qianduan/components/vue_init_cli/commits/539d8fd)
+
+
+### 🐛 Bug 修复
+范围|描述|commitId
+--|--|--
+ - | 修复页面可以无限缩小的bug | [d029100](http://192.168.200.205/qianduan/components/vue_init_cli/commits/d029100)
 
 
 ### 📦 持续集成
