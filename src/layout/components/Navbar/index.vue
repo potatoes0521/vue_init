@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-10 17:59:55
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-15 13:51:48
+ * @LastEditTime: 2021-03-15 17:32:24
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -53,7 +53,7 @@
     width: 100%;
     height: $navbarHeight;
     overflow: hidden;
-    background: linear-gradient(100deg, #5dd9aa 0%, #0095ff 100%);
+    background: linear-gradient(100deg, $themeGreen 0%, $themeLinearBlue 100%);
     display: flex;
     justify-content: flex-end;
     min-width: 1440px;

@@ -15,6 +15,18 @@
  - | 面板样式优化 | [04b7cc5](http://192.168.200.205/qianduan/components/vue_init_cli/commits/04b7cc5)
 
 
+### 🐛 Bug 修复
+范围|描述|commitId
+--|--|--
+ - | 修复页面可以无限缩小的bug | [d029100](http://192.168.200.205/qianduan/components/vue_init_cli/commits/d029100)
+
+
+### 🔙 撤销
+范围|描述|commitId
+--|--|--
+ - | 上传错误 | [6abe97b](http://192.168.200.205/qianduan/components/vue_init_cli/commits/6abe97b)
+
+
 范围|描述|commitId
 --|--|--
  - | Update .env.production | [99b36d9](http://192.168.200.205/qianduan/components/vue_init_cli/commits/99b36d9)
@@ -58,12 +70,6 @@
  更改一些基础配置 | 一些基础配置 | [c5d267c](http://192.168.200.205/qianduan/components/vue_init_cli/commits/c5d267c)
  - | 代码优化 | [34b40a3](http://192.168.200.205/qianduan/components/vue_init_cli/commits/34b40a3)
  - | 文件名称修改 | [539d8fd](http://192.168.200.205/qianduan/components/vue_init_cli/commits/539d8fd)
-
-
-### 🐛 Bug 修复
-范围|描述|commitId
---|--|--
- - | 修复页面可以无限缩小的bug | [d029100](http://192.168.200.205/qianduan/components/vue_init_cli/commits/d029100)
 
 
 ### 📦 持续集成
