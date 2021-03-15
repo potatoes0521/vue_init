@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-15 10:22:57
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-15 10:52:37
+ * @LastEditTime: 2021-03-15 14:09:33
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -71,9 +71,15 @@
         position: relative;
 
         .have-news {
-          width: 5px;
-          height: 5px;
+          width: 8px;
+          height: 8px;
           position: absolute;
+          box-sizing: border-box;
+          border: 1.5px solid #fff;
+          background: #f6504d;
+          top: 0px;
+          right: 0px;
+          border-radius: 50%;
         }
       }
     }
