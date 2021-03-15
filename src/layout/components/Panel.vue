@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-09 15:29:05
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-15 13:58:04
+ * @LastEditTime: 2021-03-15 18:20:03
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -13,10 +13,9 @@
 section.app-main
   .panel-wrapper
     .panel
-      el-scrollbar( wrap-class="scrollbar-wrapper" )
-        transition(name='fade-transform', mode='out-in')
-          keep-alive(:include='cachedViews')
-            router-view(:key='key')
+      transition(name='fade-transform', mode='out-in')
+        keep-alive(:include='cachedViews')
+          router-view(:key='key')
 </template>
 
 <script>
@@ -53,6 +52,23 @@ section.app-main
         background: #ffffff;
         box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.06);
         border-radius: 4px;
+        overflow: auto;
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+        background-color: #eef4f9;
+      }
+
+      ::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: #eef4f9;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.1);
       }
     }
   }
