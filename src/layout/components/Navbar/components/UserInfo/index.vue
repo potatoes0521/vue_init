@@ -1,28 +1,27 @@
 <!--
  * @Author: liuYang
- * @description: 请填写描述信息
+ * @description: 用户信息组件
  * @path: 引入路径
  * @Date: 2021-03-15 09:59:05
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-15 10:21:46
+ * @LastEditTime: 2021-03-15 10:33:06
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
 -->
 <template lang="pug">
-  .component-wrapper
-    .user-head
-      img( src="https://www.imageoss.com/images/2021/03/10/64076f7a41ad3ff0046.png" )
-      .inline-status.inline
-    .msg-wrapper
-      .nickname 汉字
-      .user-number 123123
-    .el-icon-arrow-down.icon
-
+.component-wrapper
+  .user-head
+    img(src='https://www.imageoss.com/images/2021/03/10/64076f7a41ad3ff0046.png')
+    .inline-status.inline
+  .msg-wrapper
+    .nickname 汉字
+    .user-number 123123
+  .el-icon-arrow-down.icon
 </template>
 <script>
   export default {
-    name: 'index',
+    name: 'UserInfo',
     data() {
       return {}
     },

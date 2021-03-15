@@ -4,7 +4,7 @@
  * @path: 引入路径
  * @Date: 2021-03-10 17:59:55
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-15 10:03:54
+ * @LastEditTime: 2021-03-15 10:32:58
  * @mustParam: 必传参数
  * @optionalParam: 选传参数
  * @emitFunction: 函数
@@ -12,6 +12,7 @@
 <template lang="pug">
   .navbar
     Logo
+    NotificationCenter
     UserInfo
 </template>
 
@@ -19,9 +20,9 @@
   import { mapGetters } from 'vuex'
   import Logo from './components/Logo'
   import UserInfo from './components/UserInfo'
-
+  import NotificationCenter from './components/NotificationCenter'
   export default {
-    components: { Logo, UserInfo },
+    components: { Logo, UserInfo, NotificationCenter },
     computed: {
       ...mapGetters(['userInfo'])
     },
