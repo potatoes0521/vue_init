@@ -194,7 +194,7 @@
       }
     }
   }
-
+  
   .el-submenu {
     overflow: hidden;
 
@@ -243,6 +243,22 @@
     align-items: center;
     &:hover {
       background-color: $menuHover !important;
+    }
+  }
+  .el-menu-item.is-active {
+    background-color: $menuHover !important;
+    position: relative;
+
+    &::before {
+      content: '';
+      width: 4px;
+      height: 40px;
+      background-color: $menuActiveText;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
     }
   }
 }
