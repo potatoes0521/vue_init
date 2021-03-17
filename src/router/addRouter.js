@@ -1,13 +1,13 @@
 /*
  * @Author: liuYang
- * @description: 动态路由添加之前先对后端数据进行处理
- * @path: 引入路径
+ * @Description: 动态路由添加之前先对后端数据进行处理
+ * @Path: 引入路径
  * @Date: 2021-03-09 17:33:57
  * @LastEditors: liuYang
  * @LastEditTime: 2021-03-13 11:50:09
- * @mustParam: 必传参数
- * @optionalParam: 选传参数
- * @emitFunction: 函数
+ * @MustParam: 必传参数
+ * @OptionalParam: 选传参数
+ * @EmitFunction: 函数
  *
  *
  *

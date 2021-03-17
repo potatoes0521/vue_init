@@ -1,13 +1,13 @@
 /*
  * @Author: liuYang
- * @description: Prettier 具体配置文件
- * @path: 引入路径
+ * @Description: Prettier 具体配置文件
+ * @Path: 引入路径
  * @Date: 2021-03-09 15:31:46
  * @LastEditors: liuYang
  * @LastEditTime: 2021-03-09 15:31:54
- * @mustParam: 必传参数
- * @optionalParam: 选传参数
- * @emitFunction: 函数
+ * @MustParam: 必传参数
+ * @OptionalParam: 选传参数
+ * @EmitFunction: 函数
  */
 module.exports = {
   // 在ES5中有效的结尾逗号（对象，数组等）

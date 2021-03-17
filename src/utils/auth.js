@@ -1,13 +1,13 @@
 /*
  * @Author: liuYang
- * @description: 单点登录鉴权
- * @path: 引入路径
+ * @Description: 单点登录鉴权
+ * @Path: 引入路径
  * @Date: 2021-03-10 13:59:52
  * @LastEditors: liuYang
  * @LastEditTime: 2021-03-10 17:15:17
- * @mustParam: 必传参数
- * @optionalParam: 选传参数
- * @emitFunction: 函数
+ * @MustParam: 必传参数
+ * @OptionalParam: 选传参数
+ * @EmitFunction: 函数
  */
 import { getQueryObject } from '.'
 import Storage from '@utils/storage'

@@ -1,18 +1,18 @@
-# 0.1.0 (2021-03-15)
+# 0.1.0 (2021-03-17)
 
 ### 🌟 新功能
 范围|描述|commitId
 --|--|--
- - | UI改动 | [88bbbec](http://192.168.200.205/qianduan/components/vue_init_cli/commits/88bbbec)
- - | 修改菜单样式并组件化 | [81f960f](http://192.168.200.205/qianduan/components/vue_init_cli/commits/81f960f)
+ - | 补充导航条样式 | [5495933](http://192.168.200.205/qianduan/components/vue_init_cli/commits/5495933)
  - | 处理登录页面 | [662d725](http://192.168.200.205/qianduan/components/vue_init_cli/commits/662d725)
  - | 处理请求跨域 | [5dc683b](http://192.168.200.205/qianduan/components/vue_init_cli/commits/5dc683b)
  - | 处理通知中心 | [5c77ab0](http://192.168.200.205/qianduan/components/vue_init_cli/commits/5c77ab0)
- - | 新增导航用户信息组件 | [bd61f2d](http://192.168.200.205/qianduan/components/vue_init_cli/commits/bd61f2d)
- - | 样式修改 | [1d2f4b3](http://192.168.200.205/qianduan/components/vue_init_cli/commits/1d2f4b3)
- - | 补充导航条样式 | [5495933](http://192.168.200.205/qianduan/components/vue_init_cli/commits/5495933)
- - | 软话条组件 | [987d2d2](http://192.168.200.205/qianduan/components/vue_init_cli/commits/987d2d2)
  - | 面板样式优化 | [04b7cc5](http://192.168.200.205/qianduan/components/vue_init_cli/commits/04b7cc5)
+ - | 软话条组件 | [987d2d2](http://192.168.200.205/qianduan/components/vue_init_cli/commits/987d2d2)
+ - | 新增导航用户信息组件 | [bd61f2d](http://192.168.200.205/qianduan/components/vue_init_cli/commits/bd61f2d)
+ - | 修改菜单样式并组件化 | [81f960f](http://192.168.200.205/qianduan/components/vue_init_cli/commits/81f960f)
+ - | 样式修改 | [1d2f4b3](http://192.168.200.205/qianduan/components/vue_init_cli/commits/1d2f4b3)
+ - | UI改动 | [88bbbec](http://192.168.200.205/qianduan/components/vue_init_cli/commits/88bbbec)
 
 
 ### 🎨 代码样式
@@ -47,8 +47,15 @@
 ### 🔨 代码重构
 范围|描述|commitId
 --|--|--
- - | 优化组件化程度 | [e0ff869](http://192.168.200.205/qianduan/components/vue_init_cli/commits/e0ff869)
  - | 修改一点无影响的样式 | [390c03f](http://192.168.200.205/qianduan/components/vue_init_cli/commits/390c03f)
+ - | 优化组件化程度 | [e0ff869](http://192.168.200.205/qianduan/components/vue_init_cli/commits/e0ff869)
+
+
+### 🚀 性能优化
+范围|描述|commitId
+--|--|--
+ 优化面板页面 | 优化面板页面 | [c614c34](http://192.168.200.205/qianduan/components/vue_init_cli/commits/c614c34)
+ - | 优化变量名 | [38eb8cd](http://192.168.200.205/qianduan/components/vue_init_cli/commits/38eb8cd)
 
 
 范围|描述|commitId
@@ -86,19 +93,13 @@
  - | init | [0c679ab](http://192.168.200.205/qianduan/components/vue_init_cli/commits/0c679ab)
 
 
-### 🚀 性能优化
-范围|描述|commitId
---|--|--
- - | 优化变量名 | [38eb8cd](http://192.168.200.205/qianduan/components/vue_init_cli/commits/38eb8cd)
-
-
 ### chore
 范围|描述|commitId
 --|--|--
- - | 修改错误的目录结构 | [aa1941c](http://192.168.200.205/qianduan/components/vue_init_cli/commits/aa1941c)
- - | 新增axios包 | [9777087](http://192.168.200.205/qianduan/components/vue_init_cli/commits/9777087)
- - | 新增CAS环境变量 | [ef7aa45](http://192.168.200.205/qianduan/components/vue_init_cli/commits/ef7aa45)
  - | 更改部分webpack配置 | [43d9c1f](http://192.168.200.205/qianduan/components/vue_init_cli/commits/43d9c1f)
  - | 添加 本地环境变量 | [95282e0](http://192.168.200.205/qianduan/components/vue_init_cli/commits/95282e0)
+ - | 新增axios包 | [9777087](http://192.168.200.205/qianduan/components/vue_init_cli/commits/9777087)
+ - | 新增CAS环境变量 | [ef7aa45](http://192.168.200.205/qianduan/components/vue_init_cli/commits/ef7aa45)
+ - | 修改错误的目录结构 | [aa1941c](http://192.168.200.205/qianduan/components/vue_init_cli/commits/aa1941c)
  - | 重新打开每次启动项目自动打开页面 | [4a3dfff](http://192.168.200.205/qianduan/components/vue_init_cli/commits/4a3dfff)
 

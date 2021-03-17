@@ -1,13 +1,13 @@
 <!--
  * @Author: liuYang
- * @description: 用户信息组件
- * @path: 引入路径
+ * @Description: 用户信息组件
+ * @Path: 引入路径
  * @Date: 2021-03-15 09:59:05
  * @LastEditors: liuYang
  * @LastEditTime: 2021-03-15 14:05:04
- * @mustParam: 必传参数
- * @optionalParam: 选传参数
- * @emitFunction: 函数
+ * @MustParam: 必传参数
+ * @OptionalParam: 选传参数
+ * @EmitFunction: 函数
 -->
 <template lang="pug">
 .component-wrapper

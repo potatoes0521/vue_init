@@ -1,13 +1,13 @@
 /*
  * @Author: liuYang
- * @description: axios封装
- * @path: 引入路径
+ * @Description: axios封装
+ * @Path: 引入路径
  * @Date: 2021-03-09 15:54:38
  * @LastEditors: liuYang
  * @LastEditTime: 2021-03-15 09:48:15
- * @mustParam: 必传参数
- * @optionalParam: 选传参数
- * @emitFunction: 函数
+ * @MustParam: 必传参数
+ * @OptionalParam: 选传参数
+ * @EmitFunction: 函数
  */
 import axios from 'axios'
 // import createSignData from "./secret.js";

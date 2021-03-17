@@ -1,13 +1,13 @@
 /*
  * @Author: liuYang
- * @description: 处理递归权限路由
- * @path: 引入路径
+ * @Description: 处理递归权限路由
+ * @Path: 引入路径
  * @Date: 2021-03-09 17:26:24
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-15 14:54:24
- * @mustParam: 必传参数
- * @optionalParam: 选传参数
- * @emitFunction: 函数
+ * @LastEditTime: 2021-03-17 11:32:18
+ * @MustParam: 必传参数
+ * @OptionalParam: 选传参数
+ * @EmitFunction: 函数
  */
 import Vue from 'vue'
 import router from './index.js'

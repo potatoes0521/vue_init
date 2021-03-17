@@ -1,13 +1,13 @@
 /*
  * @Author: liuYang
- * @description: ESlint 具体配置文件
- * @path: 引入路径
+ * @Description: ESlint 具体配置文件
+ * @Path: 引入路径
  * @Date: 2021-03-09 15:29:05
  * @LastEditors: liuYang
  * @LastEditTime: 2021-03-14 17:06:25
- * @mustParam: 必传参数
- * @optionalParam: 选传参数
- * @emitFunction: 函数
+ * @MustParam: 必传参数
+ * @OptionalParam: 选传参数
+ * @EmitFunction: 函数
  */
 module.exports = {
   root: true,
