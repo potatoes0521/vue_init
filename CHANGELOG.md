@@ -39,7 +39,13 @@
  - | 修复页面可以无限缩小的bug | [d029100](http://192.168.200.205/qianduan/components/vue_init_cli/commits/d029100)
 
 
-### 🔙 撤销
+### 📝 文档
+范围|描述|commitId
+--|--|--
+ - | 修改文档 | [66c2bd6](http://192.168.200.205/qianduan/components/vue_init_cli/commits/66c2bd6)
+
+
+### 🔙 撤销上一次的提交
 范围|描述|commitId
 --|--|--
  - | 上传错误 | [6abe97b](http://192.168.200.205/qianduan/components/vue_init_cli/commits/6abe97b)
