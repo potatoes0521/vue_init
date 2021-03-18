@@ -1,5 +1,11 @@
 # 0.1.0 (2021-03-18)
 
+### ➕ 添加依赖
+范围|描述|commitId
+--|--|--
+ global | 移除了vue-cli-plugin-commitlint插件  引入了ly-tool-git-commitlint插件 | [3f62a20](http://192.168.200.205/qianduan/components/vue_init_cli/commits/3f62a20)
+
+
 ### 🌟 新功能
 范围|描述|commitId
 --|--|--
