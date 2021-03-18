@@ -1,4 +1,4 @@
-# 0.1.0 (2021-03-17)
+# 0.1.0 (2021-03-18)
 
 ### 🌟 新功能
 范围|描述|commitId
@@ -18,6 +18,7 @@
 ### 🎨 代码样式
 范围|描述|commitId
 --|--|--
+ - | 规范格式化文件头注释 | [7798054](http://192.168.200.205/qianduan/components/vue_init_cli/commits/7798054)
  更新iconfont | 更新iconfont | [bc0da42](http://192.168.200.205/qianduan/components/vue_init_cli/commits/bc0da42)
  - | 代码优化 | [34b40a3](http://192.168.200.205/qianduan/components/vue_init_cli/commits/34b40a3)
  - | 删除无用代码 | [16bf4bc](http://192.168.200.205/qianduan/components/vue_init_cli/commits/16bf4bc)
@@ -26,16 +27,10 @@
  - | 文件名称修改 | [539d8fd](http://192.168.200.205/qianduan/components/vue_init_cli/commits/539d8fd)
 
 
-### 🐛 Bug 修复
+### 🐛 Bug修复
 范围|描述|commitId
 --|--|--
  - | 修复页面可以无限缩小的bug | [d029100](http://192.168.200.205/qianduan/components/vue_init_cli/commits/d029100)
-
-
-### 📦 持续集成
-范围|描述|commitId
---|--|--
- - | 更新一些东西 | [dd67830](http://192.168.200.205/qianduan/components/vue_init_cli/commits/dd67830)
 
 
 ### 🔙 撤销
@@ -102,4 +97,10 @@
  - | 新增CAS环境变量 | [ef7aa45](http://192.168.200.205/qianduan/components/vue_init_cli/commits/ef7aa45)
  - | 修改错误的目录结构 | [aa1941c](http://192.168.200.205/qianduan/components/vue_init_cli/commits/aa1941c)
  - | 重新打开每次启动项目自动打开页面 | [4a3dfff](http://192.168.200.205/qianduan/components/vue_init_cli/commits/4a3dfff)
+
+
+### ci
+范围|描述|commitId
+--|--|--
+ - | 更新一些东西 | [dd67830](http://192.168.200.205/qianduan/components/vue_init_cli/commits/dd67830)
 

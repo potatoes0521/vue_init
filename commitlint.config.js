@@ -10,5 +10,5 @@
  * @EmitFunction: 函数
  */
 module.exports = {
-  extends: ['./node_modules/vue-cli-plugin-commitlint/lib/lint']
+  extends: ['./node_modules/ly-tool-git-commitlint/lib/lint']
 }
