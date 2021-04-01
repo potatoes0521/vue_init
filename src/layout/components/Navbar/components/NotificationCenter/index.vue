@@ -1,13 +1,13 @@
 <!--
  * @Author: liuYang
- * @Description: 通知中心
- * @Path: 引入路径
+ * @description: 通知中心
+ * @Path:  引入路径
  * @Date: 2021-03-15 10:22:57
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-15 17:49:56
- * @MustParam: 必传参数
- * @OptionalParam: 选传参数
- * @EmitFunction: 函数
+ * @LastEditTime: 2021-03-15 17:49:00
+ * @MustParam:  必传参数
+ * @OptionalParam:  选传参数
+ * @EmitFunction:  函数
 -->
 
 <template lang="pug">

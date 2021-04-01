@@ -1,0 +1,54 @@
+/*
+
+对element-ui tabs的样式改动
+
+*/
+
+.menus-page {
+  .el-tabs__header {
+    padding: 8px 20px 0 5px !important;
+  }
+}
+
+.el-tabs__nav-wrap::after {
+  content: none !important;
+}
+
+.el-tabs__active-bar {
+  height: 4px !important;
+  background-color: $themeBlue !important;
+}
+
+.el-tabs__item{
+  padding: 0 15px !important;
+}
+
+.el-tabs{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.el-tabs__content{
+  flex: 1;
+}
+
+.el-tab-pane{
+  height: 100%;
+}
+
+.perm-tabs-component-wrapper {
+  .el-tabs__header {
+    margin: 0 !important;
+    position: relative;
+    left: -15px;
+  }
+  .el-tabs__nav {
+
+    line-height: 35px;
+  }
+  .el-tabs__item {
+    margin-bottom: 10px !important;
+    height: 35px !important;
+  }
+}

@@ -1,13 +1,13 @@
 /*
  * @Author: liuYang
- * @Description: 请填写描述信息
- * @Path: 引入路径
+ * @description: 请填写描述信息
+ * @Path:  引入路径
  * @Date: 2021-03-09 17:27:39
  * @LastEditors: liuYang
  * @LastEditTime: 2021-03-15 14:53:01
- * @MustParam: 必传参数
- * @OptionalParam: 选传参数
- * @EmitFunction: 函数
+ * @MustParam:  必传参数
+ * @OptionalParam:  选传参数
+ * @EmitFunction:  函数
  */
 import Vue from 'vue'
 import Router from 'vue-router'

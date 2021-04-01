@@ -1,0 +1,128 @@
+/*
+
+所有修改element-ui里form相关的样式
+
+*/
+
+.chang-form-input {
+  &.login-form{
+    .el-input__inner{
+      background-color: #F8F9FC;
+      border: 1px solid #EEF0F4;
+      height: 40px !important;
+    }
+  }
+}
+
+.el-button--primary.is-plain {
+  background-color: $themeBlue !important;
+  background: none !important;
+  color: $themeBlue !important;
+}
+
+.el-button--success.is-plain {
+  background-color: none !important;
+  background: none !important;
+  color: $themGreen !important;
+}
+
+.el-button--danger.is-plain {
+  background-color: none !important;
+  background: none !important;
+  color: $themeRed !important;
+}
+
+// 小按钮32px
+.el-button--small {
+  height: 32px;
+}
+
+// 限制高度  36px
+.el-form-item__content,
+.el-form-item__label,
+.el-input,
+.el-input__inner {
+  height: 36px !important;
+  line-height: 36px !important;
+}
+
+.el-textarea__inner,
+.el-input__inner {
+  border:1px solid #E6E6E6 !important;
+}
+// 当按钮一行的时候给20px 主要在搜索框样式
+.el-form-item{
+  margin-bottom: 20px !important;
+}
+// 当按钮一行的时候给20px 主要在搜索框样式
+.el-form--inline .el-form-item {
+  margin-right: 20px !important;
+}
+// UI统按钮圆角为3像素
+.el-button {
+  border-radius: 3px !important;
+}
+
+// 必填项左边的※
+.el-form--label-left .el-form-item__label {
+  position: relative;
+}
+
+.el-form-item.is-required:not(.is-no-asterisk) .el-form-item__label-wrap>.el-form-item__label:before,
+.el-form-item.is-required:not(.is-no-asterisk)>.el-form-item__label:before{
+  position: absolute;
+  left: -13px;
+  font-size: 10px;
+  margin-right: 0px !important;
+  line-height: 36px;
+  top: 3px;
+  font-size: 20px;
+}
+.el-checkbox__label{
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: #666666 !important;
+  line-height: 20px !important;
+}
+.is-checked {
+  .el-checkbox__label {
+    color: $themeBlue !important;
+  }
+}
+.el-switch.is-checked .el-switch__core::after{
+  box-shadow: 0px 3px 1px 0px rgba(0, 0, 0, 0.06),
+  0px 3px 8px 0px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+}
+.textarea178 {
+  .el-textarea__inner{
+    height: 178px;
+  }
+}
+
+
+.group-search-wrapper {
+  input:-webkit-autofill,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill {
+    -webkit-text-fill-color: #ededed !important;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+    background-color: transparent;
+    background-image: none;
+    transition: background-color 50000s ease-in-out 0s;
+  }
+
+  input {
+    background-color: rgba(193, 193, 193, 0.2);
+  }
+
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 1) !important;
+  }
+
+  .el-input__inner {
+    border: none !important;
+  }
+}

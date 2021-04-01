@@ -1,13 +1,13 @@
 <!--
  * @Author: liuYang
- * @Description: 请填写描述信息
- * @Path: 引入路径
+ * @description: 请填写描述信息
+ * @Path:  引入路径
  * @Date: 2021-03-10 17:59:55
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-15 17:32:24
- * @MustParam: 必传参数
- * @OptionalParam: 选传参数
- * @EmitFunction: 函数
+ * @LastEditTime: 2021-03-15 16:28:49
+ * @MustParam:  必传参数
+ * @OptionalParam:  选传参数
+ * @EmitFunction:  函数
 -->
 <template lang="pug">
   .navbar

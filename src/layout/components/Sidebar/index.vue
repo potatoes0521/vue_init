@@ -1,13 +1,13 @@
 <!--
  * @Author: liuYang
- * @Description: 请填写描述信息
- * @Path: 引入路径
+ * @description: 请填写描述信息
+ * @Path:  引入路径
  * @Date: 2021-03-09 18:47:45
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-14 16:21:27
- * @MustParam: 必传参数
- * @OptionalParam: 选传参数
- * @EmitFunction: 函数
+ * @LastEditTime: 2021-03-16 17:01:16
+ * @MustParam:  必传参数
+ * @OptionalParam:  选传参数
+ * @EmitFunction:  函数
 -->
 <template lang="pug">
   div
@@ -25,7 +25,7 @@
         :collapse-transition="false"
         mode="vertical"
       )
-        sidebar-item(
+        SidebarItem(
           v-for="route in menuList"
           :key="route.path"
           :item="route"

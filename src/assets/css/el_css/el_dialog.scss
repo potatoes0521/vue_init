@@ -1,0 +1,35 @@
+/*
+
+处理弹出对话框样式
+
+*/
+.el-dialog__header {
+  padding: 24px !important;
+  padding-bottom: 0 !important;
+
+  .el-dialog__title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #222222;
+    line-height: 25px;
+  }
+}
+
+.el-dialog__body {
+  padding: 30px 24px 24px !important;
+}
+
+.el-dialog__wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1440px;
+  min-height: 900px;
+
+  .el-dialog {
+    margin: 0 !important;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 30%);
+    box-sizing: border-box;
+  }
+}

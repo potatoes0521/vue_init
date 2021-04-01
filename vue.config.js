@@ -4,7 +4,7 @@
  * @Path: 引入路径
  * @Date: 2021-03-09 15:33:35
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-14 16:33:30
+ * @LastEditTime: 2021-03-20 11:06:49
  * @MustParam: 必传参数
  * @OptionalParam: 选传参数
  * @EmitFunction: 函数
@@ -36,7 +36,7 @@ module.exports = {
     proxy: {
       //在此配置跨域
       '/api/': {
-        target: 'http://192.168.200.212:23000', //后端的接口地址
+        target: 'http://192.168.3.19:10002', //后端的接口地址
         secure: false,
         changeOrigin: true,
         pathRewrite: {

@@ -1,13 +1,13 @@
 <!--
  * @Author: liuYang
- * @Description: 头像旁边的放大按钮
- * @Path: 引入路径
+ * @description: 头像旁边的放大按钮
+ * @Path:  引入路径
  * @Date: 2021-03-09 18:56:33
  * @LastEditors: liuYang
  * @LastEditTime: 2021-03-13 15:56:50
- * @MustParam: 必传参数
- * @OptionalParam: 选传参数
- * @EmitFunction: 函数
+ * @MustParam:  必传参数
+ * @OptionalParam:  选传参数
+ * @EmitFunction:  函数
 -->
 <template lang="pug">
   div 放大

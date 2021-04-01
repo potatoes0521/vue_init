@@ -1,6 +1,7 @@
 @import './variables.scss';
 @import './reset.scss';
 @import '~@/layout/css/sidebar.scss';
+@import './el_css/index.scss';
 
 body {
   height: 100%;
@@ -23,13 +24,7 @@ html {
   height: 100%;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
-.no-padding {
+no-padding {
   padding: 0px !important;
 }
 
@@ -161,4 +156,10 @@ aside {
 
 .multiselect--active {
   z-index: 1000 !important;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }

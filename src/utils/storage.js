@@ -1,13 +1,13 @@
 /*
  * @Author: liuYang
- * @Description: 请填写描述信息
- * @Path: 引入路径
+ * @description: 请填写描述信息
+ * @Path:  引入路径
  * @Date: 2021-03-09 17:18:28
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-11 14:42:46
- * @MustParam: 必传参数
- * @OptionalParam: 选传参数
- * @EmitFunction: 函数
+ * @LastEditTime: 2021-03-25 14:29:52
+ * @MustParam:  必传参数
+ * @OptionalParam:  选传参数
+ * @EmitFunction:  函数
  */
 import Cookies from 'js-cookie'
 import config from '@config'
@@ -44,6 +44,7 @@ export default {
    * @return void
    */
   setSession(key, value) {
+    if (!value) return
     window.sessionStorage.setItem(storageName + key, encodeURIComponent(JSON.stringify(value)))
   },
   /**
@@ -52,7 +53,11 @@ export default {
    * @return 值
    */
   getSession(key) {
-    return JSON.parse(decodeURIComponent(window.sessionStorage.getItem(storageName + key)))
+    const data = window.sessionStorage.getItem(storageName + key) || false
+    if (!data || data === 'undefined' || data === 'null') return false
+    console.log(`data`, data)
+    console.log(`data`, typeof data)
+    return JSON.parse(decodeURIComponent(data))
   },
   /**
    * 移除指定的sessionStorage

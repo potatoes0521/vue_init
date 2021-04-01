@@ -1,13 +1,13 @@
 <!--
  * @Author: liuYang
- * @Description: panel
- * @Path: 引入路径
+ * @description: panel
+ * @Path:  引入路径
  * @Date: 2021-03-09 15:29:05
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-15 18:20:03
- * @MustParam: 必传参数
- * @OptionalParam: 选传参数
- * @EmitFunction: 函数
+ * @LastEditTime: 2021-03-17 16:54:35
+ * @MustParam:  必传参数
+ * @OptionalParam:  选传参数
+ * @EmitFunction:  函数
 -->
 <template lang="pug">
 section.app-main
@@ -34,6 +34,7 @@ section.app-main
 </script>
 <style lang="scss" scoped>
   @import '~@/assets/css/variables.scss';
+  @import '~@/assets/css/mixin.scss';
   .app-main {
     width: 100%;
     height: 100%;
@@ -55,21 +56,7 @@ section.app-main
         overflow: auto;
       }
 
-      ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-        background-color: #eef4f9;
-      }
-
-      ::-webkit-scrollbar-track {
-        border-radius: 10px;
-        background-color: #eef4f9;
-      }
-
-      ::-webkit-scrollbar-thumb {
-        border-radius: 10px;
-        background-color: rgba(0, 0, 0, 0.1);
-      }
+      @include scrollBar();
     }
   }
 </style>

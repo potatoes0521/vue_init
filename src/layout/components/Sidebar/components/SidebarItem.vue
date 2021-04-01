@@ -1,30 +1,30 @@
 <!--
  * @Author: liuYang
- * @Description: 请填写描述信息
- * @Path: 引入路径
+ * @description: 请填写描述信息
+ * @Path:  引入路径
  * @Date: 2021-03-09 18:47:45
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-12 16:54:25
- * @MustParam: 必传参数
- * @OptionalParam: 选传参数
- * @EmitFunction: 函数
+ * @LastEditTime: 2021-03-16 17:00:56
+ * @MustParam:  必传参数
+ * @OptionalParam:  选传参数
+ * @EmitFunction:  函数
 -->
 <template lang="pug">
   div.menu( v-if="!item.meta.hideInMenu" )
     template( v-if="hasOneShowingChild(item.children, item) && (!onlyOneChild.children || onlyOneChild.noShowingChildren) && !item.alwaysShow" )
-      app-link( v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)" )
+      AppLink( v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)" )
         el-menu-item(
           :index="resolvePath(onlyOneChild.path)"
           :class="{ 'submenu-title-noDropdown': !isNest }"
         )
-          item(
+          Item(
             :icon="onlyOneChild.meta.icon || (item.meta && item.meta.icon)"
             :title="onlyOneChild.meta.title"
           )
     el-submenu( v-else ref="subMenu" :index="resolvePath(item.path)" popper-append-to-body )
       template( slot="title" )
-        item( v-if="item.meta" :icon="item.meta && item.meta.icon" :title="item.meta.title" )
-      sidebar-item.nest-menu(
+        Item( v-if="item.meta" :icon="item.meta && item.meta.icon" :title="item.meta.title" )
+      SidebarItem.nest-menu(
         v-for="child in item.children"
         :key="child.path"
         :is-nest="true"

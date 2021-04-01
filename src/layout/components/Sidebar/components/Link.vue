@@ -1,13 +1,13 @@
 <!--
  * @Author: liuYang
- * @Description: 请填写描述信息
- * @Path: 引入路径
+ * @description: 请填写描述信息
+ * @Path:  引入路径
  * @Date: 2021-03-09 18:47:45
  * @LastEditors: liuYang
  * @LastEditTime: 2021-03-12 14:13:00
- * @MustParam: 必传参数
- * @OptionalParam: 选传参数
- * @EmitFunction: 函数
+ * @MustParam:  必传参数
+ * @OptionalParam:  选传参数
+ * @EmitFunction:  函数
 -->
 <template>
   <component :is="type" v-bind="linkProps(to)">

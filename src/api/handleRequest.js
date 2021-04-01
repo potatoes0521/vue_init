@@ -1,19 +1,19 @@
 /*
  * @Author: liuYang
- * @Description: axios封装
- * @Path: 引入路径
+ * @description: axios封装
+ * @Path:  引入路径
  * @Date: 2021-03-09 15:54:38
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-15 09:48:15
- * @MustParam: 必传参数
- * @OptionalParam: 选传参数
- * @EmitFunction: 函数
+ * @LastEditTime: 2021-04-01 17:13:42
+ * @MustParam:  必传参数
+ * @OptionalParam:  选传参数
+ * @EmitFunction:  函数
  */
 import axios from 'axios'
 // import createSignData from "./secret.js";
-import store from '@store'
 import { Message } from 'element-ui'
 import storage from '@/utils/storage'
+import router from '@/router'
 
 class HttpRequest {
   constructor(baseUrl) {
@@ -28,15 +28,17 @@ class HttpRequest {
     }
     // const { userInfo } = store.getters || {}
     let contentType = 'application/json;'
-    let url = this.baseUrl
+    if (options.url.endsWith('import')) {
+      contentType = 'multipart/form-data;'
+    }
     let config = {
-      baseURL: url,
+      baseURL: this.baseUrl,
       headers: {
         'content-type': contentType,
         accessToken: storage.getCookie('acToken')
       },
-      method: options.method,
-      data: ''
+      method: options.method
+      // data: options.data
     }
     if (options.method === 'get') {
       config = Object.assign({}, config, {
@@ -73,11 +75,12 @@ class HttpRequest {
         const { data } = res
         const { message } = data
         if (!message) return Promise.reject(data)
-        if (message.code === '0000' || message.bussinessDone) {
+        if (message.code === '0000' || message.bussinessDone || message.code === '4000') {
           return data.data || {}
         } else if (message.code === '9001' || message.code === '9002') {
-          store.dispatch('commitLoginOut')
-          Message.error(message.msg || '接口错误')
+          storage.clearAllStorage(['rmT'])
+          router.push('/login')
+          Message.error(message.msg || '令牌失效')
           return Promise.reject(message)
         } else {
           Message.error(message.msg || '接口错误')
@@ -86,22 +89,10 @@ class HttpRequest {
       },
       (error) => {
         this.destroy(url)
-        let errorInfo = error.response
-        if (!errorInfo) {
-          console.log(error)
-          // const {
-          //   request: { statusText, status },
-          //   config
-          // } = JSON.parse(JSON.stringify(error));
-          // errorInfo = {
-          //   statusText,
-          //   status,
-          //   request: {
-          //     responseURL: config.url
-          //   }
-          // };
+        if (error.response.status === 401) {
+          storage.clearAllStorage(['rmT'])
+          router.push('/login')
         }
-        // addErrorLog(errorInfo);
         return Promise.reject(error)
       }
     )

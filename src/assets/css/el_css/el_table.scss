@@ -1,0 +1,58 @@
+/*
+
+处理表格样式
+
+*/
+.el-table {
+  thead {
+    th,
+    tr {
+      background-color: #F5F6FA !important;
+      color: #333333 !important;
+    }
+  }
+}
+
+.el-table{
+  th,
+  tr,
+  td {
+    height: 40px !important;
+    box-sizing: border-box;
+    padding:  0 !important;
+  }
+
+  td {
+    color: #222D3E !important;
+  }
+}
+
+.el-pagination {
+  padding: 0 !important;
+  .el-pager {
+    li{
+      padding: 0 !important;
+      line-height: 26px !important;
+    }
+    .number {
+      height: 28px;
+      width: 28px;
+      min-width: 28px;
+      box-sizing: border-box;
+      margin: 0 2px;
+      border: 1px solid transparent;
+      border-radius: 2px;
+    }
+    .active {
+      height: 28px;
+      width: 28px;
+      border: 1px solid;
+    }
+  }
+}
+
+.el-table-column--selection{
+  .cell{
+    text-align: center;
+  }
+}

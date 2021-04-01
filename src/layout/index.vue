@@ -1,26 +1,26 @@
 <!--
  * @Author: liuYang
- * @Description: 请填写描述信息
- * @Path: 引入路径
+ * @description: 请填写描述信息
+ * @Path:  引入路径
  * @Date: 2021-03-09 18:47:52
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-15 14:01:17
- * @MustParam: 必传参数
- * @OptionalParam: 选传参数
- * @EmitFunction: 函数
+ * @LastEditTime: 2021-03-16 17:01:29
+ * @MustParam:  必传参数
+ * @OptionalParam:  选传参数
+ * @EmitFunction:  函数
 -->
 <template lang="pug">
 .app-wrapper(:class='{ hideSidebar: isCollapse }')
   .fixed-header
-    navbar
+    Navbar
   .main-container
-    sidebar.sidebar-container(
+    Sidebar.sidebar-container(
       :variables='variables',
       :menuList='menuList',
       :collapse='isCollapse',
       @emitToggleSideBar='toggleSideBar'
     )
-    panel
+    Panel
 </template>
 
 <script>

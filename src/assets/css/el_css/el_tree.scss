@@ -1,0 +1,11 @@
+.group-tree-list {
+  .el-tree-node__content {
+    height: 40px !important;
+    position: relative;
+  }
+
+  .el-tree-node__expand-icon {
+    // padding-left: 3px;
+    box-sizing: border-box;
+  }
+}
