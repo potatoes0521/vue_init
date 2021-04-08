@@ -1,4 +1,4 @@
-# 0.1.0 (2021-04-01)
+# 0.1.0 (2021-04-08)
 
 ### ➕ 添加依赖
 范围|描述|commitId
@@ -33,6 +33,12 @@
 |  no select | 删除无用的代码 | [997b1a0](http://192.168.200.205/qianduan/components/vue_init_cli/commits/997b1a0)|
 |  更改一些基础配置 | 一些基础配置 | [c5d267c](http://192.168.200.205/qianduan/components/vue_init_cli/commits/c5d267c)|
 |  no select | 文件名称修改 | [539d8fd](http://192.168.200.205/qianduan/components/vue_init_cli/commits/539d8fd)|
+
+
+### 🏠 构建系统
+范围|描述|commitId
+--|--|--
+|  影响整个项目 | 新增依赖的处理 | [b46a7dc](http://192.168.200.205/qianduan/components/vue_init_cli/commits/b46a7dc)|
 
 
 ### 🐛 Bug修复

@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-09 17:33:57
  * @LastEditors: liuYang
- * @LastEditTime: 2021-04-01 16:47:40
+ * @LastEditTime: 2021-04-08 10:54:12
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -32,7 +32,7 @@ import Layout from '@layout'
 import router from './index.js'
 import mockMenu from '../mock/mockMenu.json'
 import { listToTree } from '@/utils/treeTool.js'
-import { getThisUserMenuTree } from '@api/modules/this'
+import { getThisUserMenuTree } from '@api/this'
 import { PermissionRouter } from './modules/asyncRouter.js'
 import { hideInMenuRouter } from './modules/hideInMenuRouter.js'
 

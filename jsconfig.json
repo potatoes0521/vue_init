@@ -7,7 +7,7 @@
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@views/*": ["./src/views/*"],
-      "@api/*": ["src/api/*"],
+      "@api/*": ["src/api/modules/*"],
       "@utils/*": ["./src/utils/*"],
       "@js/*": ["./src/assets/js/*"],
       "@css/*": ["./src/assets/css/*"],

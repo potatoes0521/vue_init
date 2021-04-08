@@ -1,16 +1,16 @@
 /*
  * @Author: liuYang
- * @Description: 请填写描述信息
- * @Path: 引入路径
+ * @description: 请填写描述信息
+ * @Path:  引入路径
  * @Date: 2021-03-09 15:33:35
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-20 11:06:49
- * @MustParam: 必传参数
- * @OptionalParam: 选传参数
- * @EmitFunction: 函数
+ * @LastEditTime: 2021-04-08 10:53:28
+ * @MustParam:  必传参数
+ * @OptionalParam:  选传参数
+ * @EmitFunction:  函数
  */
 const path = require('path')
-const IS_PROD = ['production', 'prod'].includes(process.env.NODE_ENV)
+const IS_PROD = ['production', 'prod', 'pro', 'test'].includes(process.env.NODE_ENV)
 const resolve = (dir) => path.join(__dirname, dir)
 // gzip压缩
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
@@ -21,7 +21,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 module.exports = {
   // 线上资源读取地址
-  publicPath: IS_PROD ? process.env.VUE_APP_PUBLIC_PATH : './',
+  publicPath: process.env.VUE_APP_PUBLIC_PATH,
   // outputDir: "",
   lintOnSave: true,
   // 设为false打包时不生成.map文件
@@ -30,13 +30,13 @@ module.exports = {
   devServer: {
     // host: "192.168.31.246",
     open: true,
-    port: 8085,
+    port: 7001,
     hotOnly: false,
     disableHostCheck: true,
     proxy: {
       //在此配置跨域
       '/api/': {
-        target: 'http://192.168.3.19:10002', //后端的接口地址
+        target: 'http://192.168.200.212:7001', //后端的接口地址
         secure: false,
         changeOrigin: true,
         pathRewrite: {
@@ -53,7 +53,7 @@ module.exports = {
       .set('@', resolve('src'))
       .set('@components', resolve('src/components'))
       .set('@views', resolve('src/views'))
-      .set('@api', resolve('src/api'))
+      .set('@api', resolve('src/api/modules'))
       .set('@utils', resolve('src/utils'))
       .set('@js', resolve('src/assets/js'))
       .set('@css', resolve('src/assets/css'))

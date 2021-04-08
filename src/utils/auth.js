@@ -4,14 +4,14 @@
  * @Path: 引入路径
  * @Date: 2021-03-10 13:59:52
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-10 17:15:17
+ * @LastEditTime: 2021-04-08 10:54:39
  * @MustParam: 必传参数
  * @OptionalParam: 选传参数
  * @EmitFunction: 函数
  */
 import { getQueryObject } from '.'
 import Storage from '@utils/storage'
-import { exchangeTicket, heartBeat } from '@/api/modules/sso'
+import { exchangeTicket, heartBeat } from '@api/sso'
 import router from '@router/'
 
 let firstInit = true

@@ -990,6 +990,13 @@
   dependencies:
     chalk "^4.0.0"
 
+"@fingerprintjs/fingerprintjs@^3.0.6":
+  version "3.0.6"
+  resolved "https://registry.npmjs.org/@fingerprintjs/fingerprintjs/-/fingerprintjs-3.0.6.tgz#17caaa5082416c20e7f7c20436b403bfcc566bae"
+  integrity sha512-lewmx3nHNGupyCnwq/k9/rimgfN7+FC6/tmoEQ4oWd27zMpiGx83fFs24Mxgdj0D1l3JkdmqhHdq3jyWk9/fAQ==
+  dependencies:
+    tslib "^2.0.1"
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.npm.taobao.org/@hapi/address/download/@hapi/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -5931,7 +5938,7 @@ human-signals@^2.1.0:
   resolved "https://registry.npm.taobao.org/human-signals/download/human-signals-2.1.0.tgz#dc91fcba42e4d06e4abaed33b3e7a3c02f514ea0"
   integrity sha1-3JH8ukLk0G5Kuu0zs+ejwC9RTqA=
 
-husky@3.0.9:
+husky@@3.0.9:
   version "3.0.9"
   resolved "https://registry.npmjs.org/husky/-/husky-3.0.9.tgz#a2c3e9829bfd6b4957509a9500d2eef5dbfc8044"
   integrity sha512-Yolhupm7le2/MqC1VYLk/cNmYxsSsqKkTyBhzQHhPK1jFnC89mmmNVuGtLNabjDI6Aj8UNIr0KpRNuBkiC4+sg==
@@ -7143,10 +7150,10 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
-ly-tool-git-commitlint@^1.1.8:
-  version "1.1.8"
-  resolved "https://registry.npmjs.org/ly-tool-git-commitlint/-/ly-tool-git-commitlint-1.1.8.tgz#0b8b4215916213574729ef84a52df90a974b9a65"
-  integrity sha512-YAhCd6844IJM7tc48xep86f5QpVRUCM+EaUhdURwh2s0X8LzGhXkQS78aV64xzfnqUPfbBy6jpV2MTpd4QEoiQ==
+ly-tool-git-commitlint@1.1.12:
+  version "1.1.12"
+  resolved "https://registry.npmjs.org/ly-tool-git-commitlint/-/ly-tool-git-commitlint-1.1.12.tgz#f38deb1891bdc3159e5f3aea2d86d713e51d0e67"
+  integrity sha512-UgRumfcAv+iH/ni51anEawXD1BiDQFXcsaHVJCikaT0VMLSO0Z2QufOsYHvdmxkVJ90dfmQDEAc93QnzEPnVew==
 
 make-dir@^1.0.0, make-dir@^1.2.0:
   version "1.3.0"
@@ -10780,6 +10787,11 @@ tslib@^1.9.0:
   resolved "https://registry.npm.taobao.org/tslib/download/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=
 
+tslib@^2.0.1:
+  version "2.1.0"
+  resolved "https://registry.npmjs.org/tslib/-/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
+  integrity sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==
+
 tty-browserify@0.0.0:
   version "0.0.0"
   resolved "https://registry.npm.taobao.org/tty-browserify/download/tty-browserify-0.0.0.tgz#a157ba402da24e9bf957f9aa69d524eed42901a6"
@@ -11154,6 +11166,11 @@ vue-hot-reload-api@^2.3.0:
   version "2.3.4"
   resolved "https://registry.npm.taobao.org/vue-hot-reload-api/download/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha1-UylVzB6yCKPZkLOp+acFdGV+CPI=
+
+vue-lazyload@^1.3.3:
+  version "1.3.3"
+  resolved "https://registry.npmjs.org/vue-lazyload/-/vue-lazyload-1.3.3.tgz#4df50a271bde9b74c3caf7a228d6e0af50d5682f"
+  integrity sha512-uHnq0FTEeNmqnbBC2aRKlmtd9LofMZ6Q3mWvgfLa+i9vhxU8fDK+nGs9c1iVT85axSua/AUnMttIq3xPaU9G3A==
 
 "vue-loader-v16@npm:vue-loader@^16.1.0":
   version "16.1.2"
