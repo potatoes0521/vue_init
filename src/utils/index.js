@@ -1,13 +1,13 @@
 /*
  * @Author: liuYang
- * @Description: 各种工具类
- * @Path: 引入路径
+ * @description: 各种工具类
+ * @Path:  引入路径
  * @Date: 2021-03-09 19:07:17
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-10 17:18:45
- * @MustParam: 必传参数
- * @OptionalParam: 选传参数
- * @EmitFunction: 函数
+ * @LastEditTime: 2021-04-13 10:10:45
+ * @MustParam:  必传参数
+ * @OptionalParam:  选传参数
+ * @EmitFunction:  函数
  */
 
 /**
@@ -232,4 +232,67 @@ export function removeClass(ele, cls) {
     const reg = new RegExp('(\\s|^)' + cls + '(\\s|$)')
     ele.className = ele.className.replace(reg, ' ')
   }
+}
+
+/**
+ *判断类型
+ * @param {*} obj 需要判断的对象
+ */
+export const typeOf = (obj) => {
+  const map = {
+    '[object Boolean]': 'boolean',
+    '[object Number]': 'number',
+    '[object String]': 'string',
+    '[object Function]': 'function',
+    '[object Array]': 'array',
+    '[object Date]': 'date',
+    '[object RegExp]': 'regExp',
+    '[object Undefined]': 'undefined',
+    '[object Null]': 'null',
+    '[object Object]': 'object',
+    '[object URLSearchParams]': 'URLSearchParams'
+  }
+  return map[Object.prototype.toString.call(obj)]
+}
+
+export function isFunction(obj) {
+  return typeOf(obj) === 'function'
+}
+
+export function isDate(obj) {
+  return typeOf(obj) === 'date'
+}
+
+export function isString(obj) {
+  return typeOf(obj) === 'string'
+}
+
+export function isArray(obj) {
+  return typeOf(obj) === 'array'
+}
+
+export function isObject(obj) {
+  return typeOf(obj) === 'object'
+}
+
+export function isURLSearchParams(obj) {
+  return typeOf(obj) === 'URLSearchParams'
+}
+
+/**
+ * 给列表添加一个编号
+ * @param {Object} arr 要处理的数据
+ * @param {Object} pageNum 页数
+ * @return void
+ */
+export const addNumCode = (arr, pageNum = 0) => {
+  if (!Array.isArray(arr) || !arr.length) return
+  if (typeOf(pageNum) === 'undefined') {
+    console.error('pageNum is undefined in @utils/index => addNumCode')
+    return
+  }
+  return arr.map((item, index) => ({
+    ...item,
+    numId: index + (pageNum - 1) * 10 + 1
+  }))
 }

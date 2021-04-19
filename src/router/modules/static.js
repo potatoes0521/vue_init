@@ -4,28 +4,31 @@
  * @Path:  引入路径
  * @Date: 2021-03-15 14:51:27
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-26 16:54:15
+ * @LastEditTime: 2021-04-12 18:06:05
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
  */
 
 import Layout from '@layout'
+import _differenceBy from 'loadsh/differenceBy'
 
-export const whiteList = [
-  '/login',
-  '/500',
-  '/404',
-  '/403',
-  '/subsystem',
-  '/pages',
-  '/menus',
-  '/groups',
-  '/role',
-  '/skill',
-  '/permission',
-  '/personnel'
-]
+export const whiteList = ['/login', '/500', '/404', '/403']
+
+export const getDefaultRouter = (RouterList) => {
+  const whiteListMap = whiteList.map((item) => ({
+    path: item
+  }))
+  const arr =
+    _differenceBy([...RouterList], whiteListMap, 'path').filter(
+      (item) => !item.meta.hideInMenu
+    )[0] || {}
+  let defaultRouter = arr.path || '/404'
+  if (arr.children) {
+    defaultRouter = arr.children.filter((item) => !item.meta.hideInMenu)[0].path
+  }
+  return defaultRouter
+}
 
 export const StaticRouterMap = [
   {

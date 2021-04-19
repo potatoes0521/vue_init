@@ -4,16 +4,17 @@
  * @Path:  引入路径
  * @Date: 2021-03-09 15:54:38
  * @LastEditors: liuYang
- * @LastEditTime: 2021-04-01 17:13:42
+ * @LastEditTime: 2021-04-19 17:34:13
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
  */
 import axios from 'axios'
 // import createSignData from "./secret.js";
-import { Message } from 'element-ui'
+import { Message, MessageBox } from 'element-ui'
 import storage from '@/utils/storage'
-import router from '@/router'
+import store from '@/store'
+import { messageContentRender } from '@utils/createdHtmlTemplate'
 
 class HttpRequest {
   constructor(baseUrl) {
@@ -35,7 +36,8 @@ class HttpRequest {
       baseURL: this.baseUrl,
       headers: {
         'content-type': contentType,
-        accessToken: storage.getCookie('acToken')
+        accessToken: storage.getCookie('acToken') || '',
+        fp: storage.getLocal('visitorId')
       },
       method: options.method
       // data: options.data
@@ -75,11 +77,12 @@ class HttpRequest {
         const { data } = res
         const { message } = data
         if (!message) return Promise.reject(data)
-        if (message.code === '0000' || message.bussinessDone || message.code === '4000') {
+        if (message.code === '0000' || message.businessDone) {
+          return data.data || {}
+        } else if (message.code === '4000' && message.msg === '无数据') {
           return data.data || {}
         } else if (message.code === '9001' || message.code === '9002') {
-          storage.clearAllStorage(['rmT'])
-          router.push('/login')
+          store.dispatch('commitLoginOut')
           Message.error(message.msg || '令牌失效')
           return Promise.reject(message)
         } else {
@@ -89,11 +92,32 @@ class HttpRequest {
       },
       (error) => {
         this.destroy(url)
+        const errData = error.response.data.message
         if (error.response.status === 401) {
-          storage.clearAllStorage(['rmT'])
-          router.push('/login')
+          if (errData.code === '9001') {
+            Message.error(errData.msg || '令牌失效')
+            store.dispatch('commitGlobalDialogChange')
+          }
+          if (errData.code === '9004') {
+            MessageBox.confirm(
+              messageContentRender({
+                icon: 'el-icon-warning warning',
+                title: '警告',
+                message: errData.msg
+              }),
+              {
+                dangerouslyUseHTMLString: true,
+                showConfirmButton: true,
+                confirmButtonText: '知道了',
+                showCancelButton: false,
+                showClose: false
+              }
+            ).then(() => {
+              store.dispatch('commitLoginOut')
+            })
+          }
         }
-        return Promise.reject(error)
+        return Promise.reject(errData)
       }
     )
   }

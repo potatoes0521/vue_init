@@ -1,0 +1,50 @@
+.el-message-box {
+  padding: 24px 20px;
+  box-shadow: 0px 12px 42px 0px rgba(38, 38, 38, 0.24);   
+  border-radius: 4px;
+  .el-message-box__header {
+    height: 0;
+    padding: 0;
+  }
+  .el-message-box__content{
+    padding: 0;
+  }
+  .el-message-box__btns{
+    padding: 0px;
+    .el-button--small{
+      height: 36px;
+      box-sizing: border-box;
+    }
+  }
+}
+
+.message-box-wrapper {
+  .message-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #262626;
+    line-height: 24px;
+    .message-icon-style{
+      font-size: 19px;
+      margin-right: 11px;
+    }
+    .warning {
+      color: $themeYellow;
+    }
+    .success {
+      color: $themGreen;
+    }
+    .error {
+      color: $themeRed;
+    }
+  }
+  .message-content{
+    margin-top: 12px;
+    margin-left: 36px;
+    min-height: 50px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #595959;
+    line-height: 20px;
+  }
+}

@@ -4,15 +4,20 @@
  * @Path:  引入路径
  * @Date: 2021-03-09 17:18:28
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-25 14:29:52
+ * @LastEditTime: 2021-04-12 19:39:43
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
  */
 import Cookies from 'js-cookie'
 import config from '@config'
+import { typeOf } from '.'
 const { cookieExpires, companyName, projectName } = config
 const storageName = companyName + projectName
+
+const valueIsTrue = (value) => {
+  return typeOf(value) === 'undefined' || typeOf(value) === 'null' || isNaN(value)
+}
 
 export default {
   /**
@@ -21,9 +26,9 @@ export default {
    * @return 获取到的cookie
    */
   getCookie(name) {
-    const data = Cookies.get(storageName + name)
-    if (data) return JSON.parse(data)
-    else return false
+    const data = Cookies.get(storageName + name) || false
+    if (!data || data === 'undefined' || data === 'null') return false
+    else return JSON.parse(data)
   },
   /**
    * 设置一个cookie
@@ -33,6 +38,7 @@ export default {
    * @return void
    */
   setCookie(name, value, time) {
+    if (!valueIsTrue(value)) return
     Cookies.set(storageName + name, JSON.stringify(value), {
       expires: time || cookieExpires || 1
     })
@@ -44,7 +50,7 @@ export default {
    * @return void
    */
   setSession(key, value) {
-    if (!value) return
+    if (!valueIsTrue(value)) return
     window.sessionStorage.setItem(storageName + key, encodeURIComponent(JSON.stringify(value)))
   },
   /**
@@ -55,8 +61,6 @@ export default {
   getSession(key) {
     const data = window.sessionStorage.getItem(storageName + key) || false
     if (!data || data === 'undefined' || data === 'null') return false
-    console.log(`data`, data)
-    console.log(`data`, typeof data)
     return JSON.parse(decodeURIComponent(data))
   },
   /**
@@ -86,6 +90,7 @@ export default {
    * @return void
    */
   setLocal(key, value) {
+    if (!valueIsTrue(value)) return
     window.localStorage.setItem(storageName + key, encodeURIComponent(JSON.stringify(value)))
   },
   /**
@@ -95,7 +100,9 @@ export default {
    * @return void
    */
   getLocal(key) {
-    return JSON.parse(decodeURIComponent(window.localStorage.getItem(storageName + key)))
+    const data = window.localStorage.getItem(storageName + key) || false
+    if (!data || data === 'undefined' || data === 'null') return false
+    return JSON.parse(decodeURIComponent(data))
   },
   /**
    * 移除指定的localStorage
@@ -120,17 +127,21 @@ export default {
   },
   /**
    * 清除全部cookie sessionStorage localStorage
+   * @param {Array} exceptArr 除了key为XXX的全部删除
    * @return void
    */
-  clearAllStorage() {
+  clearAllStorage(exceptArr = []) {
+    exceptArr = exceptArr.map((item) => storageName + item)
     var date = new Date()
     date.setTime(date.getTime() - 10000)
     var keys = document.cookie.match(/[^ =;]+(?==)/g)
     if (keys) {
       keys.forEach((item) => {
-        Cookies.remove(item, {
-          path: ''
-        })
+        if (!exceptArr.includes(item)) {
+          Cookies.remove(item, {
+            path: ''
+          })
+        }
       })
     }
     sessionStorage.clear()

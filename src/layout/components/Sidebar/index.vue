@@ -68,7 +68,7 @@
     },
     methods: {
       toggleSideBar() {
-        this.$emit('emitToggleSideBar')
+        this.$emit('onToggleSideBar')
       }
     }
   }

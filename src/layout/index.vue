@@ -18,7 +18,7 @@
       :variables='variables',
       :menuList='menuList',
       :collapse='isCollapse',
-      @emitToggleSideBar='toggleSideBar'
+      @onToggleSideBar='toggleSideBar'
     )
     Panel
 </template>

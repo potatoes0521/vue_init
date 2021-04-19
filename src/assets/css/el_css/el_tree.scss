@@ -9,3 +9,18 @@
     box-sizing: border-box;
   }
 }
+
+.perm-group-component-wrapper{
+  .el-checkbox__input.is-disabled.is-indeterminate .el-checkbox__inner,
+  .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner {
+    background-color: rgba(68, 168, 255, 0.4);
+    border-color: rgba(68, 168, 255, 0.2);
+  }
+  .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner::after {
+    border-color: #fff;
+  }
+  .el-checkbox__input.is-disabled.is-indeterminate .el-checkbox__inner::before {
+    border-color: #fff;
+    background-color: #fff;
+  }
+}

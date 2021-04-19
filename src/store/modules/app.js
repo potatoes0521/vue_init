@@ -1,13 +1,13 @@
 /*
  * @Author: liuYang
- * @Description: 请填写描述信息
- * @Path: 引入路径
+ * @description: 请填写描述信息
+ * @Path:  引入路径
  * @Date: 2021-03-09 17:25:10
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-13 15:34:29
- * @MustParam: 必传参数
- * @OptionalParam: 选传参数
- * @EmitFunction: 函数
+ * @LastEditTime: 2021-04-19 17:35:47
+ * @MustParam:  必传参数
+ * @OptionalParam:  选传参数
+ * @EmitFunction:  函数
  */
 import Storage from '@utils/storage.js'
 
@@ -20,8 +20,7 @@ export default {
     dialogConfig: {
       top: '2vh',
       showClose: true
-    },
-    device: 'desktop'
+    }
   },
   mutations: {
     TOGGLE_SIDEBAR: (state) => {
@@ -35,8 +34,7 @@ export default {
     }
   },
   getters: {
-    sidebar: (state) => state.sidebar,
-    device: (state) => state.app.device
+    sidebar: (state) => state.sidebar
   },
   actions: {
     toggleSideBar: ({ commit }) => {

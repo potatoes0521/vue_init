@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-09 18:47:45
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-12 14:13:00
+ * @LastEditTime: 2021-04-12 09:51:20
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-  import { isExternal } from '@utils/validate'
+  import { isExternal } from '@utils/patter'
 
   export default {
     props: {

@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-09 15:33:35
  * @LastEditors: liuYang
- * @LastEditTime: 2021-04-08 10:53:28
+ * @LastEditTime: 2021-04-19 17:38:12
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -17,7 +17,7 @@ const CompressionWebpackPlugin = require('compression-webpack-plugin')
 
 const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i
 // 添加打包分析
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
   // 线上资源读取地址
@@ -69,14 +69,14 @@ module.exports = {
       .use('pug-html-loader')
       .loader('pug-html-loader')
       .end()
-    if (IS_PROD) {
-      // 打包生成打包分析
-      config.plugin('webpack-report').use(BundleAnalyzerPlugin, [
-        {
-          analyzerMode: 'static'
-        }
-      ])
-    }
+    // if (IS_PROD) {
+    //   // 打包生成打包分析
+    //   config.plugin('webpack-report').use(BundleAnalyzerPlugin, [
+    //     {
+    //       analyzerMode: 'static'
+    //     }
+    //   ])
+    // }
   },
   // gzip
   configureWebpack: (config) => {

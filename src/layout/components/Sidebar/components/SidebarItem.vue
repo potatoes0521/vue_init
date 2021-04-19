@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-09 18:47:45
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-16 17:00:56
+ * @LastEditTime: 2021-04-12 09:51:28
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -35,7 +35,7 @@
 
 <script>
   import path from 'path'
-  import { isExternal } from '@utils/validate'
+  import { isExternal } from '@utils/patter'
   import Item from './Item'
   import AppLink from './Link'
 

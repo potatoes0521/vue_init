@@ -12,12 +12,11 @@
     }
   }
 }
-
 .el-table{
   th,
   tr,
   td {
-    height: 40px !important;
+    height: 50px !important;
     box-sizing: border-box;
     padding:  0 !important;
   }
@@ -25,6 +24,16 @@
   td {
     color: #222D3E !important;
   }
+
+  th>.cell {
+    padding-left: 20px;
+  }
+}
+
+.el-table .cell,
+.el-table--border td:first-child .cell,
+.el-table--border th:first-child .cell {
+  padding-left: 20px;
 }
 
 .el-pagination {
