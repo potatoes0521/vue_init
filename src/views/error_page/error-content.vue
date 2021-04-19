@@ -1,11 +1,8 @@
 <template>
   <div class="error-page">
     <div class="content-con">
-      <img :src="src" :alt="code" />
-      <div class="text-con">
-        <h4>{{ code }}</h4>
-        <h5>{{ desc }}</h5>
-      </div>
+      <div class="desc">{{ desc }}</div>
+      <img class="img" :src="src" :alt="code" />
       <back-btn-group class="back-btn-group"></back-btn-group>
     </div>
   </div>
@@ -20,7 +17,6 @@
       backBtnGroup
     },
     props: {
-      code: String,
       desc: String,
       src: String
     }

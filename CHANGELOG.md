@@ -23,6 +23,12 @@
 |  no select | UI改动 | [88bbbec](http://192.168.200.205/qianduan/components/vue_init_cli/commits/88bbbec)|
 
 
+### 🎉 init
+范围|描述|commitId
+--|--|--
+|  影响整个项目 | 持续集成基础cli | [556c972](http://192.168.200.205/qianduan/components/vue_init_cli/commits/556c972)|
+
+
 ### 🎨 代码样式
 范围|描述|commitId
 --|--|--
