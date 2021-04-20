@@ -13,70 +13,7 @@
     "menuName": "子系统设置",
     "menuLevel": 2,
     "menuOrder": 9,
-    "menuHref": "/subsystem",
-    "hrefType": 1
-  },
-  {
-    "menuId": 60,
-    "menuPid": 57,
-    "menuName": "页面注册管理",
-    "menuLevel": 2,
-    "menuOrder": 8,
-    "menuHref": "/pages",
-    "hrefType": 1
-  },
-  {
-    "menuId": 61,
-    "menuPid": 57,
-    "menuName": "菜单注册管理",
-    "menuLevel": 2,
-    "menuOrder": 7,
-    "menuHref": "/menus",
-    "hrefType": 1
-  },
-  {
-    "menuId": 62,
-    "menuPid": 57,
-    "menuName": "组织架构",
-    "menuLevel": 2,
-    "menuOrder": 6,
-    "menuHref": "/groups",
-    "hrefType": 1
-  },
-  {
-    "menuId": 63,
-    "menuPid": 57,
-    "menuName": "角色管理",
-    "menuLevel": 2,
-    "menuOrder": 5,
-    "menuHref": "/role",
-    "hrefType": 1
-  },
-  {
-    "menuId": 64,
-    "menuPid": 57,
-    "menuName": "技能组管理",
-    "menuLevel": 2,
-    "menuOrder": 1,
-    "menuHref": "/skill",
-    "hrefType": 1
-  },
-  {
-    "menuId": 65,
-    "menuPid": 57,
-    "menuName": "权限组管理",
-    "menuLevel": 2,
-    "menuOrder": 1,
-    "menuHref": "/permission",
-    "hrefType": 1
-  },
-  {
-    "menuId": 66,
-    "menuPid": 57,
-    "menuName": "人员管理",
-    "menuLevel": 2,
-    "menuOrder": 11,
-    "menuHref": "/personnel",
+    "menuHref": "/home",
     "hrefType": 1
   },
   {

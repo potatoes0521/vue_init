@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-09 17:38:41
  * @LastEditors: liuYang
- * @LastEditTime: 2021-04-19 18:06:29
+ * @LastEditTime: 2021-04-20 15:12:35
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -40,10 +40,10 @@
       }
     },
     mounted() {
-      // this.timer = setInterval(() => {
-      //   if (this.second === 0) this.backPrev()
-      //   else this.second--
-      // }, 1000)
+      this.timer = setInterval(() => {
+        if (this.second === 0) this.backPrev()
+        else this.second--
+      }, 1000)
       this.$once('hook:beforeDestroy', () => clearInterval(this.timer))
     }
   }

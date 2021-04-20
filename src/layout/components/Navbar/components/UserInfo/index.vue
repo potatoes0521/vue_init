@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-15 09:59:05
  * @LastEditors: liuYang
- * @LastEditTime: 2021-04-13 14:55:33
+ * @LastEditTime: 2021-04-20 11:52:28
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -27,7 +27,7 @@
     ChangePassword( ref="changePassword" )
 </template>
 <script>
-  import { loginOut } from '@api/session'
+  import { loginOut } from '@api/this'
   import { mapActions, mapGetters } from 'vuex'
   import ChangePassword from './components/ChangePassword'
 

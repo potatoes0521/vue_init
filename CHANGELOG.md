@@ -26,6 +26,7 @@
 ### 🎉 init
 范围|描述|commitId
 --|--|--
+|  无影响 | init | [d2b0426](http://192.168.200.205/qianduan/components/vue_init_cli/commits/d2b0426)|
 |  影响整个项目 | 持续集成基础cli | [556c972](http://192.168.200.205/qianduan/components/vue_init_cli/commits/556c972)|
 
 

@@ -4,36 +4,39 @@
  * @Path: 引入路径
  * @Date: 2021-03-09 17:25:10
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-16 10:18:33
+ * @LastEditTime: 2021-04-20 15:09:08
  * @MustParam: 必传参数
  * @OptionalParam: 选传参数
  * @EmitFunction: 函数
  */
 import Storage from '@utils/storage.js'
-import { StaticRouterMap } from '@router/modules/static'
-// import { resetRouter } from "@/router/resetRouter";
+import { StaticRouterMap, getDefaultRouter } from '@router/modules/static'
+import { getUserInfo, getUserPermList } from '@api/this'
+import store from '..'
+import router, { resetRouter } from '@/router'
+import storage from '@utils/storage.js'
+
 export default {
   state: {
-    userInfo: {
-      token: '',
-      mobile: '',
-      openId: '',
-      userId: '', // 常用请求全部放在请求头上
-      unionId: '',
-      userType: '',
-      avatar: '1111'
-    },
-    menuList: []
+    userInfo: null,
+    menuList: [],
+    userPermList: [],
+    defaultRouter: '',
+    isLogin: false
   },
   mutations: {
-    CHANGEUSERINFO(state, data = {}) {
-      const newData = Object.assign({}, state.userInfo, data)
-      Storage.setCookie('admin', newData)
-      state.userInfo = newData
+    CHANGE_USER_INFO(state, data) {
+      state.userInfo = {
+        ...state.userInfo,
+        ...data
+      }
+      state.isLogin = Boolean(data && Object.keys(data).length)
+      store.dispatch('commitGetUserPermList')
     },
-    LOGINOUT(state) {
-      Storage.clearAllStorage()
-      let data = state
+    LOGIN_OUT(state) {
+      let data = {
+        ...state
+      }
       for (let i in state) {
         if (Array.isArray(state[i])) {
           state[i] = []
@@ -47,40 +50,81 @@ export default {
           state[i] = {}
         }
       }
-      state = data
-      // resetRouter();
-      location.reload() // 会造成页面刷新 白色的屏闪 体验不好
+      state = {
+        ...data
+      }
+      state.menuList = null
+      resetRouter()
+      Storage.clearAllStorage(['rmT'])
+      router.push('login')
     },
-    MENULIST(state, RouterList) {
-      state.menuList = RouterList
+    MENU_LIST(state, RouterList) {
+      const defaultRouter = getDefaultRouter(RouterList)
+      state.menuList = [...RouterList]
+      state.defaultRouter = defaultRouter
+    },
+    USER_PERM_LIST(state, permList) {
+      state.userPermList = permList || null
+      storage.setSession('upl', permList || [])
     }
   },
   getters: {
     userInfo(state) {
-      if (!state.userInfo.userId || !state.userInfo.token) {
-        let userInfo = Storage.getCookie('admin') || {}
-        if (userInfo.token && userInfo.userId) {
-          let userInfo = Storage.getCookie('admin')
-          state.userInfo = userInfo
-        }
+      const cookieToken = Storage.getCookie('acToken')
+      if (state.userInfo === null && state.menuList.length && cookieToken) {
+        store.dispatch('commitChangeUserInfo')
       }
       return state.userInfo
     },
     menuList(state) {
       return state.menuList
+    },
+    userPermList(state) {
+      if (Array.isArray(state.userPermList) && !state.userPermList.length && state.isLogin) {
+        store.dispatch('commitGetUserPermList')
+      }
+      return state.userPermList
+    },
+    defaultRouter(state) {
+      return state.defaultRouter
     }
   },
   actions: {
-    commitChangeUserInfo({ commit }, data = {}) {
-      commit('CHANGEUSERINFO', data)
+    commitChangeUserInfo({ commit }) {
+      getUserInfo()
+        .then((res) => {
+          commit(
+            'CHANGE_USER_INFO',
+            res
+              ? {
+                  ...res
+                }
+              : null
+          )
+        })
+        .catch(() => {
+          commit('CHANGE_USER_INFO', null)
+        })
     },
-    commitLoginOut({ commit }, data = {}) {
-      console.log('login out')
-      commit('LOGINOUT', data)
+    commitLoginOut({ commit }) {
+      commit('LOGIN_OUT')
     },
     commitMenuList({ commit }, routerList = []) {
       // 动态设置路由 此为设置设置途径
-      commit('MENULIST', StaticRouterMap.concat(routerList)) // 进行路由拼接并存储
+      commit('MENU_LIST', [...StaticRouterMap, ...routerList]) // 进行路由拼接并存储
+    },
+    commitGetUserPermList({ commit }) {
+      getUserPermList()
+        .then(({ permList }) => {
+          permList = permList.length ? permList : null
+          commit('USER_PERM_LIST', permList)
+        })
+        .catch(() => {
+          commit('USER_PERM_LIST', null)
+        })
+    },
+    commitChangeUserPermList({ commit }, data = null) {
+      commit('USER_PERM_LIST', data)
     }
   }
 }

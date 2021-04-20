@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-09 17:33:57
  * @LastEditors: liuYang
- * @LastEditTime: 2021-04-12 20:43:40
+ * @LastEditTime: 2021-04-20 15:05:32
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -28,7 +28,7 @@
  * @returns
  */
 import store from '@store'
-import Layout from '@layout'
+import Layout from '@layout/index'
 import router, { resetRouter } from './index.js'
 import mockMenu from '../mock/mockMenu.json'
 import { listToTree } from '@/utils/treeTool.js'
@@ -46,17 +46,17 @@ export const handleMenuData = (to, next) => {
     const asyncRouter = transformRouterData(asyncData) // 进行递归解析
     // 一定不能写在静态路由里面,否则会出现,访问动态路由404的情况.所以在这列添加
     const lastAsyncRouter = [...asyncRouter, ...hideInMenuRouter]
+
     resetRouter()
     router.addRoutes(lastAsyncRouter) // vue-router提供的addRouter方法进行路由拼接
     // 记录路由获取状态
     store.dispatch('commitMenuList', lastAsyncRouter) // 存储到vuex
-    if (next) {
+    if (to.path !== '/') {
       next({
         ...to,
         replace: true
       }) // hack方法 确保addRoutes已完成
     } else {
-      console.log(`%c console.log  --------`, 'color:blue', store.state.user.defaultRouter)
       router.replace(store.state.user.defaultRouter)
     }
   } else {
@@ -155,7 +155,6 @@ export const transformRouterData = (routerList) => {
         }
       }
     }
-
     router.push(e_new)
   })
   return router
