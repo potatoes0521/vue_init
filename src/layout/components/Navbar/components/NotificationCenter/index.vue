@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-15 10:22:57
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-15 17:49:00
+ * @LastEditTime: 2021-04-20 15:19:07
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -45,7 +45,6 @@
     display: flex;
     align-items: center;
     height: 100%;
-    min-width: 185px;
 
     .line {
       width: 2px;

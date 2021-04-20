@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-10 17:59:55
  * @LastEditors: liuYang
- * @LastEditTime: 2021-04-09 19:33:44
+ * @LastEditTime: 2021-04-20 15:18:31
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -12,9 +12,9 @@
 <template lang="pug">
   .navbar
     Logo
-    //- ServiceMode
-    //- Control
-    //- NotificationCenter
+    ServiceMode
+    Control
+    NotificationCenter
     UserInfo
 </template>
 

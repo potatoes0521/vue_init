@@ -28,6 +28,7 @@
 --|--|--
 |  无影响 | init | [d2b0426](http://192.168.200.205/qianduan/components/vue_init_cli/commits/d2b0426)|
 |  影响整个项目 | 持续集成基础cli | [556c972](http://192.168.200.205/qianduan/components/vue_init_cli/commits/556c972)|
+|  影响整个项目 | 完善init 路由跳转等初始化 | [4f97509](http://192.168.200.205/qianduan/components/vue_init_cli/commits/4f97509)|
 
 
 ### 🎨 代码样式
