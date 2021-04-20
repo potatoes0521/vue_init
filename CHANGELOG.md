@@ -1,4 +1,4 @@
-# 0.1.0 (2021-04-19)
+# 0.1.0 (2021-04-20)
 
 ### ➕ 添加依赖
 范围|描述|commitId
@@ -52,6 +52,12 @@
 范围|描述|commitId
 --|--|--
 |  no select | 修复页面可以无限缩小的bug | [d029100](http://192.168.200.205/qianduan/components/vue_init_cli/commits/d029100)|
+
+
+### 💄 UI变更
+范围|描述|commitId
+--|--|--
+|  UI 界面 | 处理UI界面 | [21c0cc8](http://192.168.200.205/qianduan/components/vue_init_cli/commits/21c0cc8)|
 
 
 ### 📝 文档

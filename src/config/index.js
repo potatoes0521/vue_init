@@ -4,7 +4,7 @@
  * @Path: 引入路径
  * @Date: 2021-03-09 15:58:50
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-11 16:26:34
+ * @LastEditTime: 2021-04-19 18:14:50
  * @MustParam: 必传参数
  * @OptionalParam: 选传参数
  * @EmitFunction: 函数
@@ -27,5 +27,5 @@ export default {
    */
   homeName: 'login',
   companyName: 'xiaoshi_',
-  projectName: 'single_login_'
+  projectName: 'qishi_wiki_'
 }

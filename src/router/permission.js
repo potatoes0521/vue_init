@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-09 17:26:24
  * @LastEditors: liuYang
- * @LastEditTime: 2021-04-14 10:31:46
+ * @LastEditTime: 2021-04-19 18:33:00
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -16,7 +16,6 @@ import 'nprogress/nprogress.css' // Progress 进度条样式
 import { handleMenuData } from './addRouter.js'
 import { checkHeartBeat } from '@utils/auth.js'
 import { whiteList } from './modules/static.js'
-import { form } from '@/views/Pages/config/form.js'
 
 const env = process.env.NODE_ENV === 'development' ? true : false
 
@@ -36,7 +35,7 @@ router.beforeEach((to, from, next) => {
       next(false)
     } else {
       // 如果重复跳转login 直接处理  虽然很low  但是还是要这样处理
-      if (to.path === form.path) {
+      if (to.path === from.path) {
         console.log(`%c console.log  --------`, 'color:blue', '从登录去登录')
         next(false)
       } else {
