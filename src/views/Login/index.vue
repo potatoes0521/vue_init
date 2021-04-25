@@ -4,24 +4,19 @@
  * @Path: 引入路径
  * @Date: 2021-03-09 18:24:27
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-09 18:42:08
+ * @LastEditTime: 2021-04-20 15:26:24
  * @MustParam: 必传参数
  * @OptionalParam: 选传参数
  * @EmitFunction: 函数
 -->
-<template lang="pug">
-  .page-wrapper 123
-</template>
-
 <script>
   export default {
-    name: 'index',
+    name: 'Login',
     data() {
       return {}
     },
-    components: {},
-    methods: {},
-    watch: {},
-    mounted() {}
+    render: function(h) {
+      return h() // avoid warning message
+    }
   }
 </script>

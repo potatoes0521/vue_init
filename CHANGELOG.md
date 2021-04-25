@@ -1,4 +1,4 @@
-# 0.1.0 (2021-04-20)
+# 0.1.0 (2021-04-25)
 
 ### ➕ 添加依赖
 范围|描述|commitId
@@ -59,6 +59,7 @@
 ### 💄 UI变更
 范围|描述|commitId
 --|--|--
+|  UI 界面 | 处理导航条UI | [90720b4](http://192.168.200.205/qianduan/components/vue_init_cli/commits/90720b4)|
 |  UI 界面 | 处理UI界面 | [21c0cc8](http://192.168.200.205/qianduan/components/vue_init_cli/commits/21c0cc8)|
 
 

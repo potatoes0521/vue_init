@@ -4,7 +4,7 @@
  * @Path: 引入路径
  * @Date: 2021-03-09 17:25:10
  * @LastEditors: liuYang
- * @LastEditTime: 2021-04-20 15:09:08
+ * @LastEditTime: 2021-04-25 09:54:45
  * @MustParam: 必传参数
  * @OptionalParam: 选传参数
  * @EmitFunction: 函数
@@ -13,8 +13,9 @@ import Storage from '@utils/storage.js'
 import { StaticRouterMap, getDefaultRouter } from '@router/modules/static'
 import { getUserInfo, getUserPermList } from '@api/this'
 import store from '..'
-import router, { resetRouter } from '@/router'
+import { resetRouter } from '@/router'
 import storage from '@utils/storage.js'
+import { goCASSystem } from '@/utils/cas'
 
 export default {
   state: {
@@ -55,8 +56,8 @@ export default {
       }
       state.menuList = null
       resetRouter()
-      Storage.clearAllStorage(['rmT'])
-      router.push('login')
+      Storage.clearAllStorage()
+      goCASSystem()
     },
     MENU_LIST(state, RouterList) {
       const defaultRouter = getDefaultRouter(RouterList)

@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-09 19:07:17
  * @LastEditors: liuYang
- * @LastEditTime: 2021-04-14 17:23:53
+ * @LastEditTime: 2021-04-21 13:24:54
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -277,6 +277,10 @@ export function isObject(obj) {
 
 export function isNull(obj) {
   return typeOf(obj) === 'null'
+}
+
+export function isUndefined(obj) {
+  return typeOf(obj) === 'undefined'
 }
 
 export function isURLSearchParams(obj) {

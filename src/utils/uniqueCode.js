@@ -4,7 +4,7 @@
  * @Path: 引入路径
  * @Date: 2021-03-26 17:41:39
  * @LastEditors: liuYang
- * @LastEditTime: 2021-04-12 15:24:04
+ * @LastEditTime: 2021-04-20 19:32:24
  * @MustParam: 必传参数
  * @OptionalParam: 选传参数
  * @EmitFunction: 函数
@@ -26,7 +26,11 @@ export const createUniqueCode = async () => {
       storage.setLocal('visitorId', visitorId)
       return visitorId
     } catch (error) {
-      console.log(error)
+      console.log(
+        '%c [ createUniqueCode catch ]',
+        'font-size:13px; background:#F6504D; color:#fff;',
+        error
+      )
     }
   }
 }
