@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-14 16:48:02
  * @LastEditors: liuYang
- * @LastEditTime: 2021-04-21 09:51:38
+ * @LastEditTime: 2021-04-25 17:35:33
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -25,7 +25,7 @@ import { createUniqueCode } from './uniqueCode'
  * @return {Boolean}
  *  心跳token有效返回  true 无效返回 false
  */
-export async function checkHeartBeat(token) {
+export function checkHeartBeat(token) {
   const queryParams = getQueryObject()
   if (queryParams.ticket) {
     window.history.replaceState({}, '', document.location.origin)
@@ -38,7 +38,7 @@ export async function checkHeartBeat(token) {
       }
       token = cookieToken
     }
-    const fp = await createUniqueCode()
+    const fp = createUniqueCode()
     return heartBeat({
       accessToken: token,
       fp
@@ -66,7 +66,7 @@ async function handleTicketLogin(ticket) {
   try {
     const { accessToken } = await ticketLogin({
       ticket,
-      fp: await createUniqueCode()
+      fp: createUniqueCode()
     })
     Storage.setCookie('acToken', accessToken)
     return Promise.resolve(true)

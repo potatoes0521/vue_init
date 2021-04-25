@@ -8,6 +8,12 @@
 |  noproblem | 更新依赖包 | [26e69bb](http://192.168.200.205/qianduan/qishi/qishi-wiki/commits/26e69bb)|
 
 
+### ➖ 删除依赖
+范围|描述|commitId
+--|--|--
+|  影响整个项目 | ceshi | [773c96b](http://192.168.200.205/qianduan/qishi/qishi-wiki/commits/773c96b)|
+
+
 ### 🌟 新功能
 范围|描述|commitId
 --|--|--
