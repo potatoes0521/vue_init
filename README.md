@@ -9,7 +9,7 @@
  * @OptionalParam: 选传参数
  * @EmitFunction: 函数
 -->
-# vue_cli_init
+# qishi_wiki
 
 Vue+Element-ui搭建的后台项目架子
 

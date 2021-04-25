@@ -27,5 +27,5 @@ export default {
    */
   homeName: 'login',
   companyName: 'xiaoshi_',
-  projectName: 'vue_cli_init_'
+  projectName: 'qishi_wiki_'
 }
