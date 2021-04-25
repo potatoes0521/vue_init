@@ -29,6 +29,7 @@
 |  无影响 | init | [d2b0426](http://192.168.200.205/qianduan/qishi/qishi-wiki/commits/d2b0426)|
 |  影响整个项目 | 持续集成基础cli | [556c972](http://192.168.200.205/qianduan/qishi/qishi-wiki/commits/556c972)|
 |  影响整个项目 | 完善init 路由跳转等初始化 | [4f97509](http://192.168.200.205/qianduan/qishi/qishi-wiki/commits/4f97509)|
+|  影响整个项目 | 修改项目名称 | [cb83c41](http://192.168.200.205/qianduan/qishi/qishi-wiki/commits/cb83c41)|
 |  影响整个项目 | 优化依赖 | [a169e72](http://192.168.200.205/qianduan/qishi/qishi-wiki/commits/a169e72)|
 
 
