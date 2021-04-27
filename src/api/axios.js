@@ -4,13 +4,13 @@
  * @Path: 引入路径
  * @Date: 2021-03-09 15:46:32
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-12 10:59:32
+ * @LastEditTime: 2021-04-27 18:09:40
  * @MustParam: 必传参数
  * @OptionalParam: 选传参数
  * @EmitFunction: 函数
  */
 
-import HttpRequest from './handleRequest'
+import HttpRequest from './request'
 import config from '@/config'
 
 const axios = new HttpRequest(config.baseUrl)

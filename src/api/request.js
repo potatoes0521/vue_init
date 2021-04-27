@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-09 15:54:38
  * @LastEditors: liuYang
- * @LastEditTime: 2021-04-22 15:27:26
+ * @LastEditTime: 2021-04-27 17:56:24
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -15,6 +15,7 @@ import { Message, MessageBox } from 'element-ui'
 import storage from '@/utils/storage'
 import store from '@/store'
 import { messageContentRender } from '@utils/createdHtmlTemplate'
+import { isNull, isUndefined } from '@/utils'
 
 class HttpRequest {
   constructor(baseUrl) {
@@ -24,6 +25,9 @@ class HttpRequest {
   getInsideConfig(options) {
     for (let i in options.data) {
       if (options.data[i] === '') {
+        delete options.data[i]
+      } else if (isNull(options.data[i]) || isUndefined(options.data[i])) {
+        console.error('[ i ] >' + i + 'is null || undefined', options.data[i])
         delete options.data[i]
       }
     }
@@ -97,8 +101,22 @@ class HttpRequest {
           if (errData.code === '9001') {
             Message.error(errData.msg || '令牌失效')
             store.dispatch('commitLoginOut')
-          }
-          if (errData.code === '9004') {
+          } else if (errData.code === '9002') {
+            MessageBox.confirm(
+              messageContentRender({
+                icon: 'el-icon-error error',
+                title: '警告',
+                message: errData.msg || '管理员未给您分配该权限'
+              }),
+              {
+                dangerouslyUseHTMLString: true,
+                showConfirmButton: true,
+                confirmButtonText: '知道了',
+                showCancelButton: false,
+                showClose: false
+              }
+            ).then(() => {})
+          } else if (errData.code === '9004') {
             MessageBox.confirm(
               messageContentRender({
                 icon: 'el-icon-warning warning',
@@ -115,6 +133,8 @@ class HttpRequest {
             ).then(() => {
               store.dispatch('commitLoginOut')
             })
+          } else {
+            Message.error(errData.msg)
           }
         }
         return Promise.reject(errData)
