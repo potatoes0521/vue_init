@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-09 17:18:28
  * @LastEditors: liuYang
- * @LastEditTime: 2021-04-21 13:38:42
+ * @LastEditTime: 2021-05-07 11:51:46
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -164,25 +164,45 @@ export default {
   },
   /**
    * 清除全部cookie sessionStorage localStorage
-   * @param {Array} exceptArr 除了key为XXX的全部删除
+   * @param {Array} exceptCookieArr 除了key为XXX的Cookie全部删除
+   * @param {Array} exceptSessionArr 除了key为XXX的全部删除
+   * @param {Array} exceptLocalArr 除了key为XXX的全部删除
    * @return void
    */
-  clearAllStorage(exceptArr = []) {
-    exceptArr = exceptArr.map((item) => storageName + item)
-    var date = new Date()
+  clearAllStorage(exceptCookieArr = [], exceptSessionArr = [], exceptLocalArr = []) {
+    exceptCookieArr = exceptCookieArr.map((item) => storageName + item)
+    exceptSessionArr = exceptSessionArr.map((item) => storageName + item)
+    exceptLocalArr = exceptLocalArr.map((item) => storageName + item)
+    const date = new Date()
     date.setTime(date.getTime() - 10000)
-    var keys = document.cookie.match(/[^ =;]+(?==)/g)
+    const keys = document.cookie.match(/[^ =;]+(?==)/g)
     if (keys) {
       keys.forEach((item) => {
-        if (!exceptArr.includes(item)) {
+        if (!exceptCookieArr.includes(item)) {
           Cookies.remove(item, {
             path: ''
           })
         }
       })
     }
-    sessionStorage.clear()
-    localStorage.clear()
+    if (exceptSessionArr.length) {
+      for (let i in sessionStorage) {
+        if (i.startsWith(storageName) && !exceptCookieArr.includes(i)) {
+          sessionStorage.removeItem(i)
+        }
+      }
+    } else {
+      sessionStorage.clear()
+    }
+    if (exceptLocalArr.length) {
+      for (let i in localStorage) {
+        if (i.startsWith(storageName) && !exceptCookieArr.includes(i)) {
+          localStorage.removeItem(i)
+        }
+      }
+    } else {
+      localStorage.clear()
+    }
     console.log(
       '%c [ clear all cookie ]: ',
       'color: #fff; background: #bf2c9f; font-size: 13px;',
