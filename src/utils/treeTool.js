@@ -4,7 +4,7 @@
  * @Path: 引入路径
  * @Date: 2021-03-20 16:37:05
  * @LastEditors: liuYang
- * @LastEditTime: 2021-08-09 10:16:10
+ * @LastEditTime: 2021-08-09 13:38:58
  * @MustParam: 必传参数
  * @OptionalParam: 选传参数
  * @EmitFunction: 函数
@@ -54,7 +54,7 @@ export const listToTree = ({
     if (node.children) {
       node.children = _orderBy(node.children, orderBy, orderType).map((item, index) => ({
         ...item,
-        index,
+        index, // 当前下标
         parentData: needParentData ? node : null, // 父级节点
         parentChildrenLength: node.length // 父级节点
       }))
@@ -221,6 +221,20 @@ export const findOnePathById = ({ tree, idNum, idKey = 'id', arr = [], allData =
  * @return void
  */
 export const flatten = (arr, key = 'children') => {
+  if (!arr || !arr.length) return []
+  return (
+    arr.reduce((result, item) => {
+      return result.concat(Array.isArray(item[key]) ? flatten(item[key]) : item)
+    }, []) || []
+  )
+}
+/**
+ * 树形数据转为线性数据
+ * @param {Array[Object]} arr 参数描述
+ * @param {String} key='children' 参数描述
+ * @return void
+ */
+export const treeToList = (arr, key = 'children') => {
   let queen = []
   let result = []
   queen = queen.concat(arr)
