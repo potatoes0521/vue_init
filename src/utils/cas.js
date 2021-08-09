@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-14 16:48:02
  * @LastEditors: liuYang
- * @LastEditTime: 2021-04-25 17:35:33
+ * @LastEditTime: 2021-08-06 14:02:25
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -25,16 +25,16 @@ import { createUniqueCode } from './uniqueCode'
  * @return {Boolean}
  *  心跳token有效返回  true 无效返回 false
  */
-export function checkHeartBeat(token) {
+export function checkHeartBeat(token, toPath) {
   const queryParams = getQueryObject()
   if (queryParams.ticket) {
-    window.history.replaceState({}, '', document.location.origin)
-    return handleTicketLogin(queryParams.ticket)
+    // window.history.replaceState({}, '', document.location.origin)
+    return handleTicketLogin(queryParams.ticket, toPath)
   } else {
     if (!token) {
       const cookieToken = Storage.getCookie('acToken')
       if (!cookieToken) {
-        goCASSystem()
+        goCASSystem(toPath)
       }
       token = cookieToken
     }
@@ -48,7 +48,7 @@ export function checkHeartBeat(token) {
       })
       .catch(() => {
         // Token过期 去登录
-        goCASSystem()
+        goCASSystem(toPath)
       })
   }
 }
@@ -62,7 +62,7 @@ export function checkHeartBeat(token) {
  *   去CAS
  * @return void
  */
-async function handleTicketLogin(ticket) {
+async function handleTicketLogin(ticket, toPath) {
   try {
     const { accessToken } = await ticketLogin({
       ticket,
@@ -71,7 +71,7 @@ async function handleTicketLogin(ticket) {
     Storage.setCookie('acToken', accessToken)
     return Promise.resolve(true)
   } catch (e) {
-    goCASSystem()
+    goCASSystem(toPath)
   }
 }
 
@@ -79,9 +79,13 @@ async function handleTicketLogin(ticket) {
  * 去CAS请求ticket
  * @return void
  */
-export async function goCASSystem() {
-  const host = window.location.host
-  window.location.href = `${process.env.VUE_APP_CAS_HOST}/login?subHost=${encodeURIComponent(
+export async function goCASSystem(toPath = '') {
+  console.log('%c [ toPath ]', 'font-size:13px; background:pink; color:#bf2c9f;', toPath)
+  const host = window.location.origin
+  toPath?.length > 1 &&
+    toPath.indexOf('login') === -1 &&
+    Storage.setSession('returnURI', toPath, false)
+  window.location.href = `${process.env.VUE_APP_CAS_HOST}/login?returnUrl=${encodeURIComponent(
     host
   )}&o=1`
 }

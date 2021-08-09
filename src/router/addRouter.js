@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-09 17:33:57
  * @LastEditors: liuYang
- * @LastEditTime: 2021-04-20 15:05:32
+ * @LastEditTime: 2021-08-09 10:05:39
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -28,41 +28,51 @@
  * @returns
  */
 import store from '@store'
-import Layout from '@layout/index'
+import Layout from '@layout'
 import router, { resetRouter } from './index.js'
 import mockMenu from '../mock/mockMenu.json'
 import { listToTree } from '@/utils/treeTool.js'
 import { getThisUserMenuTree } from '@api/this'
 import { PermissionRouter } from './modules/asyncRouter.js'
 import { hideInMenuRouter } from './modules/hideInMenuRouter.js'
-
+import storage from '@utils/storage.js'
+import { handleStorageSyncServe } from '@utils/arrayTool'
 export const handleMenuData = (to, next) => {
   const env = process.env.NODE_ENV === 'development' ? true : false
   if (env) {
     const asyncData = listToTree({
-      list: mockMenu,
+      list: handleStorageSyncServe(mockMenu),
       orderBy: 'menuOrder'
     })
     const asyncRouter = transformRouterData(asyncData) // 进行递归解析
     // 一定不能写在静态路由里面,否则会出现,访问动态路由404的情况.所以在这列添加
     const lastAsyncRouter = [...asyncRouter, ...hideInMenuRouter]
-
     resetRouter()
     router.addRoutes(lastAsyncRouter) // vue-router提供的addRouter方法进行路由拼接
     // 记录路由获取状态
     store.dispatch('commitMenuList', lastAsyncRouter) // 存储到vuex
-    if (to.path !== '/') {
+
+    if (next && to.path !== '/') {
+      console.log(
+        '%c [ returnURI ]',
+        'font-size:13px; background:pink; color:#bf2c9f;',
+        '12312321312'
+      )
       next({
         ...to,
         replace: true
       }) // hack方法 确保addRoutes已完成
     } else {
-      router.replace(store.state.user.defaultRouter)
+      const returnURI = storage.getSession('returnURI', false)
+      console.log('%c [ returnURI ]', 'font-size:13px; background:pink; color:#bf2c9f;', returnURI)
+      storage.removeSession('returnURI')
+      router.replace(returnURI || store.state.user.defaultRouter)
     }
   } else {
     // 记录路由获取状态
     getThisUserMenuTree() // 获取动态路由的方法
       .then(({ menus }) => {
+        menus = handleStorageSyncServe(menus)
         const asyncData = listToTree({
           list: menus,
           orderBy: 'menuOrder'
@@ -77,17 +87,23 @@ export const handleMenuData = (to, next) => {
         router.addRoutes(asyncRouter) // vue-router提供的addRouter方法进行路由拼接
         // 记录路由获取状态
         store.dispatch('commitMenuList', asyncRouter) // 存储到vuex
-        if (next) {
+        if (next && to.path !== '/') {
           next({
             ...to,
             replace: true
           }) // hack方法 确保addRoutes已完成
         } else {
-          router.replace(store.state.user.defaultRouter)
+          const returnURI = storage.getSession('returnURI', false)
+          storage.removeSession('returnURI')
+          router.replace(returnURI || store.state.user.defaultRouter)
         }
       })
       .catch((e) => {
-        console.log(e)
+        console.log(
+          '%c [ getThisUserMenuTree catch ]',
+          'font-size:13px; background:#F6504D; color:#fff;',
+          e
+        )
         // removeToken();
       })
   }
@@ -102,7 +118,7 @@ export const transformRouterData = (routerList) => {
   const router = []
   routerList.forEach((e) => {
     let e_new = {
-      path: e.menuHref || 'path' + e.menuId,
+      path: e.menuHref || '/path' + e.menuId,
       name: e.menuHref || 'path' + e.menuId
     }
     if (e.children) {
@@ -118,7 +134,9 @@ export const transformRouterData = (routerList) => {
       const { component, meta } = PermissionRouter.filter((item) => e.menuHref === item.path)[0]
       e_new = {
         ...e_new,
-        ...{ component },
+        ...{
+          component
+        },
         meta: {
           ...meta
         }
@@ -128,7 +146,9 @@ export const transformRouterData = (routerList) => {
       const { component, meta } = PermissionRouter.filter((item) => item.path === '/iframePage')[0]
       e_new = {
         ...e_new,
-        ...{ component },
+        ...{
+          component
+        },
         path: `/iframePage${e.menuId}`,
         name: `/iframePage${e.menuId}`,
         meta: {
@@ -155,6 +175,7 @@ export const transformRouterData = (routerList) => {
         }
       }
     }
+
     router.push(e_new)
   })
   return router

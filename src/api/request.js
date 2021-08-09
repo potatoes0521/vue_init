@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-09 15:54:38
  * @LastEditors: liuYang
- * @LastEditTime: 2021-04-27 17:56:24
+ * @LastEditTime: 2021-08-09 10:15:48
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -27,7 +27,7 @@ class HttpRequest {
       if (options.data[i] === '') {
         delete options.data[i]
       } else if (isNull(options.data[i]) || isUndefined(options.data[i])) {
-        console.error('[ i ] >' + i + 'is null || undefined', options.data[i])
+        console.error('[ i ] > ' + i + ' is null || undefined', options.data[i])
         delete options.data[i]
       }
     }
@@ -40,7 +40,7 @@ class HttpRequest {
       baseURL: this.baseUrl,
       headers: {
         'content-type': contentType,
-        accessToken: storage.getCookie('acToken') || '',
+        accessToken: options.url.endsWith('/sso/login') ? '' : storage.getCookie('acToken') || '',
         fp: storage.getLocal('visitorId')
       },
       method: options.method
@@ -85,6 +85,8 @@ class HttpRequest {
           return data.data || {}
         } else if (message.code === '4000' && message.msg === '无数据') {
           return data.data || {}
+        } else if (message.code === '9005' || message.code === '9006') {
+          return Promise.reject(message)
         } else if (message.code === '9001' || message.code === '9002') {
           store.dispatch('commitLoginOut')
           Message.error(message.msg || '令牌失效')

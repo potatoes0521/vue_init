@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-09 17:26:24
  * @LastEditors: liuYang
- * @LastEditTime: 2021-04-25 09:50:55
+ * @LastEditTime: 2021-08-09 10:06:03
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -28,7 +28,7 @@ router.beforeEach((to, from, next) => {
   console.log('%c [ to.path ]', 'font-size:13px; background:#FF00FF; color:#FFF;', to.path)
   const userStore = store.state.user
   // 进页面先心跳检测
-  checkHeartBeat()
+  checkHeartBeat(undefined, to.path)
     .then((tokenState) => {
       if (tokenState) {
         console.log('%c [ 登录成功 ] >', 'font-size:13px; background:#006400; color:#FFF;')
@@ -48,11 +48,17 @@ router.beforeEach((to, from, next) => {
             handleMenuData(to, next)
           }
         } else {
-          console.log(
-            '%c [ 登录成功 => 去默认路由 ] >',
-            'font-size:13px; background:#006400; color:#FFF;'
-          )
-          next(userStore.defaultRouter || '/home')
+          if (userStore.menuList.length) {
+            const returnURI = Storage.getSession('returnURI', false)
+            Storage.removeSession('returnURI')
+            next(returnURI || userStore.defaultRouter)
+          } else {
+            console.log(
+              '%c [ 登录成功去登录 => 无菜单 => 请求菜单 ] >',
+              'font-size:13px; background:#006400; color:#FFF;'
+            )
+            handleMenuData(to, next)
+          }
         }
       } else {
         if (whiteList.indexOf(to.path) !== -1) {

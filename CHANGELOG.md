@@ -1,4 +1,4 @@
-# 0.1.0 (2021-05-10)
+# 0.1.0 (2021-08-09)
 
 ### ➕ 添加依赖
 范围|描述|commitId
@@ -12,6 +12,7 @@
 ### ➖ 删除依赖
 范围|描述|commitId
 --|--|--
+|  无影响 | 修改错误版本号 | [2e73f88](http://192.168.200.205/qianduan/components/vue_init_cli/commits/2e73f88)|
 |  影响整个项目 | ceshi | [773c96b](http://192.168.200.205/qianduan/components/vue_init_cli/commits/773c96b)|
 
 

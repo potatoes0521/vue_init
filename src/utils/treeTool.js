@@ -4,7 +4,7 @@
  * @Path: 引入路径
  * @Date: 2021-03-20 16:37:05
  * @LastEditors: liuYang
- * @LastEditTime: 2021-04-19 16:22:47
+ * @LastEditTime: 2021-08-09 10:16:10
  * @MustParam: 必传参数
  * @OptionalParam: 选传参数
  * @EmitFunction: 函数
@@ -22,6 +22,7 @@ import _orderBy from 'loadsh/orderBy'
  * @param {String} Pkey 父级ID的key
  * @param {String} orderBy 按照哪个字段排序
  * @param {String} orderType 排序类型  desc 降序, asc升序
+ * @param {Boolean} needParentData 是否需要父级节点数据  不推荐需要 容易造成数据臃肿
  * @return void
  */
 export const listToTree = ({
@@ -29,7 +30,8 @@ export const listToTree = ({
   key = 'menuId',
   Pkey = 'menuPid',
   orderBy = 'order',
-  orderType = ['asc']
+  orderType = ['asc'],
+  needParentData = false
 }) => {
   let root = {}
   root[key] = 0
@@ -50,7 +52,12 @@ export const listToTree = ({
     const node = queue.shift()
     node.children = group[node[key]] && group[node[key]].length ? group[node[key]] : null
     if (node.children) {
-      node.children = _orderBy(node.children, orderBy, orderType)
+      node.children = _orderBy(node.children, orderBy, orderType).map((item, index) => ({
+        ...item,
+        index,
+        parentData: needParentData ? node : null, // 父级节点
+        parentChildrenLength: node.length // 父级节点
+      }))
       queue.push(...node.children)
     }
   }
@@ -214,12 +221,19 @@ export const findOnePathById = ({ tree, idNum, idKey = 'id', arr = [], allData =
  * @return void
  */
 export const flatten = (arr, key = 'children') => {
-  if (!arr || !arr.length) return []
-  return (
-    arr.reduce((result, item) => {
-      return result.concat(Array.isArray(item[key]) ? flatten(item[key]) : item)
-    }, []) || []
-  )
+  let queen = []
+  let result = []
+  queen = queen.concat(arr)
+  while (queen.length) {
+    let item = queen.shift()
+    if (item[key]) {
+      queen = queen.concat(item[key])
+      delete item[key]
+    }
+
+    result.push(item)
+  }
+  return result
 }
 
 /**

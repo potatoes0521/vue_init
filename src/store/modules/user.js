@@ -4,7 +4,7 @@
  * @Path: 引入路径
  * @Date: 2021-03-09 17:25:10
  * @LastEditors: liuYang
- * @LastEditTime: 2021-05-07 11:52:39
+ * @LastEditTime: 2021-08-09 10:06:25
  * @MustParam: 必传参数
  * @OptionalParam: 选传参数
  * @EmitFunction: 函数
@@ -15,7 +15,7 @@ import { getUserInfo, getUserPermList } from '@api/this'
 import store from '..'
 import { resetRouter } from '@/router'
 import storage from '@utils/storage.js'
-import { goCASSystem } from '@/utils/cas'
+import { goCASSystem } from '@utils/cas'
 
 export default {
   state: {
@@ -34,7 +34,7 @@ export default {
       state.isLogin = Boolean(data && Object.keys(data).length)
       store.dispatch('commitGetUserPermList')
     },
-    LOGIN_OUT(state) {
+    LOGIN_OUT(state, router) {
       let data = {
         ...state
       }
@@ -57,7 +57,7 @@ export default {
       state.menuList = null
       resetRouter()
       Storage.clearAllStorage(['rmT'], ['returnURI'])
-      goCASSystem()
+      goCASSystem(router.path)
     },
     MENU_LIST(state, RouterList) {
       const defaultRouter = getDefaultRouter(RouterList)
@@ -107,8 +107,8 @@ export default {
           commit('CHANGE_USER_INFO', null)
         })
     },
-    commitLoginOut({ commit }) {
-      commit('LOGIN_OUT')
+    commitLoginOut({ commit }, router = {}) {
+      commit('LOGIN_OUT', router)
     },
     commitMenuList({ commit }, routerList = []) {
       // 动态设置路由 此为设置设置途径
