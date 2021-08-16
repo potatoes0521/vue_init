@@ -85,6 +85,7 @@
 ### 📝 文档
 范围|描述|commitId
 --|--|--
+|  无影响 | 补充公共README | [310cd91](http://192.168.200.205/qianduan/components/vue_init_cli/commits/310cd91)|
 |  noproblem | 更新文档 | [ad70716](http://192.168.200.205/qianduan/components/vue_init_cli/commits/ad70716)|
 |  no select | 修改文档 | [66c2bd6](http://192.168.200.205/qianduan/components/vue_init_cli/commits/66c2bd6)|
 
