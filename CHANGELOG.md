@@ -19,6 +19,7 @@
 ### 🌟 新功能
 范围|描述|commitId
 --|--|--
+|  影响整个项目 | 处理iframe打开其他系统 | [f196247](http://192.168.200.205/qianduan/components/vue_init_cli/commits/f196247)|
 |  no select | 补充导航条样式 | [5495933](http://192.168.200.205/qianduan/components/vue_init_cli/commits/5495933)|
 |  no select | 处理登录页面 | [662d725](http://192.168.200.205/qianduan/components/vue_init_cli/commits/662d725)|
 |  no select | 处理请求跨域 | [5dc683b](http://192.168.200.205/qianduan/components/vue_init_cli/commits/5dc683b)|

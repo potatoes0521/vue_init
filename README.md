@@ -4,7 +4,7 @@
  * @Path: 引入路径
  * @Date: 2021-03-09 15:29:22
  * @LastEditors: liuYang
- * @LastEditTime: 2021-04-25 09:56:02
+ * @LastEditTime: 2021-08-16 11:00:00
  * @MustParam: 必传参数
  * @OptionalParam: 选传参数
  * @EmitFunction: 函数
@@ -93,3 +93,7 @@ components 只写公共组件，页面附带组件写在 views 内
              ├── img
              └── iconfont
 
+
+### 其他项目规范 
+
+[小石前端项目规范和插件配合](http://gitlab.beijingxiaoshi.cn/qianduan/components/cooperation)

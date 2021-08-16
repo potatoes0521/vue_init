@@ -4,7 +4,7 @@
  * @Path: import DeleteDialog from '@components/DeleteDialog'
  * @Date: 2021-03-23 19:43:03
  * @LastEditors: liuYang
- * @LastEditTime: 2021-04-01 15:33:54
+ * @LastEditTime: 2021-08-10 13:27:34
  * @MustParam: 必传参数
       warningMsg 警告文字
       title 弹窗标题
@@ -41,6 +41,8 @@
     )
       span.dialog-title( slot="title" ) {{title}}
       .warning {{warningMsg}}
+      .template( v-if="$slots.template" )
+        slot( name="template" )
       span.dialog-footer( slot="footer")
         el-button( @click="dialogVisible=false" ) 取消
         el-button( type="danger" plain @click="handleDelete" :loading="deleteLoading" ) 确定
