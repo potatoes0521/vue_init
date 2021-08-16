@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-09 15:29:05
  * @LastEditors: liuYang
- * @LastEditTime: 2021-08-13 16:53:39
+ * @LastEditTime: 2021-08-16 11:57:44
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -49,7 +49,7 @@ section.app-main
     position: relative;
     overflow: hidden;
     box-sizing: border-box;
-    
+
     .panel-padding {
       padding: 20px;
     }

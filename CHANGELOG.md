@@ -1,5 +1,11 @@
 # 0.1.0 (2021-08-16)
 
+### ⚙ 组件变化
+范围|描述|commitId
+--|--|--
+|  影响整个项目 | 删除提醒Dialog新增插槽 | [96fb600](http://192.168.200.205/qianduan/components/vue_init_cli/commits/96fb600)|
+
+
 ### ➕ 添加依赖
 范围|描述|commitId
 --|--|--
