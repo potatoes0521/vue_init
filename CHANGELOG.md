@@ -1,4 +1,4 @@
-# 0.1.0 (2021-08-09)
+# 0.1.0 (2021-08-16)
 
 ### ➕ 添加依赖
 范围|描述|commitId
@@ -64,6 +64,7 @@
 范围|描述|commitId
 --|--|--
 |  影响整个项目 | 处理浏览器指纹 | [5ad4339](http://192.168.200.205/qianduan/components/vue_init_cli/commits/5ad4339)|
+|  影响整个项目 | 处理树形数据的算fan | [b25951d](http://192.168.200.205/qianduan/components/vue_init_cli/commits/b25951d)|
 |  no select | 修复页面可以无限缩小的bug | [d029100](http://192.168.200.205/qianduan/components/vue_init_cli/commits/d029100)|
 
 

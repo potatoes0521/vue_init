@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-09 15:54:38
  * @LastEditors: liuYang
- * @LastEditTime: 2021-08-09 10:15:48
+ * @LastEditTime: 2021-08-13 16:52:19
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -87,7 +87,7 @@ class HttpRequest {
           return data.data || {}
         } else if (message.code === '9005' || message.code === '9006') {
           return Promise.reject(message)
-        } else if (message.code === '9001' || message.code === '9002') {
+        } else if (message.code === '9001') {
           store.dispatch('commitLoginOut')
           Message.error(message.msg || '令牌失效')
           return Promise.reject(message)

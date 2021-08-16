@@ -4,23 +4,23 @@
  * @Path:  引入路径
  * @Date: 2021-03-09 18:47:52
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-16 17:01:29
+ * @LastEditTime: 2021-08-13 17:03:33
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
 -->
 <template lang="pug">
 .app-wrapper(:class='{ hideSidebar: isCollapse }')
-  .fixed-header
-    Navbar
-  .main-container
+  .fixed-header( v-if="!iframeOpen" )
+    Navbar( :collapse='isCollapse' @onToggleSideBar='toggleSideBar' )
+  .main-container( :style="mainContainerStyle" )
     Sidebar.sidebar-container(
-      :variables='variables',
-      :menuList='menuList',
-      :collapse='isCollapse',
-      @onToggleSideBar='toggleSideBar'
+      :variables='variables'
+      :menuList='menuList'
+      :collapse='isCollapse'
+      v-if="!iframeOpen"
     )
-    Panel
+    Panel( :iframeOpen='iframeOpen' )
 </template>
 
 <script>
@@ -29,12 +29,19 @@
   import Sidebar from './components/Sidebar'
   import { mapGetters, mapActions } from 'vuex'
   import variables from '@css/variables.scss'
+  import { isOtherSystemIframeOpen } from '@/utils/cas'
+
   export default {
     name: 'Layout',
     components: {
       Panel,
       Navbar,
       Sidebar
+    },
+    data() {
+      return {
+        iframeOpen: false
+      }
     },
     computed: {
       ...mapGetters(['sidebar', 'menuList']),
@@ -43,12 +50,39 @@
       },
       isCollapse() {
         return this.sidebar.collapse
+      },
+      mainContainerStyle() {
+        return { height: this.iframeOpen ? '100%' : 'calc(100% - 60px)' }
       }
     },
     methods: {
       ...mapActions({
         toggleSideBar: 'toggleSideBar'
       })
+    },
+    mounted() {
+      if (isOtherSystemIframeOpen()) {
+        this.iframeOpen = true
+        window.addEventListener(
+          'message',
+          (e) => {
+            if (e && e.data === 'clearSystemHost') {
+              this.$storage.removeSession('systemHost')
+            }
+          },
+          false
+        )
+      } else if (this.$route.fullPath.indexOf('iframePage') !== -1) {
+        window.addEventListener(
+          'message',
+          (e) => {
+            if (e && e.data === 'commitLoginOut') {
+              // this.commitLoginOut()
+            }
+          },
+          false
+        )
+      }
     }
   }
 </script>
@@ -64,7 +98,6 @@
 
     .main-container {
       width: 100%;
-      height: calc(100% - 60px);
       display: flex;
     }
   }

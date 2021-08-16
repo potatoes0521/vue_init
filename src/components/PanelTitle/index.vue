@@ -4,7 +4,7 @@
  * @Path:   import PanelTitle from '@components/PanelTitle'
  * @Date: 2021-03-16 10:34:21
  * @LastEditors: liuYang
- * @LastEditTime: 2021-03-26 13:50:57
+ * @LastEditTime: 2021-08-16 09:48:04
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -20,6 +20,8 @@
     span {{title}}
 </template>
 <script>
+  import { isOtherSystemIframeOpen } from '@/utils/cas'
+
   export default {
     name: 'PanelTitle',
     props: {
@@ -36,7 +38,11 @@
     },
     methods: {
       goBack() {
-        this.$router.go(-1)
+        if (isOtherSystemIframeOpen()) {
+          history.back()
+        } else {
+          this.$router.go(-1)
+        }
       }
     }
   }

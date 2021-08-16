@@ -4,7 +4,7 @@
  * @Path: 引入路径
  * @Date: 2021-03-09 17:25:10
  * @LastEditors: liuYang
- * @LastEditTime: 2021-08-09 10:06:25
+ * @LastEditTime: 2021-08-13 16:56:33
  * @MustParam: 必传参数
  * @OptionalParam: 选传参数
  * @EmitFunction: 函数
@@ -15,7 +15,7 @@ import { getUserInfo, getUserPermList } from '@api/this'
 import store from '..'
 import { resetRouter } from '@/router'
 import storage from '@utils/storage.js'
-import { goCASSystem } from '@utils/cas'
+import { goCASSystem, isOtherSystemIframeOpen } from '@utils/cas'
 
 export default {
   state: {
@@ -108,6 +108,9 @@ export default {
         })
     },
     commitLoginOut({ commit }, router = {}) {
+      if (isOtherSystemIframeOpen()) {
+        window.parent.postMessage('commitLoginOut', '*')
+      }
       commit('LOGIN_OUT', router)
     },
     commitMenuList({ commit }, routerList = []) {

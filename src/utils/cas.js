@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-14 16:48:02
  * @LastEditors: liuYang
- * @LastEditTime: 2021-08-06 14:02:25
+ * @LastEditTime: 2021-08-13 16:57:30
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -85,7 +85,28 @@ export async function goCASSystem(toPath = '') {
   toPath?.length > 1 &&
     toPath.indexOf('login') === -1 &&
     Storage.setSession('returnURI', toPath, false)
-  window.location.href = `${process.env.VUE_APP_CAS_HOST}/login?returnUrl=${encodeURIComponent(
-    host
-  )}&o=1`
+  let CASURL = `${process.env.VUE_APP_CAS_HOST}/login?returnUrl=${encodeURIComponent(host)}`
+  // 这块是另外一种方式处理iframe的方式  比如去
+  if (isOtherSystemIframeOpen()) {
+    const query = Storage.getSession('systemHost') || getQueryObject() || null
+    CASURL += `&systemHost=${query.systemHost}`
+  }
+  window.location.href = `${CASURL}&o=1`
+}
+
+/**
+ * 判断是否是其他系统打开iframe
+ * @return {Boolean} 是否是其他系统打开
+ */
+export function isOtherSystemIframeOpen() {
+  const query = Storage.getSession('systemHost') || getQueryObject() || null
+  console.log('[ query ] >', query)
+
+  if (query && query.systemHost) {
+    // 进入系统可能出现去CAS登录   所以要把这个数据保存起来
+    Storage.setSession('systemHost', query)
+    return true
+  } else {
+    return false
+  }
 }

@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-09 17:26:24
  * @LastEditors: liuYang
- * @LastEditTime: 2021-08-09 10:06:03
+ * @LastEditTime: 2021-08-13 16:55:35
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -14,13 +14,15 @@ import store from '@store'
 import NProgress from 'nprogress' // Progress 进度条
 import 'nprogress/nprogress.css' // Progress 进度条样式
 import { handleMenuData } from './addRouter.js'
-import { checkHeartBeat } from '@/utils/cas.js'
+import { checkHeartBeat, isOtherSystemIframeOpen } from '@/utils/cas.js'
 import { whiteList } from './modules/static.js'
 
 const env = process.env.NODE_ENV === 'development' ? true : false
 
 router.beforeEach((to, from, next) => {
-  NProgress.start()
+  if (!isOtherSystemIframeOpen()) {
+    NProgress.start()
+  }
   if (to.meta.title) {
     document.title = to.meta.title || '七石'
   }
