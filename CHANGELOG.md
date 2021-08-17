@@ -102,6 +102,7 @@
 范围|描述|commitId
 --|--|--
 |  影响整个项目 | 1.重构utils/storage 里clearAllStorage | [d9f78cb](http://192.168.200.205/qianduan/components/vue_init_cli/commits/d9f78cb)|
+|  影响整个项目 | 处理iframe打开 | [f016199](http://192.168.200.205/qianduan/components/vue_init_cli/commits/f016199)|
 |  影响整个项目 | 同步近期对架构的改动 | [8e456aa](http://192.168.200.205/qianduan/components/vue_init_cli/commits/8e456aa)|
 |  影响整个项目 | 优化一些东西 | [b669d0c](http://192.168.200.205/qianduan/components/vue_init_cli/commits/b669d0c)|
 |  no select | 修改一点无影响的样式 | [390c03f](http://192.168.200.205/qianduan/components/vue_init_cli/commits/390c03f)|

@@ -4,7 +4,7 @@
  * @Path: 引入路径
  * @Date: 2021-03-09 15:29:22
  * @LastEditors: liuYang
- * @LastEditTime: 2021-08-16 17:36:28
+ * @LastEditTime: 2021-08-17 17:16:11
  * @MustParam: 必传参数
  * @OptionalParam: 选传参数
  * @EmitFunction: 函数
@@ -21,6 +21,26 @@ yarn install
 ### Compiles and hot-reloads for development
 ```
 yarn serve
+
+运行项目请注意env开发环境内环境配置  
+
+# 后端请求地址
+VUE_APP_SERVICE_HOST = "api"
+
+# 请求图片的路径
+VUE_APP_CAPTCHA_HOST = "http://192.168.200.212:7001"
+
+# CAS域名 本地写自己本地IP
+VUE_APP_CAS_HOST = ""
+
+# 知识库 本地写自己本地IP
+VUE_APP_WIKI_HOST = "http://192.168.3.95:7005"
+
+# 热线 本地写自己本地IP
+VUE_APP_HOT_LINE_HOST = "http://192.168.3.45:7005"
+
+...
+
 ```
 
 ### Compiles and minifies for production
