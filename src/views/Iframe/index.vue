@@ -4,7 +4,7 @@
  * @Path: 引入路径
  * @Date: 2021-04-09 15:20:26
  * @LastEditors: liuYang
- * @LastEditTime: 2021-08-13 17:04:53
+ * @LastEditTime: 2021-08-17 17:03:51
  * @MustParam: 必传参数
  * @OptionalParam: 选传参数
  * @EmitFunction: 函数
@@ -24,12 +24,8 @@
     name: 'iframeComponents',
     computed: {
       url() {
-        return `${this.$route.meta.uri}?systemHost=${encodeURIComponent(window.location.origin)}`
+        return `${this.$route.meta.uri}`
       }
-    },
-    beforeDestroy() {
-      const childIFrame = document.getElementById('child')
-      childIFrame?.contentWindow?.postMessage('clearSystemHost', '*')
     }
   }
 </script>

@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-09 18:47:52
  * @LastEditors: liuYang
- * @LastEditTime: 2021-08-13 17:03:33
+ * @LastEditTime: 2021-08-17 17:02:24
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -63,25 +63,6 @@
     mounted() {
       if (isOtherSystemIframeOpen()) {
         this.iframeOpen = true
-        window.addEventListener(
-          'message',
-          (e) => {
-            if (e && e.data === 'clearSystemHost') {
-              this.$storage.removeSession('systemHost')
-            }
-          },
-          false
-        )
-      } else if (this.$route.fullPath.indexOf('iframePage') !== -1) {
-        window.addEventListener(
-          'message',
-          (e) => {
-            if (e && e.data === 'commitLoginOut') {
-              // this.commitLoginOut()
-            }
-          },
-          false
-        )
       }
     }
   }

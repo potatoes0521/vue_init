@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-14 16:48:02
  * @LastEditors: liuYang
- * @LastEditTime: 2021-08-13 16:57:30
+ * @LastEditTime: 2021-08-17 17:03:19
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -85,13 +85,9 @@ export async function goCASSystem(toPath = '') {
   toPath?.length > 1 &&
     toPath.indexOf('login') === -1 &&
     Storage.setSession('returnURI', toPath, false)
-  let CASURL = `${process.env.VUE_APP_CAS_HOST}/login?returnUrl=${encodeURIComponent(host)}`
-  // 这块是另外一种方式处理iframe的方式  比如去
-  if (isOtherSystemIframeOpen()) {
-    const query = Storage.getSession('systemHost') || getQueryObject() || null
-    CASURL += `&systemHost=${query.systemHost}`
-  }
-  window.location.href = `${CASURL}&o=1`
+  window.location.href = `${process.env.VUE_APP_CAS_HOST}/login?returnUrl=${encodeURIComponent(
+    host
+  )}&o=1`
 }
 
 /**
@@ -99,14 +95,29 @@ export async function goCASSystem(toPath = '') {
  * @return {Boolean} 是否是其他系统打开
  */
 export function isOtherSystemIframeOpen() {
-  const query = Storage.getSession('systemHost') || getQueryObject() || null
-  console.log('[ query ] >', query)
-
-  if (query && query.systemHost) {
-    // 进入系统可能出现去CAS登录   所以要把这个数据保存起来
-    Storage.setSession('systemHost', query)
+  if (self.frameElement && self.frameElement.tagName === 'IFRAME') {
+    console.log(
+      '%c [ 是iframe打开系统 wiki ]: ',
+      'color: green; background: black; font-size: 20px;'
+    )
+    return true
+  } else if (window.frames.length !== parent.frames.length) {
+    console.log(
+      '%c [ 是iframe打开系统 wiki ]: ',
+      'color: green; background: black; font-size: 20px;'
+    )
+    return true
+  } else if (self !== top) {
+    console.log(
+      '%c [ 是iframe打开系统 wiki ]: ',
+      'color: green; background: black; font-size: 20px;'
+    )
     return true
   } else {
+    console.log(
+      '%c [ 不是iframe打开系统 wiki ]: ',
+      'color: red; background: black; font-size: 20px;'
+    )
     return false
   }
 }
