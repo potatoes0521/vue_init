@@ -4,7 +4,7 @@
  * @Path: 引入路径
  * @Date: 2021-03-09 15:29:22
  * @LastEditors: liuYang
- * @LastEditTime: 2021-08-17 17:16:11
+ * @LastEditTime: 2021-08-20 17:43:07
  * @MustParam: 必传参数
  * @OptionalParam: 选传参数
  * @EmitFunction: 函数
@@ -120,3 +120,11 @@ components 只写公共组件，页面附带组件写在 views 内
 
 [小石前端项目规范和插件配合](http://gitlab.beijingxiaoshi.cn/qianduan/components/cooperation)
 
+### 其他补充的文档 
+
+[iframe打开子系统](http://gitlab.beijingxiaoshi.cn/qianduan/components/vue_init_cli/-/tree/master/doc)  
+[热线系统文档](http://gitlab.beijingxiaoshi.cn/qianduan/components/vue_init_cli/-/blob/master/doc)  
+[现有公共组件](http://gitlab.beijingxiaoshi.cn/qianduan/components/vue_init_cli/-/blob/master/doc/%E5%85%AC%E5%85%B1%E7%BB%84%E4%BB%B6%E3%80%81%E6%96%B9%E6%B3%95.md)  
+[单点登录CAS端](http://gitlab.beijingxiaoshi.cn/qianduan/components/vue_init_cli/-/blob/master/doc/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95CAS%E5%A4%84%E7%90%86.md)  
+[单点登录子系统处理](http://gitlab.beijingxiaoshi.cn/qianduan/components/vue_init_cli/-/blob/master/doc/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E5%AD%90%E7%B3%BB%E7%BB%9F%E5%A4%84%E7%90%86.md)  
+[路由架构处理](http://gitlab.beijingxiaoshi.cn/qianduan/components/vue_init_cli/-/blob/master/doc/%E8%B7%AF%E7%94%B1%E6%9E%B6%E6%9E%84%E5%A4%84%E7%90%86.md) 

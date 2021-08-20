@@ -4,7 +4,7 @@
  * @Path:  引入路径
  * @Date: 2021-03-09 18:47:52
  * @LastEditors: liuYang
- * @LastEditTime: 2021-08-17 17:02:24
+ * @LastEditTime: 2021-08-20 17:43:45
  * @MustParam:  必传参数
  * @OptionalParam:  选传参数
  * @EmitFunction:  函数
@@ -29,7 +29,9 @@
   import Sidebar from './components/Sidebar'
   import { mapGetters, mapActions } from 'vuex'
   import variables from '@css/variables.scss'
-  import { isOtherSystemIframeOpen } from '@/utils/cas'
+  import { isOtherSystemIframeOpen } from '@utils/cas'
+  import { heartBeat } from '@api/this'
+  import { createUniqueCode } from '@utils/uniqueCode'
 
   export default {
     name: 'Layout',
@@ -39,6 +41,7 @@
       Sidebar
     },
     data() {
+      this.timer = null
       return {
         iframeOpen: false
       }
@@ -58,11 +61,36 @@
     methods: {
       ...mapActions({
         toggleSideBar: 'toggleSideBar'
-      })
+      }),
+      interval(func, wait) {
+        let interv = function() {
+          func.call(null)
+          this.timer = setTimeout(interv, wait)
+        }
+        this.timer = setTimeout(interv, wait)
+      }
     },
     mounted() {
       if (isOtherSystemIframeOpen()) {
         this.iframeOpen = true
+      }
+
+      this.interval(() => {
+        const token = this.$storage.getCookie('acToken')
+        if (!token) {
+          return
+        }
+        const fp = createUniqueCode()
+        return heartBeat({
+          accessToken: token,
+          fp
+        })
+      }, 60000)
+    },
+    beforeDestroy() {
+      if (this.timer) {
+        clearTimeout(this.timer)
+        this.timer = null
       }
     }
   }
